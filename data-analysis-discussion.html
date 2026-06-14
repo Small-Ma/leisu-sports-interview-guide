@@ -486,6 +486,80 @@
       font-size: 13px;
     }
 
+    .formula {
+      margin: 20px 0;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      color: var(--forest);
+      background: #eef3eb;
+      font: 750 16px/1.7 var(--serif);
+      text-align: center;
+    }
+
+    .diagnosis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 24px;
+    }
+
+    .diagnosis div {
+      padding: 16px;
+      border-top: 3px solid var(--orange);
+      background: #f6f2e8;
+    }
+
+    .diagnosis b {
+      display: block;
+      margin-bottom: 7px;
+      font: 750 15px/1.35 var(--serif);
+    }
+
+    .diagnosis span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .scenario-table {
+      width: 100%;
+      margin-top: 16px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .scenario-table th,
+    .scenario-table td {
+      padding: 12px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .scenario-table th {
+      color: #fff;
+      background: var(--forest);
+    }
+
+    .scenario-table td:first-child {
+      min-width: 78px;
+      color: var(--forest);
+      font-weight: 800;
+      background: #f3f0e7;
+    }
+
+    .interview-answer {
+      margin-top: 22px;
+      padding: 24px;
+      border-left: 5px solid var(--blue);
+      color: #263d48;
+      background: #edf4f6;
+    }
+
+    .interview-answer h3 {
+      color: var(--blue);
+    }
+
     ul {
       margin: 8px 0 0;
       padding-left: 20px;
@@ -552,8 +626,15 @@
       .companies,
       .principles,
       .framework,
-      .entry-grid {
+      .entry-grid,
+      .diagnosis {
         grid-template-columns: 1fr;
+      }
+
+      .scenario-table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
       }
 
       .section-head {
@@ -602,6 +683,7 @@
         <a href="#companies">九个业务场景</a>
         <a href="#framework">固定分析框架</a>
         <a href="#topics">核心问题清单</a>
+        <a href="#discussion-01">讨论 01 · 获客与留存</a>
         <a href="#discussion-00">讨论 00 · 建立机制</a>
       </nav>
       <div class="aside-note">
@@ -622,7 +704,7 @@
         <div class="hero-meta">
           <div>
             <span>DISCUSSIONS</span>
-            <strong>01 次记录</strong>
+            <strong>02 次记录</strong>
           </div>
           <div>
             <span>BUSINESS CASES</span>
@@ -787,8 +869,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>01</td><td>业务增长从哪里来，增长质量是否健康？</td><td>增长拆解、渠道归因、增量分析</td><td>待讨论</td></tr>
-            <tr><td>02</td><td>用户为什么留下、沉默或流失？</td><td>留存曲线、队列分析、关键行为</td><td>待讨论</td></tr>
+            <tr><td>01</td><td>业务增长从哪里来，增长质量是否健康？</td><td>增长拆解、渠道归因、增量分析</td><td>已讨论</td></tr>
+            <tr><td>02</td><td>用户为什么留下、沉默或流失？</td><td>留存曲线、队列分析、关键行为</td><td>已讨论</td></tr>
             <tr><td>03</td><td>转化漏斗卡在哪里，优先改哪一环？</td><td>漏斗分析、路径分析、分群对比</td><td>待讨论</td></tr>
             <tr><td>04</td><td>产品功能或运营活动到底有没有增量？</td><td>A/B 实验、准实验、因果推断</td><td>待讨论</td></tr>
             <tr><td>05</td><td>如何搭建真正服务决策的指标体系？</td><td>北极星指标、指标树、护栏指标</td><td>待讨论</td></tr>
@@ -799,9 +881,213 @@
         </table>
       </section>
 
-      <section id="discussion-00">
+      <section id="discussion-01">
         <div class="section-head">
           <span class="section-no">05 / 记录</span>
+          <div>
+            <h2>获客与留存：找到对的人，并持续兑现价值</h2>
+            <p class="section-summary">获客决定用户与产品是否匹配，留存检验产品是否持续完成了用户任务。两者必须放在同一条价值链中分析。</p>
+          </div>
+        </div>
+        <article class="entry">
+          <div class="entry-head">
+            <span class="entry-no">DISCUSSION 01</span>
+            <h3>目标用户、需求场景与流失诊断</h3>
+            <time datetime="2026-06-14">2026-06-14</time>
+          </div>
+          <div class="entry-body">
+            <h3>一、先建立统一逻辑</h3>
+            <div class="formula">
+              高质量增长 = 有真实需求的目标用户 × 在关键场景触达 × 快速获得核心价值 × 持续重复获得价值
+            </div>
+            <p>
+              获客和留存不是两个独立部门的问题。渠道承诺与产品实际价值不一致，会带来大量“注册后流失”；
+              而产品核心价值清楚、首次价值到达快，也会反过来提升投放转化、口碑和自然增长。
+            </p>
+
+            <h3>二、获客怎么分析</h3>
+            <div class="diagnosis">
+              <div>
+                <b>目标用户</b>
+                <span>不是只看年龄和城市，而要同时看需求强度、价值潜力、可触达性和服务成本。</span>
+              </div>
+              <div>
+                <b>需求场景</b>
+                <span>识别触发时刻、用户任务、当前替代方案、最大障碍和期望结果。</span>
+              </div>
+              <div>
+                <b>价值兑现</b>
+                <span>追踪从广告承诺、落地页、注册到首次核心行为，计算首次价值到达时间。</span>
+              </div>
+              <div>
+                <b>获客质量</b>
+                <span>按渠道比较激活率、次日与 7 日留存、付费、LTV、CAC，而非只比较注册成本。</span>
+              </div>
+            </div>
+            <div class="entry-grid">
+              <article>
+                <h3>目标用户分群</h3>
+                <ul>
+                  <li><strong>需求：</strong>用户要完成什么任务，痛点有多强，发生频率多高？</li>
+                  <li><strong>价值：</strong>用户可能贡献收入、内容、互动、传播还是供给？</li>
+                  <li><strong>匹配：</strong>现有产品是否真的比替代方案更好？</li>
+                  <li><strong>效率：</strong>能否低成本识别、触达并转化这类用户？</li>
+                </ul>
+              </article>
+              <article>
+                <h3>需求场景五要素</h3>
+                <ul>
+                  <li>谁在什么时间、地点或状态下触发需求？</li>
+                  <li>他真正要完成的任务是什么？</li>
+                  <li>现在使用什么替代方案，为什么不满意？</li>
+                  <li>选择产品时最担心什么，决策门槛是什么？</li>
+                  <li>什么行为能证明需求已经被满足？</li>
+                </ul>
+              </article>
+              <article>
+                <h3>核心漏斗</h3>
+                <p>曝光 → 点击 → 到达 → 注册 → 激活 → 首次核心价值 → 留存或付费。每一步同时看转化率、人数损失和分群差异。</p>
+              </article>
+              <article>
+                <h3>关键指标</h3>
+                <p>CAC 只是起点。更重要的是有效获客成本，即获取一个完成核心行为并达到目标留存标准的用户需要多少钱。</p>
+              </article>
+            </div>
+
+            <h3>三、留存怎么分析</h3>
+            <p>
+              第一步不是马上做流失用户画像，而是根据业务自然使用周期定义流失。即时比分可能按赛事周期，
+              旅行按出行周期，贷款按资金需求周期，游戏和社区则更适合按日周活跃定义。口径错误会把“暂时没有需求”误判为产品失败。
+            </p>
+            <div class="diagnosis">
+              <div>
+                <b>获客错配</b>
+                <span>渠道吸引来的人并非目标用户，或广告承诺高于产品实际价值。</span>
+              </div>
+              <div>
+                <b>激活失败</b>
+                <span>注册复杂、冷启动差、首次核心价值到达太慢，用户尚未体验价值就离开。</span>
+              </div>
+              <div>
+                <b>价值衰减</b>
+                <span>内容、玩法、供给、推荐或优惠逐渐失去新鲜度和相关性，用户没有持续回来理由。</span>
+              </div>
+              <div>
+                <b>外部与摩擦</b>
+                <span>需求自然结束、竞品替代、价格变化、性能问题、打扰过度或服务事故。</span>
+              </div>
+            </div>
+            <div class="entry-grid">
+              <article>
+                <h3>诊断方法</h3>
+                <ul>
+                  <li>按注册周、渠道和用户类型做 Cohort 留存曲线，定位从哪批用户开始恶化。</li>
+                  <li>用生存分析或流失风险曲线识别最危险的生命周期节点。</li>
+                  <li>比较留存与流失用户在流失前的关键行为，但不能直接把相关行为当成原因。</li>
+                  <li>结合路径、漏斗、搜索无结果、投诉、访谈和卸载原因形成定量与定性证据。</li>
+                  <li>通过 A/B 实验或准实验验证策略是否真正降低流失。</li>
+                </ul>
+              </article>
+              <article>
+                <h3>降低流失的优先顺序</h3>
+                <ul>
+                  <li>先修复错误获客和严重体验故障，避免继续向漏水的桶中加流量。</li>
+                  <li>缩短首次价值到达时间，帮助新用户尽快完成核心行为。</li>
+                  <li>提升内容、供给、匹配和推荐质量，让用户持续有回来理由。</li>
+                  <li>围绕自然使用周期建立提醒、订阅、关系和资产沉淀，而非无差别推送。</li>
+                  <li>对高价值且可挽回用户做差异化召回，并设置打扰率等护栏指标。</li>
+                </ul>
+              </article>
+            </div>
+
+            <h3>四、九个业务场景如何落地</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr>
+                  <th>公司 / 产品</th>
+                  <th>目标用户与需求场景</th>
+                  <th>如何满足需求</th>
+                  <th>典型流失原因与动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>哈哆普惠</td>
+                  <td>有短期资金周转需求、具备合适风险资质的用户；场景可能是经营、消费或应急支出。</td>
+                  <td>清晰额度与成本、低摩擦申请、快速审批到账，同时保证合规和风险质量。</td>
+                  <td>授信失败、额度不匹配、流程复杂或价格预期落差。优化准入前置说明、申请漏斗和分层运营，不能用过度借贷提升表面留存。</td>
+                </tr>
+                <tr>
+                  <td>迪果科技</td>
+                  <td>偏好特定题材、玩法和社交竞争的游戏用户；场景是娱乐、成长、挑战和社交。</td>
+                  <td>快速进入核心玩法，提供清晰成长反馈、公平经济系统、持续内容和适度付费点。</td>
+                  <td>新手卡点、数值失衡、内容消耗完或付费挫败。分析关卡与经济系统，优化新手期、活动节奏和流失高危人群干预。</td>
+                </tr>
+                <tr>
+                  <td>同程旅行</td>
+                  <td>有机票、酒店、火车票或景区预订需求的价格与便利敏感用户。</td>
+                  <td>提供完整供给、可信价格、快速搜索预订和稳定履约售后。</td>
+                  <td>低频需求不等于流失；真正风险是比价无优势、无结果、退改体验差。应按出行周期衡量复购，提升供给、价格和履约。</td>
+                </tr>
+                <tr>
+                  <td>传音控股</td>
+                  <td>非洲及新兴市场中不同国家、收入、网络条件和本地化需求的手机用户。</td>
+                  <td>以适配肤色的影像、续航、弱网、双卡、本地语言及渠道服务形成价值。</td>
+                  <td>设备性能、网络适配、系统稳定或本地需求覆盖不足。按国家、机型和系统版本定位问题，推动产品与售后改进。</td>
+                </tr>
+                <tr>
+                  <td>趣丸</td>
+                  <td>有陪伴、语音互动、兴趣社交和娱乐需求的年轻用户。</td>
+                  <td>降低找到合适房间与关系的成本，提供安全、活跃且有反馈的互动环境。</td>
+                  <td>冷启动无人互动、匹配不佳、社区氛围或骚扰问题。优化首日关系建立、匹配质量、房间供给和安全治理。</td>
+                </tr>
+                <tr>
+                  <td>即刻</td>
+                  <td>希望获取高质量兴趣信息、表达观点并与同好建立连接的用户。</td>
+                  <td>通过兴趣圈子、内容分发、创作反馈和关系网络提供社区价值。</td>
+                  <td>内容同质化、关注关系未建立、发帖无反馈或氛围恶化。提升首批关注质量、创作者反馈和社区治理。</td>
+                </tr>
+                <tr>
+                  <td>波克城市</td>
+                  <td>偏好棋牌、休闲和竞技玩法，追求短时娱乐、胜负反馈或熟人互动的用户。</td>
+                  <td>快速开局、公平匹配、稳定体验、长期活动和合理商业化。</td>
+                  <td>连败挫败、匹配等待、作弊、版本疲劳或活动奖励失衡。按玩法和段位拆解留存，优化匹配、公平性和活动节奏。</td>
+                </tr>
+                <tr>
+                  <td>喜马拉雅</td>
+                  <td>在通勤、睡前、学习、陪伴和儿童等场景有音频内容需求的用户。</td>
+                  <td>用搜索推荐和内容供给帮助用户快速找到想听内容，并通过连续播放、订阅和更新形成习惯。</td>
+                  <td>找不到内容、推荐重复、内容质量不符预期、付费墙或更新中断。分析需求满足率、首播时间、完播与追更留存。</td>
+                </tr>
+                <tr>
+                  <td>雷速体育</td>
+                  <td>需要快速获取比分、赛程、数据、情报和赛事讨论的核心体育用户。</td>
+                  <td>提供完整赛事供给、低延迟即时数据、专业内容、个性化关注和稳定提醒。</td>
+                  <td>休赛期自然回落、赛事缺失、数据延迟、提醒不准或内容价值不足。按赛事周期看留存，提升关注订阅、实时可靠性和赛前赛后内容。</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="interview-answer">
+              <h3>五、面试时可以这样回答</h3>
+              <p>
+                “我会把获客与留存放在一条用户价值链中分析。获客侧先基于需求强度、用户价值、
+                产品匹配度和可触达性定义目标用户，再还原需求触发场景和替代方案，追踪从渠道承诺到首次核心价值的漏斗。
+                我不会只看 CAC，而会比较各渠道激活、留存、付费和 LTV，判断获客质量。”
+              </p>
+              <p>
+                “留存侧首先根据业务使用周期定义流失，再通过 Cohort、生存曲线和用户路径定位流失发生的阶段，
+                区分获客错配、激活失败、价值衰减、体验摩擦和需求自然结束。最后针对可干预原因设计策略和实验，
+                同时观察投诉、打扰和商业质量等护栏指标，确认留存提升来自真实价值改善，而不是短期刺激。”
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="discussion-00">
+        <div class="section-head">
+          <span class="section-no">06 / 记录</span>
           <div>
             <h2>讨论日志</h2>
             <p class="section-summary">从建立协作机制开始，后续每一轮问题都在这里形成可回看的知识资产。</p>
