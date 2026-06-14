@@ -20,6 +20,13 @@
       "path": "./data-analysis-discussion.html",
       "category": "持续讨论",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "高级数据分析师完整面试对答稿",
+      "description": "覆盖简历审视、自我介绍、会员增长、流失挽留、实验分析、数据平台及行为面试的公开脱敏版对答手册。",
+      "path": "./senior-data-analyst-interview-guide.html",
+      "category": "面试准备",
+      "updated": "2026-06-14"
     }
   ]
 }

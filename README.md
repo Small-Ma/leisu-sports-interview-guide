@@ -8,6 +8,8 @@
 - `pages.json`：导航页使用的页面目录
 - `interview-guide.html`：产品总监面试准备（公开脱敏版）
 - `metrics.html`：雷速体育指标体系
+- `data-analysis-discussion.html`：通用数据分析讨论手册
+- `senior-data-analyst-interview-guide.html`：高级数据分析师完整面试对答稿（公开脱敏版）
 - `data-analysis-discussion.html`：通用数据分析问题与九个业务场景的持续讨论记录
 - `AGENTS.md`：约束后续每轮讨论的更新、检查与发布流程
 
