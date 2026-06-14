@@ -69,6 +69,13 @@
       "path": "./sports-data-driven-analysis.html",
       "category": "数据分析",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "喜马拉雅大会员 · 首购增长·续费留存·流失挽留",
+      "description": "会员增收双轮驱动：进水口（首购转化漏斗、潜在会员识别、定价策略、社交裂变）和出水口（续费留存、活跃-续费模型、流失预警、自动续费杠杆、Win-back 召回）。附完整会员指标体系、分层运营矩阵和挽留优惠增量评估。",
+      "path": "./membership-growth-retention-analysis.html",
+      "category": "数据分析",
+      "updated": "2026-06-14"
     }
   ]
 }
