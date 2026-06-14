@@ -13,6 +13,13 @@
       "path": "./metrics.html",
       "category": "数据分析",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "通用数据分析讨论手册",
+      "description": "持续沉淀通用数据分析问题，并逐一映射到七家招聘公司、喜马拉雅和雷速体育的真实业务场景。",
+      "path": "./data-analysis-discussion.html",
+      "category": "持续讨论",
+      "updated": "2026-06-14"
     }
   ]
 }
