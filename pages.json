@@ -51,7 +51,7 @@
     },
     {
       "title": "指标体系基础课 · 十六讲",
-      "description": "由 139 页课程 PDF 转换的可搜索 HTML 阅读版，覆盖指标基础、拆解归因、行业实战与面试训练。",
+      "description": "基于 PDF.js 的 139 页原版式阅读器，支持翻页、缩放、页码跳转、全文搜索、全屏和下载。",
       "path": "./metric-system-foundation-course.html",
       "category": "课程资料",
       "updated": "2026-06-14"
