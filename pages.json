@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "title": "雷速体育产品总监面试准备",
+      "description": "围绕产品理解、指标诊断、产品案例、高频问答和入职规划整理的公开脱敏版面试手册。",
+      "path": "./interview-guide.html",
+      "category": "面试准备",
+      "updated": "2026-06-14"
+    },
+    {
+      "title": "雷速体育指标体系",
+      "description": "从北极星指标、指标树、用户分层、异常诊断到 Cohort 分析的体育产品指标框架。",
+      "path": "./metrics.html",
+      "category": "数据分析",
+      "updated": "2026-06-14"
+    }
+  ]
+}

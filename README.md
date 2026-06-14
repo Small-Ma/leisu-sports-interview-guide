@@ -4,8 +4,12 @@
 
 ## 页面
 
-- `index.html`：产品总监面试准备（公开脱敏版）
+- `index.html`：所有公开 HTML 的导航首页
+- `pages.json`：导航页使用的页面目录
+- `interview-guide.html`：产品总监面试准备（公开脱敏版）
 - `metrics.html`：雷速体育指标体系
+
+新增 HTML 时，同时在 `pages.json` 中登记标题、描述、路径、分类和更新日期。
 
 ## 发布
 
