@@ -76,6 +76,13 @@
       "path": "./membership-growth-retention-analysis.html",
       "category": "数据分析",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "收藏 vs 追更 · 喜马拉雅核心交互差异",
+      "description": "面试题深度拆解：用户意图差异、产品形态差异、数据信号差异、对 DAU/留存/续费的业务影响，以及收藏唤醒机制、追更式收藏等产品改进建议。附 30 秒和 90 秒面试回答模板。",
+      "path": "./favorite-vs-follow-analysis.html",
+      "category": "面试准备",
+      "updated": "2026-06-14"
     }
   ]
 }
