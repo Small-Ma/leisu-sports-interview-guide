@@ -62,6 +62,13 @@
       "path": "./audio-platform-business-analysis.html",
       "category": "数据分析",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "雷速体育 · 数据驱动·赛事·增长·变现",
+      "description": "赛事内容分发效率、用户留存与活跃（赛季/休赛期波动）、竞彩转化漏斗与 AI 推荐优化、广告体验平衡。附体育专属 TFMC 分层模型、5 套 A/B 实验设计和因果推断方案。",
+      "path": "./sports-data-driven-analysis.html",
+      "category": "数据分析",
+      "updated": "2026-06-14"
     }
   ]
 }
