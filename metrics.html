@@ -501,17 +501,17 @@
   <section class="section north-star">
     <div class="metric-hero">
       <div>
-        <div class="label">推荐北极星指标</div>
+        <div class="label">推荐双北极星指标</div>
         <div class="metric">日均有效赛事服务时长</div>
         <p>用户主动使用雷速体育完成赛事跟踪、比分查看、动画/文字直播、赛事情报阅读、社区讨论等核心行为所产生的有效前台时长。</p>
       </div>
-      <p class="source">不把单纯打开 App、被动停留、广告停留、异常刷新计入有效时长，避免“把时长刷高但用户价值变差”。</p>
+      <p class="source">配对指标：核心赛事任务完成用户数。时长衡量持续使用，任务完成衡量用户是否高效获得结果，避免“停留更久但体验更差”。</p>
     </div>
     <div class="panel">
       <h2>为什么选它</h2>
       <p>雷速体育的核心用户价值不是“用户打开了 App”，而是用户在赛前、赛中、赛后持续获得及时、准确、有用的赛事信息。有效赛事服务时长同时连接用户价值和商业价值：用户越依赖赛事服务，留存、广告库存、会员转化和数据服务收入越有基础。</p>
       <div class="formula">日均有效赛事服务时长 = DAU × 核心赛事服务渗透率 × 人均有效赛事会话数 × 单会话有效时长</div>
-      <p class="source">如果公司当前更偏增长期，可把“日均有效赛事服务用户数”作为第一北极星；进入变现期后，再把“有效赛事服务时长”作为主北极星。</p>
+      <p class="source">增长期可优先看“核心赛事任务完成用户数”，成熟期同时看有效时长。任何时长增长都必须满足任务完成率不下降、任务耗时不恶化。</p>
     </div>
   </section>
 
@@ -523,19 +523,19 @@
         <div class="node-desc">成为体育用户“赛前看情报、赛中跟比赛、赛后看复盘”的高频赛事入口，并在不伤害体验和数据可信度的前提下完成商业化。</div>
       </div>
       <div class="tree-node l1">
-        <div class="node-title"><span>L1 北极星：日均有效赛事服务时长</span><span class="tag green">结果指标</span></div>
-        <div class="node-desc">回答“雷速体育是否持续向用户交付核心赛事价值”。它由用户规模、服务渗透、会话频次和会话深度共同驱动。</div>
+        <div class="node-title"><span>L1 双北极星：有效赛事服务时长 + 核心任务完成用户数</span><span class="tag green">结果指标</span></div>
+        <div class="node-desc">回答“雷速体育是否持续、高效地向用户交付核心赛事价值”。时长衡量依赖深度，任务完成衡量结果质量，两者必须配对判断。</div>
       </div>
       <div class="driver-grid">
         <div class="driver">
           <span class="tag blue">L2 驱动 1</span>
           <strong>用户规模</strong>
-          <span>DAU、MAU、新增有效用户、回访用户、召回用户。</span>
+          <span>DAU、MAU、有效新增、渠道留存、CAC、LTV/CAC。</span>
         </div>
         <div class="driver">
           <span class="tag blue">L2 驱动 2</span>
-          <strong>赛事服务渗透</strong>
-          <span>比分页进入率、赛事详情页进入率、直播间进入率、赛前提醒设置率。</span>
+          <strong>价值完成与发现</strong>
+          <span>任务完成率、任务耗时、搜索成功率、推荐后有效消费率。</span>
         </div>
         <div class="driver">
           <span class="tag blue">L2 驱动 3</span>
@@ -560,7 +560,7 @@
       </div>
       <div class="arrow-row">
         <div class="arrow">更多人来</div>
-        <div class="arrow">更多人使用核心赛事功能</div>
+        <div class="arrow">更快找到并完成赛事任务</div>
         <div class="arrow">每人服务次数和时长提高</div>
         <div class="arrow">用户想看的赛事有稳定供给</div>
         <div class="arrow">信息可信度提高，减少流失</div>
@@ -568,7 +568,7 @@
       </div>
       <div class="tree-node guard">
         <div class="node-title"><span>护栏指标</span><span class="tag red">约束增长方式</span></div>
-        <div class="node-desc">比分关键事件错误率、P95 更新延迟、Push 关闭率、广告负反馈率、投诉率、崩溃率、低质评论占比、数据合规风险。任何护栏触线，都要暂停对应增长或商业化动作。</div>
+        <div class="node-desc">任务完成率、比分关键事件错误率、P95 更新延迟、Push 关闭率、广告负反馈率、崩溃率、直播首帧时间、低质评论占比、数据合规风险。任何护栏触线，都要暂停对应增长或商业化动作。</div>
       </div>
     </div>
   </section>
@@ -649,7 +649,78 @@
   </section>
 
   <section class="section">
-    <h2>三、赛事供给侧指标树</h2>
+    <h2>三、用户价值、搜索推荐与增长效率</h2>
+    <div class="panel">
+      <p><strong>这一层解决三个问题：</strong>用户是否真正完成任务、平台是否把合适供给送到用户面前、增长是否带来长期价值。它是用户消费侧和赛事供给侧之间的连接层。</p>
+      <p class="formula">有效增长价值 = 有效新增用户 × 核心任务完成率 × 长期留存价值 − 获客与召回成本</p>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag green">用户价值结果</span>
+        <h3>用户是否高效获得答案</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>核心赛事任务完成率</td><td>完成目标任务的会话数 ÷ 发起目标任务的会话数</td><td>分别定义查比分、找比赛、看直播、查阵容、设置提醒等任务</td></tr>
+            <tr><td>核心任务完成用户数</td><td>当日至少完成 1 次核心赛事任务的去重用户数</td><td>作为有效时长的配对北极星，衡量真实价值用户规模</td></tr>
+            <tr><td>任务完成耗时 P50/P90</td><td>从产生任务意图到完成任务的时间</td><td>优化首页信息架构、搜索、筛选和页面加载</td></tr>
+            <tr><td>目标信息获取成功率</td><td>成功获得目标比分、数据或直播的用户 ÷ 发起需求用户</td><td>识别无结果、数据缺失、权限和技术失败</td></tr>
+            <tr><td>用户满意度 / NPS</td><td>任务后满意度评分；NPS = 推荐者占比 − 贬损者占比</td><td>结合用户反馈校准纯行为指标</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag blue">搜索指标</span>
+        <h3>用户能否主动找到赛事</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>搜索成功率</td><td>产生有效结果点击的搜索次数 ÷ 搜索次数</td><td>同义词、球队别名、赛事名称和拼写纠错</td></tr>
+            <tr><td>无结果率</td><td>无可展示结果的搜索次数 ÷ 搜索次数</td><td>反向发现供给缺口和索引问题</td></tr>
+            <tr><td>搜索后赛事进入率</td><td>搜索后进入赛事详情或直播的用户 ÷ 搜索用户</td><td>优化结果排序、状态展示和快捷入口</td></tr>
+            <tr><td>搜索后任务完成率</td><td>搜索后完成目标赛事任务的会话 ÷ 搜索会话</td><td>避免只优化点击而没有解决用户问题</td></tr>
+            <tr><td>首次有效结果耗时</td><td>发起搜索到首次有效点击的时间</td><td>优化联想词、首屏结果和响应速度</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag blue">推荐与分发</span>
+        <h3>合适供给能否被发现</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>推荐覆盖率</td><td>获得个性化赛事推荐的用户 ÷ 可推荐用户</td><td>补齐兴趣标签、冷启动与候选集</td></tr>
+            <tr><td>推荐后有效消费率</td><td>推荐后完成有效赛事行为的用户 ÷ 推荐触达用户</td><td>用有效消费替代单纯 CTR</td></tr>
+            <tr><td>兴趣匹配率</td><td>命中用户关注项目、球队或联赛的推荐曝光 ÷ 推荐曝光</td><td>校准用户画像和赛事相关性</td></tr>
+            <tr><td>长尾赛事发现率</td><td>通过推荐产生有效消费的长尾赛事数 ÷ 已供给长尾赛事数</td><td>平衡热门集中与长尾发现</td></tr>
+            <tr><td>曝光集中度</td><td>头部赛事曝光占比或曝光分布 HHI</td><td>监控推荐是否过度集中导致供给浪费</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag orange">增长效率</span>
+        <h3>新增是否值得且能留下</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>有效新增成本</td><td>渠道获客成本 ÷ 完成核心赛事任务的新增用户数</td><td>避免用安装或注册低估真实获客成本</td></tr>
+            <tr><td>渠道激活率</td><td>完成首个核心赛事任务的新用户 ÷ 渠道新增用户</td><td>渠道素材、落地页和新手引导</td></tr>
+            <tr><td>渠道 D7/D30 留存</td><td>各渠道新增用户在第 7/30 日有效回访比例</td><td>淘汰高量低质渠道</td></tr>
+            <tr><td>自然新增占比</td><td>非付费渠道有效新增 ÷ 全部有效新增</td><td>品牌、SEO、ASO 和产品口碑</td></tr>
+            <tr><td>LTV / CAC</td><td>用户生命周期贡献价值 ÷ 获客成本</td><td>按渠道、赛事兴趣和用户层级评估增长可持续性</td></tr>
+            <tr><td>召回增量 ROI</td><td>召回带来的增量用户价值 ÷ 召回成本</td><td>使用对照组剔除用户自然回流</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>四、赛事供给侧指标树</h2>
     <div class="panel">
       <p><strong>供给侧目标：</strong>在用户需要的时间，以可接受的成本，稳定提供覆盖完整、数据可信、内容可消费的赛事服务。不能只看“采购或接入了多少赛事”，还要同时判断这些供给是否匹配真实需求、是否被消费，以及单位成本是否合理。</p>
       <p class="formula">有效赛事供给满足率 = 需求权重覆盖率 × 供给可用率 × 质量达标率</p>
@@ -731,7 +802,7 @@
   </section>
 
   <section class="section">
-    <h2>四、商业化指标与北极星的关系</h2>
+    <h2>五、商业化与经营效率</h2>
     <div class="grid two">
       <div class="panel">
         <h3>广告收入链路</h3>
@@ -744,10 +815,41 @@
         <p>如果雷速体育提供高级情报、深度数据、专家观点或会员权益，付费转化应从“高频赛事服务用户”中转化，而不是从所有 DAU 粗暴计算。续费率比首购转化更能反映长期价值。</p>
       </div>
     </div>
+    <table>
+      <thead><tr><th>经营模块</th><th>核心指标</th><th>定义重点</th><th>决策用途</th></tr></thead>
+      <tbody>
+        <tr><td>广告效率</td><td>请求成功率、填充率、展示率、CTR、每 DAU 广告收入</td><td>拆清无广告返回、返回未展示和展示未互动</td><td>定位广告技术、需求和产品承载问题</td></tr>
+        <tr><td>会员漏斗</td><td>权益曝光率、试用率、试用转付费率、权益使用率</td><td>付费后是否真正使用权益比首购更能说明价值</td><td>优化售卖场景、权益表达与产品兑现</td></tr>
+        <tr><td>会员质量</td><td>续费率、主动取消率、退款率、付费用户留存</td><td>按首购渠道、权益和用户层级拆解</td><td>避免短期收入透支长期信任</td></tr>
+        <tr><td>净收入</td><td>总收入 − 退款 − 渠道分成 − 优惠补贴</td><td>统一收入确认周期和退款归属</td><td>替代只看流水的虚假繁荣</td></tr>
+        <tr><td>贡献利润</td><td>净收入 − 赛事数据/版权 − 内容 − 带宽 − 获客等可变成本</td><td>按赛事、用户、商业模式核算</td><td>判断业务增长是否真正创造利润</td></tr>
+        <tr><td>单位经济性</td><td>ARPU、LTV、毛利率、LTV/CAC、单有效用户贡献利润</td><td>用户价值与成本使用同一观察窗口</td><td>支持预算、供给采购和增长策略取舍</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="section">
-    <h2>五、指标关系：从原因到结果</h2>
+    <h2>六、产品技术体验与服务可靠性</h2>
+    <div class="panel">
+      <p>体育产品的价值高度依赖关键时刻。如果重大赛事开赛、进球或终场时页面慢、直播打不开、Push 延迟，即使日均指标正常，也可能造成不可逆的信任损失。因此技术指标必须按普通日和重大赛事分别设定 SLO。</p>
+      <p class="formula">可用赛事服务率 = 请求成功率 × 数据可用率 × 页面/播放成功率</p>
+    </div>
+    <table>
+      <thead><tr><th>服务层</th><th>核心指标</th><th>建议口径</th><th>异常动作</th></tr></thead>
+      <tbody>
+        <tr><td>客户端稳定性</td><td>崩溃率、卡顿率、ANR、受影响用户数</td><td>按端、版本、机型和赛事峰值拆解</td><td>停止放量、热修或回滚版本</td></tr>
+        <tr><td>页面性能</td><td>首屏加载 P50/P95、可交互时间、白屏率</td><td>分别监控首页、比分页、详情页和直播间</td><td>降级非核心模块、优化资源和接口</td></tr>
+        <tr><td>接口服务</td><td>API 成功率、P95/P99 延迟、超时率</td><td>按接口、机房、地区和流量峰值拆解</td><td>扩容、限流、缓存、熔断和切换</td></tr>
+        <tr><td>直播体验</td><td>播放成功率、首帧时间、卡顿率、中断率</td><td>按版权源、网络、清晰度和赛事拆解</td><td>切换线路、降低码率、供应商排障</td></tr>
+        <tr><td>Push 服务</td><td>发送成功率、到达率、端到端延迟、错发率</td><td>从事件发生到用户设备收到的全链路时间</td><td>切换通道、降低非关键通知、人工兜底</td></tr>
+        <tr><td>容量保障</td><td>峰值 QPS、资源利用率、容量水位、降级成功率</td><td>重大赛事前压测并设置容量红线</td><td>提前扩容、启用降级和流量调度</td></tr>
+        <tr><td>故障响应</td><td>MTTD、MTTA、MTTR、重复故障率</td><td>发现、响应、恢复时间分别计量</td><td>完善监控、值班、预案与复盘</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>七、指标关系：从原因到结果</h2>
     <div class="relationship">
       <div class="rel-card">
         <span class="num">1</span>
@@ -773,7 +875,7 @@
   </section>
 
   <section class="section">
-    <h2>六、护栏指标</h2>
+    <h2>八、护栏指标</h2>
     <table>
       <thead>
         <tr><th>护栏类型</th><th>指标</th><th>建议阈值设定方式</th><th>触线后的动作</th></tr>
@@ -787,9 +889,15 @@
         </tr>
         <tr>
           <td>用户体验</td>
-          <td>Push 关闭率、投诉率、App 评分、页面加载 P95、崩溃率</td>
+          <td>核心任务完成率、任务耗时、Push 关闭率、投诉率、App 评分</td>
           <td>统计控制法；连续超出 2 个标准差触发预警</td>
-          <td>降低触达频率，回滚版本，排查性能瓶颈</td>
+          <td>停止相关策略放量，降低触达频率，复盘任务链路</td>
+        </tr>
+        <tr>
+          <td>技术可靠性</td>
+          <td>崩溃率、页面加载 P95、API 成功率、播放成功率、Push 延迟</td>
+          <td>普通日 SLO + 重大赛事更严格红线</td>
+          <td>扩容或降级，切换数据/直播源，热修或回滚</td>
         </tr>
         <tr>
           <td>内容/社区质量</td>
@@ -808,7 +916,7 @@
   </section>
 
   <section class="section">
-    <h2>七、诊断维度预埋</h2>
+    <h2>九、诊断维度预埋</h2>
     <div class="dimension-list">
       <div class="dimension">
         <h3>赛事维度</h3>
@@ -850,7 +958,7 @@
   </section>
 
   <section class="section">
-    <h2>八、核心指标字典样例</h2>
+    <h2>十、核心指标字典样例</h2>
     <table>
       <thead>
         <tr><th>指标</th><th>层级</th><th>操作性定义</th><th>主要责任方</th><th>使用场景</th></tr>
@@ -861,6 +969,10 @@
         <tr><td>核心赛事服务渗透率</td><td>L2</td><td>有效赛事服务用户数 ÷ DAU。</td><td>产品</td><td>判断打开 App 后是否进入核心价值链路</td></tr>
         <tr><td>人均有效赛事会话数</td><td>L2</td><td>有效赛事会话总数 ÷ 有效赛事服务用户数。</td><td>运营</td><td>判断赛事触达和用户回访频次</td></tr>
         <tr><td>单会话有效时长</td><td>L2</td><td>有效赛事服务时长 ÷ 有效赛事会话总数。</td><td>产品/内容</td><td>判断单次服务是否有足够信息价值</td></tr>
+        <tr><td>核心赛事任务完成率</td><td>价值 L1</td><td>完成目标赛事任务的会话数 ÷ 发起该任务的会话数。</td><td>产品/数据</td><td>约束时长指标，判断用户是否高效获得结果</td></tr>
+        <tr><td>搜索成功率</td><td>发现 L2</td><td>产生有效结果点击的搜索次数 ÷ 搜索次数。</td><td>搜索/产品</td><td>判断用户主动找赛事是否成功</td></tr>
+        <tr><td>推荐后有效消费率</td><td>发现 L2</td><td>推荐后完成有效赛事行为的用户 ÷ 推荐触达用户。</td><td>算法/产品</td><td>评估推荐是否带来真实消费</td></tr>
+        <tr><td>有效新增成本</td><td>增长 L2</td><td>渠道获客成本 ÷ 完成核心赛事任务的新增用户数。</td><td>增长/市场</td><td>评价渠道真实获客效率</td></tr>
         <tr><td>有效赛事供给满足率</td><td>供给 L1</td><td>需求权重覆盖率 × 供给可用率 × 质量达标率。</td><td>业务/数据/内容</td><td>判断供给是否覆盖真实需求并稳定交付</td></tr>
         <tr><td>需求加权覆盖率</td><td>供给 L2</td><td>已覆盖赛事需求权重 ÷ 全部目标赛事需求权重。</td><td>业务/采购</td><td>避免赛事数量掩盖关键供给缺口</td></tr>
         <tr><td>供给消费率</td><td>供给 L2</td><td>产生有效消费的赛事数 ÷ 已供给赛事数。</td><td>业务/运营</td><td>识别低效供给与入口分发问题</td></tr>
@@ -875,17 +987,54 @@
   </section>
 
   <section class="section">
-    <h2>九、看板落地结构</h2>
+    <h2>十一、指标治理与运行机制</h2>
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag blue">指标治理</span>
+        <h3>每个指标必须有完整身份</h3>
+        <table>
+          <thead><tr><th>治理字段</th><th>要求</th></tr></thead>
+          <tbody>
+            <tr><td>业务定义</td><td>说明解决什么问题、适用场景和不适用边界</td></tr>
+            <tr><td>计算口径</td><td>分子、分母、去重、时间窗口、过滤条件和异常处理</td></tr>
+            <tr><td>维度与数据源</td><td>明确可下钻维度、源表、埋点和数据血缘</td></tr>
+            <tr><td>Owner</td><td>指定业务负责人和数据负责人，避免“大家都负责”</td></tr>
+            <tr><td>更新与 SLA</td><td>更新频率、产出时间、完整率和延迟要求</td></tr>
+            <tr><td>版本记录</td><td>口径变更原因、生效日期、影响范围和历史回刷方式</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <span class="tag orange">异常与实验机制</span>
+        <h3>让指标进入决策闭环</h3>
+        <table>
+          <thead><tr><th>机制</th><th>最低要求</th></tr></thead>
+          <tbody>
+            <tr><td>预警分级</td><td>提示、一般、严重、灾难四级，对应不同通知范围和响应时限</td></tr>
+            <tr><td>异常响应</td><td>明确确认、定位、止损、恢复、复盘的负责人和截止时间</td></tr>
+            <tr><td>实验准入</td><td>写清假设、目标人群、核心指标、护栏、样本量和停止条件</td></tr>
+            <tr><td>放量标准</td><td>核心指标显著改善、护栏不恶化、长期质量通过观察窗口</td></tr>
+            <tr><td>指标审计</td><td>定期清理无人使用、重复、不可行动或长期无数据的指标</td></tr>
+            <tr><td>复盘沉淀</td><td>结论、适用人群、失败原因和后续动作进入知识库</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>十二、看板落地结构</h2>
     <div class="grid three">
       <div class="panel">
         <span class="tag green">管理层看板</span>
         <h3>业务整体是否健康</h3>
         <ul>
           <li>日均有效赛事服务时长</li>
+          <li>核心赛事任务完成用户数与完成率</li>
           <li>有效赛事服务用户数</li>
           <li>有效赛事供给满足率</li>
           <li>D7 / D30 留存</li>
-          <li>广告/会员收入及护栏状态</li>
+          <li>净收入、贡献利润及护栏状态</li>
         </ul>
       </div>
       <div class="panel">
@@ -893,9 +1042,10 @@
         <h3>哪个环节在驱动变化</h3>
         <ul>
           <li>DAU、服务渗透、会话频次、单会话时长</li>
+          <li>搜索成功、推荐有效消费和任务完成耗时</li>
           <li>赛事项目、联赛、赛程阶段拆解</li>
           <li>需求加权覆盖、供给消费和成本效率</li>
-          <li>数据质量与内容质量趋势</li>
+          <li>增长效率、数据质量与技术 SLO</li>
           <li>用户分层留存与转化</li>
         </ul>
       </div>
@@ -904,8 +1054,9 @@
         <h3>今天该处理什么</h3>
         <ul>
           <li>重大赛事实时更新延迟</li>
+          <li>搜索无结果与核心任务失败告警</li>
           <li>高需求未覆盖赛事与供应商 SLA 告警</li>
-          <li>异常版本/端/入口报警</li>
+          <li>异常版本、API、播放和容量报警</li>
           <li>Push 命中与关闭反馈</li>
           <li>评论举报、低质内容、广告投诉</li>
         </ul>
@@ -914,7 +1065,7 @@
   </section>
 
   <section class="section">
-    <h2>十、异动排查路径示例</h2>
+    <h2>十三、异动排查路径示例</h2>
     <div class="panel">
       <p><strong>场景：</strong>某周“日均有效赛事服务时长”下降 12%。不要直接问“为什么用户不看了”，而是按指标树逐层定位。</p>
       <table>
@@ -931,7 +1082,7 @@
   </section>
 
   <section class="section">
-    <h2>十一、如何判断正常波动还是异常波动</h2>
+    <h2>十四、如何判断正常波动还是异常波动</h2>
     <div class="grid two">
       <div class="panel">
         <span class="tag red">第一关</span>
@@ -1003,7 +1154,7 @@
   </section>
 
   <section class="section">
-    <h2>十二、DAU 的可行动拆解方式</h2>
+    <h2>十五、DAU 的可行动拆解方式</h2>
     <div class="panel">
       <p>DAU 不只是一句“今天有多少人打开 App”。真正能支持业务定位的 DAU 拆解，要回答五个问题：谁来了、为什么来、从哪来、用了什么、在哪个赛事场景里留下了。</p>
       <div class="formula">推荐排查顺序：用户来源 → 核心行为 → 赛事场景 → 入口渠道 → 时间窗口 → 端和版本</div>
@@ -1123,7 +1274,7 @@
   </section>
 
   <section class="section">
-    <h2>十三、用图片理解 Cohort 同期群</h2>
+    <h2>十六、用图片理解 Cohort 同期群</h2>
     <div class="panel">
       <p>Cohort 的核心不是“又多了一个表”，而是把用户按同一个起点分成一批批，再追踪每一批后续是否留下。它最适合回答：某天、某场赛事、某个渠道来的用户，后面到底有没有继续使用雷速体育。</p>
     </div>
