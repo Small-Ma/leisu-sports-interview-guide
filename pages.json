@@ -55,6 +55,13 @@
       "path": "./metric-system-foundation-course.html",
       "category": "课程资料",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "喜马拉雅 · 用户需求·转化链路·商业化平衡",
+      "description": "音频平台用户需求识别三层建模、关键转化路径瓶颈诊断与解法、商业化分层变现框架与广告体验优化，附完整指标体系、A/B 实验设计和场景推荐 PRD。",
+      "path": "./audio-platform-business-analysis.html",
+      "category": "数据分析",
+      "updated": "2026-06-14"
     }
   ]
 }
