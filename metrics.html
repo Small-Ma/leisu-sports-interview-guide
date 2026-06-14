@@ -238,7 +238,7 @@
 
     .driver-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -258,7 +258,7 @@
 
     .arrow-row {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 12px;
       margin-top: 12px;
     }
@@ -494,7 +494,7 @@
       <div class="meta-row"><span>业务类型</span><strong>体育赛事信息 + 内容注意力平台</strong></div>
       <div class="meta-row"><span>核心结构</span><strong>用户消费侧 / 赛事供给侧 / 商业化侧</strong></div>
       <div class="meta-row"><span>建设顺序</span><strong>指标体系 → 指标字典 → 数据看板</strong></div>
-      <div class="meta-row"><span>版本日期</span><strong>2026-06-03</strong></div>
+      <div class="meta-row"><span>版本日期</span><strong>2026-06-14</strong></div>
     </aside>
   </header>
 
@@ -544,11 +544,16 @@
         </div>
         <div class="driver">
           <span class="tag blue">L2 驱动 4</span>
+          <strong>赛事供给</strong>
+          <span>目标赛事覆盖率、直播可用率、供需匹配率、供应商 SLA 达标率。</span>
+        </div>
+        <div class="driver">
+          <span class="tag blue">L2 驱动 5</span>
           <strong>数据与内容质量</strong>
           <span>比分更新延迟、赛事数据完整率、情报覆盖率、内容有效阅读率。</span>
         </div>
         <div class="driver">
-          <span class="tag blue">L2 驱动 5</span>
+          <span class="tag blue">L2 驱动 6</span>
           <strong>互动与留存</strong>
           <span>评论参与率、聊天室活跃、关注球队/赛事数、D1/D7/D30 留存。</span>
         </div>
@@ -557,6 +562,7 @@
         <div class="arrow">更多人来</div>
         <div class="arrow">更多人使用核心赛事功能</div>
         <div class="arrow">每人服务次数和时长提高</div>
+        <div class="arrow">用户想看的赛事有稳定供给</div>
         <div class="arrow">信息可信度提高，减少流失</div>
         <div class="arrow">形成习惯和社区关系</div>
       </div>
@@ -643,7 +649,89 @@
   </section>
 
   <section class="section">
-    <h2>三、商业化指标与北极星的关系</h2>
+    <h2>三、赛事供给侧指标树</h2>
+    <div class="panel">
+      <p><strong>供给侧目标：</strong>在用户需要的时间，以可接受的成本，稳定提供覆盖完整、数据可信、内容可消费的赛事服务。不能只看“采购或接入了多少赛事”，还要同时判断这些供给是否匹配真实需求、是否被消费，以及单位成本是否合理。</p>
+      <p class="formula">有效赛事供给满足率 = 需求权重覆盖率 × 供给可用率 × 质量达标率</p>
+      <p class="source">需求权重可综合赛事搜索量、关注人数、历史访问、Push 订阅和商业价值计算。这样热门决赛未覆盖造成的损失，不会被大量低需求赛事的数量掩盖。</p>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag green">供给规模与覆盖</span>
+        <h3>有没有用户想看的赛事</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>目标赛事覆盖率</td><td>已提供服务的目标赛事数 ÷ 目标赛事总数</td><td>项目、联赛、地区和长尾赛事接入优先级</td></tr>
+            <tr><td>需求加权覆盖率</td><td>已覆盖赛事需求权重 ÷ 全部目标赛事需求权重</td><td>优先补齐高搜索、高关注和高价值赛事</td></tr>
+            <tr><td>关键赛事全链路覆盖率</td><td>具备赛程、阵容、实时事件、赛果等完整服务的关键赛事 ÷ 关键赛事数</td><td>避免只有比分、缺少阵容或赛后数据的残缺供给</td></tr>
+            <tr><td>长尾赛事覆盖率</td><td>已覆盖长尾赛事数 ÷ 目标长尾赛事数</td><td>评估差异化供给与长尾用户需求</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag green">数据与直播可用性</span>
+        <h3>供给能不能稳定交付</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>赛事数据可用率</td><td>数据正常可用赛事时长 ÷ 应服务赛事总时长</td><td>备用数据源、自动切换和中断告警</td></tr>
+            <tr><td>直播可用赛事率</td><td>可提供动画/文字/视频直播赛事数 ÷ 目标直播赛事数</td><td>版权、信号源和动画数据覆盖</td></tr>
+            <tr><td>准时开播率</td><td>按计划时间成功提供直播的赛事数 ÷ 应开播赛事数</td><td>开播前巡检、供应商排障和人工兜底</td></tr>
+            <tr><td>关键字段完整率</td><td>已返回有效关键字段数 ÷ 应返回关键字段数</td><td>阵容、技术统计、事件和赛果字段补齐</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag green">内容供给</span>
+        <h3>赛事信息是否完整可读</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>赛前情报覆盖率</td><td>有有效赛前情报的目标赛事数 ÷ 目标赛事数</td><td>阵容、伤停、历史交锋和赛前分析生产</td></tr>
+            <tr><td>阵容及时发布率</td><td>在开赛前目标时间内发布阵容的赛事数 ÷ 已获取阵容赛事数</td><td>数据源时效、编辑流程和自动发布</td></tr>
+            <tr><td>赛后战报覆盖率</td><td>有赛果解读或战报的重点赛事数 ÷ 重点完赛赛事数</td><td>模板化生产、重点赛事人工增强</td></tr>
+            <tr><td>内容按时交付率</td><td>在规定赛事窗口内完成的内容数 ÷ 应交付内容数</td><td>排班、生产 SLA 和异常提醒</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag green">供需匹配</span>
+        <h3>供给是否真的被需要</h3>
+        <table>
+          <thead><tr><th>指标</th><th>定义/公式</th><th>行动方向</th></tr></thead>
+          <tbody>
+            <tr><td>高需求未覆盖赛事数</td><td>达到需求阈值但没有完整服务的赛事数量</td><td>形成每日缺口清单并按影响排序补齐</td></tr>
+            <tr><td>供给消费率</td><td>产生有效消费的赛事数 ÷ 已供给赛事数</td><td>优化赛事入口、推荐和低效供给结构</td></tr>
+            <tr><td>零消费供给率</td><td>无有效访问赛事数 ÷ 已供给赛事数</td><td>识别无需求、不可发现或质量差的供给</td></tr>
+            <tr><td>供给满足用户率</td><td>至少命中一项兴趣赛事供给的活跃用户 ÷ 有赛事需求活跃用户</td><td>按用户兴趣评估供给覆盖，而非只看赛事数量</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <span class="tag orange">成本与供应商效率</span>
+      <h3>供给投入是否值得</h3>
+      <table>
+        <thead><tr><th>指标</th><th>定义/公式</th><th>建议拆解</th><th>责任方</th></tr></thead>
+        <tbody>
+          <tr><td>单场有效供给成本</td><td>赛事数据、版权、内容和运维成本 ÷ 产生有效消费的赛事数</td><td>体育项目、联赛等级、供应商</td><td>采购/业务/财务</td></tr>
+          <tr><td>千次有效服务成本</td><td>供给总成本 ÷ 有效赛事服务次数 × 1000</td><td>供给类型、用户层级、赛事周期</td><td>业务/财务</td></tr>
+          <tr><td>供应商 SLA 达标率</td><td>延迟、完整率、可用性均达标的服务批次 ÷ 总服务批次</td><td>供应商、赛事、故障等级</td><td>数据/采购</td></tr>
+          <tr><td>备用源切换成功率</td><td>主源异常后成功切换且服务恢复的次数 ÷ 应切换次数</td><td>恢复时长、数据一致性、重大赛事</td><td>数据/技术</td></tr>
+          <tr><td>供给投入产出比</td><td>供给带来的增量收入或用户价值 ÷ 供给增量成本</td><td>短期收入与留存、品牌、差异化价值共同评估</td><td>业务/财务</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>四、商业化指标与北极星的关系</h2>
     <div class="grid two">
       <div class="panel">
         <h3>广告收入链路</h3>
@@ -659,7 +747,7 @@
   </section>
 
   <section class="section">
-    <h2>四、指标关系：从原因到结果</h2>
+    <h2>五、指标关系：从原因到结果</h2>
     <div class="relationship">
       <div class="rel-card">
         <span class="num">1</span>
@@ -685,7 +773,7 @@
   </section>
 
   <section class="section">
-    <h2>五、护栏指标</h2>
+    <h2>六、护栏指标</h2>
     <table>
       <thead>
         <tr><th>护栏类型</th><th>指标</th><th>建议阈值设定方式</th><th>触线后的动作</th></tr>
@@ -720,7 +808,7 @@
   </section>
 
   <section class="section">
-    <h2>六、诊断维度预埋</h2>
+    <h2>七、诊断维度预埋</h2>
     <div class="dimension-list">
       <div class="dimension">
         <h3>赛事维度</h3>
@@ -762,7 +850,7 @@
   </section>
 
   <section class="section">
-    <h2>七、核心指标字典样例</h2>
+    <h2>八、核心指标字典样例</h2>
     <table>
       <thead>
         <tr><th>指标</th><th>层级</th><th>操作性定义</th><th>主要责任方</th><th>使用场景</th></tr>
@@ -773,6 +861,10 @@
         <tr><td>核心赛事服务渗透率</td><td>L2</td><td>有效赛事服务用户数 ÷ DAU。</td><td>产品</td><td>判断打开 App 后是否进入核心价值链路</td></tr>
         <tr><td>人均有效赛事会话数</td><td>L2</td><td>有效赛事会话总数 ÷ 有效赛事服务用户数。</td><td>运营</td><td>判断赛事触达和用户回访频次</td></tr>
         <tr><td>单会话有效时长</td><td>L2</td><td>有效赛事服务时长 ÷ 有效赛事会话总数。</td><td>产品/内容</td><td>判断单次服务是否有足够信息价值</td></tr>
+        <tr><td>有效赛事供给满足率</td><td>供给 L1</td><td>需求权重覆盖率 × 供给可用率 × 质量达标率。</td><td>业务/数据/内容</td><td>判断供给是否覆盖真实需求并稳定交付</td></tr>
+        <tr><td>需求加权覆盖率</td><td>供给 L2</td><td>已覆盖赛事需求权重 ÷ 全部目标赛事需求权重。</td><td>业务/采购</td><td>避免赛事数量掩盖关键供给缺口</td></tr>
+        <tr><td>供给消费率</td><td>供给 L2</td><td>产生有效消费的赛事数 ÷ 已供给赛事数。</td><td>业务/运营</td><td>识别低效供给与入口分发问题</td></tr>
+        <tr><td>供应商 SLA 达标率</td><td>供给护栏</td><td>延迟、完整率和可用性均达标批次 ÷ 总服务批次。</td><td>数据/采购</td><td>评估外部数据与直播服务稳定性</td></tr>
         <tr><td>P95 比分更新延迟</td><td>护栏</td><td>95% 关键事件从真实发生到用户端展示的时间差。</td><td>数据/技术</td><td>监控赛事数据链路稳定性</td></tr>
         <tr><td>赛事情报有效阅读率</td><td>L3</td><td>有效阅读赛事情报的用户数 ÷ 情报曝光用户数。</td><td>内容</td><td>判断赛前内容是否真正被消费</td></tr>
         <tr><td>赛日回访率</td><td>L3</td><td>关注某场赛事的用户在开赛当天回访的比例。</td><td>运营</td><td>评估关注、提醒和赛程运营效果</td></tr>
@@ -783,7 +875,7 @@
   </section>
 
   <section class="section">
-    <h2>八、看板落地结构</h2>
+    <h2>九、看板落地结构</h2>
     <div class="grid three">
       <div class="panel">
         <span class="tag green">管理层看板</span>
@@ -791,6 +883,7 @@
         <ul>
           <li>日均有效赛事服务时长</li>
           <li>有效赛事服务用户数</li>
+          <li>有效赛事供给满足率</li>
           <li>D7 / D30 留存</li>
           <li>广告/会员收入及护栏状态</li>
         </ul>
@@ -801,6 +894,7 @@
         <ul>
           <li>DAU、服务渗透、会话频次、单会话时长</li>
           <li>赛事项目、联赛、赛程阶段拆解</li>
+          <li>需求加权覆盖、供给消费和成本效率</li>
           <li>数据质量与内容质量趋势</li>
           <li>用户分层留存与转化</li>
         </ul>
@@ -810,6 +904,7 @@
         <h3>今天该处理什么</h3>
         <ul>
           <li>重大赛事实时更新延迟</li>
+          <li>高需求未覆盖赛事与供应商 SLA 告警</li>
           <li>异常版本/端/入口报警</li>
           <li>Push 命中与关闭反馈</li>
           <li>评论举报、低质内容、广告投诉</li>
@@ -819,7 +914,7 @@
   </section>
 
   <section class="section">
-    <h2>九、异动排查路径示例</h2>
+    <h2>十、异动排查路径示例</h2>
     <div class="panel">
       <p><strong>场景：</strong>某周“日均有效赛事服务时长”下降 12%。不要直接问“为什么用户不看了”，而是按指标树逐层定位。</p>
       <table>
@@ -836,7 +931,7 @@
   </section>
 
   <section class="section">
-    <h2>十、如何判断正常波动还是异常波动</h2>
+    <h2>十一、如何判断正常波动还是异常波动</h2>
     <div class="grid two">
       <div class="panel">
         <span class="tag red">第一关</span>
@@ -908,7 +1003,7 @@
   </section>
 
   <section class="section">
-    <h2>十一、DAU 的可行动拆解方式</h2>
+    <h2>十二、DAU 的可行动拆解方式</h2>
     <div class="panel">
       <p>DAU 不只是一句“今天有多少人打开 App”。真正能支持业务定位的 DAU 拆解，要回答五个问题：谁来了、为什么来、从哪来、用了什么、在哪个赛事场景里留下了。</p>
       <div class="formula">推荐排查顺序：用户来源 → 核心行为 → 赛事场景 → 入口渠道 → 时间窗口 → 端和版本</div>
@@ -1028,7 +1123,7 @@
   </section>
 
   <section class="section">
-    <h2>十二、用图片理解 Cohort 同期群</h2>
+    <h2>十三、用图片理解 Cohort 同期群</h2>
     <div class="panel">
       <p>Cohort 的核心不是“又多了一个表”，而是把用户按同一个起点分成一批批，再追踪每一批后续是否留下。它最适合回答：某天、某场赛事、某个渠道来的用户，后面到底有没有继续使用雷速体育。</p>
     </div>
