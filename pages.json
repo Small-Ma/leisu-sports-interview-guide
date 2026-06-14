@@ -27,6 +27,34 @@
       "path": "./senior-data-analyst-interview-guide.html",
       "category": "面试准备",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "内容会员流失归因与分层挽留",
+      "description": "从流失原因识别、用户分层、策略匹配到随机实验和增量净收入评估的公开脱敏版面试对答稿。",
+      "path": "./membership-churn-retention-interview-guide.html",
+      "category": "面试准备",
+      "updated": "2026-06-14"
+    },
+    {
+      "title": "会员增长质量分析与策略优化",
+      "description": "以 Cohort、LTV/CAC、增长归因和长期价值为核心的公开脱敏版面试项目方案。",
+      "path": "./membership-growth-quality-interview-project.html",
+      "category": "面试准备",
+      "updated": "2026-06-14"
+    },
+    {
+      "title": "音频平台用户需求识别与满足分析",
+      "description": "从需求识别、满足判断、路径效率到供给与分发归因的公开脱敏版完整分析方案。",
+      "path": "./audio-user-needs-satisfaction-analysis.html",
+      "category": "数据分析",
+      "updated": "2026-06-14"
+    },
+    {
+      "title": "指标体系基础课 · 十六讲",
+      "description": "由 139 页课程 PDF 转换的可搜索 HTML 阅读版，覆盖指标基础、拆解归因、行业实战与面试训练。",
+      "path": "./metric-system-foundation-course.html",
+      "category": "课程资料",
+      "updated": "2026-06-14"
     }
   ]
 }

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>内容会员流失归因与分层挽留｜公开脱敏版</title>
+  <style>
+    :root {
+      --ink: #1d2935;
+      --muted: #617080;
+      --line: #dce3e9;
+      --paper: #fff;
+      --bg: #eef2f5;
+      --navy: #173f5f;
+      --blue: #2676a5;
+      --green: #28785c;
+      --orange: #ad5b22;
+      --soft-blue: #edf6fb;
+      --soft-green: #edf8f3;
+      --soft-orange: #fff5eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(980px, calc(100% - 30px));
+      margin: 22px auto 46px;
+    }
+
+    header {
+      padding: 42px 46px;
+      border-radius: 17px;
+      color: #fff;
+      background: linear-gradient(135deg, #123650, #216482 68%, #28785c);
+      box-shadow: 0 15px 36px rgba(29, 57, 78, 0.17);
+    }
+
+    header small {
+      font-weight: 700;
+      letter-spacing: .12em;
+      opacity: .72;
+    }
+
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255,255,255,.86);
+    }
+
+    section {
+      margin-top: 17px;
+      padding: 28px 32px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+      box-shadow: 0 7px 22px rgba(35, 55, 72, .055);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--navy);
+      font-size: 23px;
+    }
+
+    h3 {
+      margin: 22px 0 7px;
+      color: #263f53;
+      font-size: 16px;
+    }
+
+    p { margin: 7px 0; }
+    ul, ol { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { color: #173f5f; }
+
+    .summary {
+      padding: 18px 20px;
+      border-left: 4px solid var(--blue);
+      border-radius: 4px 10px 10px 4px;
+      background: var(--soft-blue);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .flow span {
+      padding: 11px 7px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      padding: 15px 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fafcfd;
+    }
+
+    .card h3 { margin: 0 0 5px; font-size: 15px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .green { background: var(--soft-green); border-color: #cce6da; }
+    .orange { background: var(--soft-orange); border-color: #efd5bc; }
+
+    .script {
+      padding: 21px 23px;
+      border-radius: 11px;
+      color: #eaf5fa;
+      background: linear-gradient(135deg, #173f5f, #245e77);
+    }
+
+    .script p { margin: 9px 0; }
+    .script strong { color: #fff; }
+
+    .qa {
+      margin: 0 0 16px;
+      padding: 14px 16px;
+      border-radius: 9px;
+      background: #f5f8fa;
+    }
+
+    .qa .q {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: 750;
+    }
+
+    .qa .a {
+      color: #3e5364;
+      font-size: 14px;
+    }
+
+    .formula {
+      margin: 13px 0;
+      padding: 14px 18px;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--navy);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .warning {
+      padding: 14px 17px;
+      border-left: 4px solid var(--orange);
+      border-radius: 4px 9px 9px 4px;
+      background: var(--soft-orange);
+    }
+
+    @media (max-width: 720px) {
+      main { width: min(100% - 16px, 980px); margin-top: 8px; }
+      header { padding: 30px 23px; border-radius: 12px; }
+      section { padding: 23px 19px; }
+      .grid, .flow { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; margin: 0; }
+      header, section { box-shadow: none; break-inside: avoid; }
+      section { margin-top: 10px; }
+      @page { size: A4; margin: 12mm; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="./index.html">← 返回页面档案馆</a></p>
+    <header>
+      <small>INTERVIEW PLAYBOOK · 公开脱敏版</small>
+      <h1>会员流失归因与分层挽留策略优化</h1>
+      <p>把会员解约挽留从“统一弹窗拦截”升级为“基于流失原因识别的分层经营”，以真实续费和增量净收入判断挽留质量。</p>
+      <p>公开说明：真实公司名称及可能属于内部经营信息的精确项目结果已做匿名化处理。</p>
+    </header>
+
+    <section>
+      <h2>一、项目核心逻辑</h2>
+      <div class="flow">
+        <span>GMV 目标</span>
+        <span>流失诊断</span>
+        <span>用户分层</span>
+        <span>策略匹配</span>
+        <span>随机实验</span>
+        <span>增量评估</span>
+      </div>
+      <div class="summary">
+        <strong>一句话价值：</strong>为提升会员 GMV、减少连续包月用户流失，我基于近期内容播放、权益使用和会员生命周期识别不同流失原因，与产品、运营共同设计差异化挽留策略，并通过随机实验验证有效续费和增量净收入。
+      </div>
+    </section>
+
+    <section>
+      <h2>二、3 分钟完整讲述</h2>
+      <div class="script">
+        <p><strong>背景：</strong>当时业务为了提升会员 GMV，希望减少连续包月用户的流失。线上原有方案是在解约流程中使用统一弹窗挽留，但只看当页是否完成解约，无法判断用户是被真正留住，还是仅仅延迟解约。</p>
+        <p><strong>任务：</strong>我主要负责业务问题定义、用户行为诊断、人群规则、实验设计、指标口径、效果评估和收入测算；具体策略由我基于分析结果提出方向，再与产品、运营共同确定。</p>
+        <p><strong>分析：</strong>我没有完全依赖用户填写的解约原因，而是结合近期内容播放、权益使用和会员生命周期，识别价格敏感、权益感知不足、内容消费完结和低活跃用户。其中，内容完结型用户的关键问题不是价格，而是听完主要内容后没有找到“第二本书”。</p>
+        <p><strong>策略：</strong>针对不同人群匹配差异化策略：价格敏感用户提供优惠券，权益感知不足用户强化权益提醒，内容完结用户推荐相似书籍、同主播或同题材内容，帮助其建立后续消费；对低活跃低价值用户减少高成本补贴。</p>
+        <p><strong>实验：</strong>实验组采用新的分层挽留策略，对照组沿用线上统一弹窗，并以用户为单位随机分流。评估不只看当页解约率，而是追踪到下一个扣款周期，观察下周期续费、7/30 日内容活跃、二次解约、退款和投诉。</p>
+        <p><strong>结果：</strong>实验组整体续费率取得显著相对提升。结合策略覆盖规模、续费客单价，并扣除优惠券成本和退款影响后，预计全量上线可带来月均增量净收入[金额]。同时沉淀了解约用户分层规则和实验复盘口径，支持后续策略迭代。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>三、用户分层与策略匹配</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>价格敏感型</h3>
+          <p>历史优惠购买占比高、对价格活动响应明显。匹配优惠券，重点评估增量续费和补贴 ROI。</p>
+        </div>
+        <div class="card">
+          <h3>权益感知不足型</h3>
+          <p>会员有效期内核心权益使用较少。强化权益提醒，观察权益使用率及后续续费。</p>
+        </div>
+        <div class="card green">
+          <h3>内容消费完结型</h3>
+          <p>核心专辑接近完结或已听完，之后未形成第二本书的有效播放。推荐相似内容、同主播或同题材作品。</p>
+        </div>
+        <div class="card orange">
+          <h3>低活跃低价值型</h3>
+          <p>长期无有效播放且权益使用少。控制优惠投入，避免无效补贴只换来短期延迟解约。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>四、指标和收益口径</h2>
+      <ul>
+        <li><strong>短期行为指标：</strong>进入解约流程后最终未完成解约的比例。</li>
+        <li><strong>核心结果指标：</strong>下一个扣款周期仍保持连续包状态并成功续费的比例。</li>
+        <li><strong>长期质量指标：</strong>续费后的 7/30 日内容活跃、二次解约率、退款率和投诉率。</li>
+        <li><strong>策略效率指标：</strong>优惠券核销、增量续费、补贴成本和增量净收入。</li>
+      </ul>
+      <div class="formula">
+        预计月均增量净收入 = 月均解约用户数 × 策略覆盖率 × 续费率增量 × 续费客单价 − 优惠券成本 − 增量退款损失
+      </div>
+      <p><strong>结果表述：</strong>实验组整体续费率取得显著相对提升；预计全量后月均增量净收入[金额]。</p>
+    </section>
+
+    <section>
+      <h2>五、高频追问与推荐回答</h2>
+
+      <div class="qa">
+        <div class="q">1. 为什么不能直接用解约率下降判断成功？</div>
+        <div class="a">用户可能只是暂时关闭解约页面，之后再次解约。因此我把效果分为短期拦截、下周期真实续费和长期质量三层。只有成功续费且没有快速退款或再次解约，才属于有效挽留。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">2. 为什么不完全使用用户主动填写的解约原因？</div>
+        <div class="a">主动原因可能受选项设计和表达偏差影响，不一定等于真实行为。我结合近期播放、权益使用和会员生命周期建立行为分层，使策略能够直接执行，也能通过后续行为验证判断是否准确。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">3. “第二本书”为什么能降低流失？</div>
+        <div class="a">部分用户购买会员是由单一内容驱动，听完后缺少继续保留会员的理由。这类用户的问题不是价格，而是内容承接。通过相似内容、同主播或同题材推荐，帮助用户形成第二个有效消费目标，才能建立真实留存。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">4. 实验组和对照组是什么？</div>
+        <div class="a">实验组使用基于流失原因的分层策略，对照组沿用线上统一弹窗，以用户为单位随机分流。核心检验的是分层策略包相对原策略是否带来增量有效续费。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">5. 相对提升是百分点提升吗？</div>
+        <div class="a">不是。应明确说明实验组相对对照组的提升比例，并区分相对增幅与百分点变化。面试中会明确使用“相对提升”，避免百分点和相对增幅混淆。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">6. 增量净收入是实际收入还是推算收入？</div>
+        <div class="a">是全量后的月均增量净收入测算，不是实验期已实现收入。口径基于续费率增量、覆盖规模和续费客单价，并扣除优惠券成本与退款影响。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">7. 如何证明三种策略分别有效？</div>
+        <div class="a">本次实验验证的是分层策略包的整体增量效果，不能严格把整体提升归因到某一种手段。复盘可以按人群观察收益来源，但单项策略的因果贡献需要后续多实验组或正交实验进一步拆解。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">8. 你的个人贡献是什么？</div>
+        <div class="a">我主导业务问题定义、用户行为诊断、人群规则、实验分流和指标口径、效果评估、收入测算及放量建议。策略方向由我基于分析提出，并与产品、运营共同确定具体方案；产品负责功能设计与上线，运营负责优惠和内容配置。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">9. 项目最大的难点是什么？</div>
+        <div class="a">最大的难点是不能把暂时未解约当成成功，需要追踪到下一个扣款周期，并结合二次解约、退款和内容活跃判断真实留存。同时还要识别价格、权益认知和内容完结等不同原因，避免全量发券造成无效补贴。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">10. 如果重新做一次，会如何优化？</div>
+        <div class="a">我会在重点人群中设置多个实验组，分别验证优惠券、权益提醒和内容推荐的独立贡献；同时优化优惠成本和推荐匹配度，以增量净收入而非单纯续费率作为最终放量依据。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>六、项目边界与表达注意事项</h2>
+      <div class="warning">
+        <ul>
+          <li>不要把测算值说成已经实现的平均收入，应表述为“预计全量后月均增量净收入[金额]”。</li>
+          <li>不要混淆百分点与相对增幅，应明确基线、绝对变化和相对变化。</li>
+          <li>不要将整体实验结果归因给某个单项策略。本次只证明分层策略包整体有效。</li>
+          <li>不要把策略制定全部归为个人成果，应准确说明与产品、运营协同。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>七、简历版表述</h2>
+      <ul>
+        <li><strong>问题定义：</strong>为提升会员 GMV、减少连续包月用户流失，主导会员解约挽留分析与实验评估，推动业务从“统一弹窗降低当页解约率”升级为“识别流失原因并提升有效续费”。</li>
+        <li><strong>流失诊断：</strong>基于近期内容播放、权益使用和会员生命周期，识别价格敏感、权益感知不足、内容消费完结及低活跃用户，建立可执行的人群分层规则。</li>
+        <li><strong>策略与实验：</strong>与产品、运营协同匹配优惠券、权益提醒及“第二本书”内容推荐；以线上原有弹窗为对照，搭建“解约率 - 下周期续费 - 7/30 日活跃 - 二次解约/退款投诉”的评估框架。</li>
+        <li><strong>项目收益：</strong>实验组整体续费率取得显著相对提升；结合策略覆盖规模、续费客单价、优惠成本及退款影响测算，预计全量后月均增量净收入[金额]，并沉淀人群规则与实验复盘口径。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

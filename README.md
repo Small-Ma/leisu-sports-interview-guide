@@ -10,7 +10,10 @@
 - `metrics.html`：雷速体育指标体系
 - `data-analysis-discussion.html`：通用数据分析讨论手册
 - `senior-data-analyst-interview-guide.html`：高级数据分析师完整面试对答稿（公开脱敏版）
-- `data-analysis-discussion.html`：通用数据分析问题与九个业务场景的持续讨论记录
+- `membership-churn-retention-interview-guide.html`：内容会员流失归因与分层挽留（公开脱敏版）
+- `membership-growth-quality-interview-project.html`：会员增长质量分析与策略优化（公开脱敏版）
+- `audio-user-needs-satisfaction-analysis.html`：音频平台用户需求识别与满足分析（公开脱敏版）
+- `metric-system-foundation-course.html`：指标体系基础课十六讲（139 页 PDF 转 HTML 阅读版）
 - `AGENTS.md`：约束后续每轮讨论的更新、检查与发布流程
 
 新增 HTML 时，同时在 `pages.json` 中登记标题、描述、路径、分类和更新日期。
