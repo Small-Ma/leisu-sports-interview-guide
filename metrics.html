@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雷速体育指标体系</title>
+  <style>
+    :root {
+      --ink: #172026;
+      --muted: #5e6a72;
+      --line: #d9e0e3;
+      --paper: #f7f8f6;
+      --panel: #ffffff;
+      --green: #0f766e;
+      --green-soft: #dff4ef;
+      --orange: #c05621;
+      --orange-soft: #fff0df;
+      --red: #b42318;
+      --red-soft: #ffe4e1;
+      --blue: #1d4e89;
+      --blue-soft: #e4effa;
+      --gray-soft: #edf0ef;
+      --shadow: 0 18px 45px rgba(23, 32, 38, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 24px;
+      align-items: end;
+      padding: 34px 0 26px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      line-height: 1.24;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .meta-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section {
+      margin: 34px 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--gray-soft);
+    }
+
+    .tag.green { background: var(--green-soft); color: #07524c; }
+    .tag.orange { background: var(--orange-soft); color: #8a3b14; }
+    .tag.blue { background: var(--blue-soft); color: #153b66; }
+    .tag.red { background: var(--red-soft); color: #8a1b12; }
+
+    .north-star {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .metric-hero {
+      background: #102a2b;
+      color: #fff;
+      padding: 26px;
+      min-height: 300px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .metric-hero .label {
+      color: #a7d8cf;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .metric-hero .metric {
+      margin: 10px 0;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .formula {
+      padding: 16px;
+      background: #f0faf6;
+      border-left: 5px solid var(--green);
+      font-weight: 700;
+    }
+
+    .tree {
+      display: grid;
+      gap: 14px;
+    }
+
+    .tree-level {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tree-node {
+      position: relative;
+      padding: 15px 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--green);
+    }
+
+    .tree-node.l0 { border-left-color: var(--ink); background: #f2f3f1; }
+    .tree-node.l1 { border-left-color: var(--green); }
+    .tree-node.l2 { border-left-color: var(--blue); }
+    .tree-node.l3 { border-left-color: var(--orange); }
+    .tree-node.guard { border-left-color: var(--red); background: #fffafa; }
+
+    .node-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .node-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .side-label {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      background: #102a2b;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .driver-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .driver {
+      min-height: 164px;
+      padding: 15px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .driver strong {
+      font-size: 16px;
+    }
+
+    .arrow-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .arrow {
+      padding: 10px 12px;
+      background: var(--gray-soft);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #eef3f1;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .relationship {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .rel-card {
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      min-height: 180px;
+    }
+
+    .rel-card .num {
+      width: 30px;
+      height: 30px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 10px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .dimension-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .dimension {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+
+    .dimension ul,
+    .panel ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .dimension li,
+    .panel li {
+      margin: 5px 0;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cohort-visual {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .cohort-flow {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      background: #f4f8f7;
+      border: 1px solid var(--line);
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .flow-step .badge {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: var(--green);
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .heatmap {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      background: #f4f8f7;
+      border: 1px solid var(--line);
+      padding: 8px;
+    }
+
+    .heatmap th,
+    .heatmap td {
+      border: 0;
+      padding: 10px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .heatmap th {
+      background: #dfe9e6;
+      color: var(--ink);
+    }
+
+    .heatmap .row-label {
+      text-align: left;
+      background: #eef3f1;
+      white-space: nowrap;
+    }
+
+    .hm-100 { background: #07524c; color: #fff; }
+    .hm-70 { background: #0f766e; color: #fff; }
+    .hm-50 { background: #38a38f; color: #fff; }
+    .hm-30 { background: #9ad8ca; color: #12312d; }
+    .hm-15 { background: #dff4ef; color: #12312d; }
+    .hm-05 { background: #f3fbf8; color: #5e6a72; }
+
+    .caption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      main { padding: 18px; }
+      header,
+      .north-star,
+      .grid.two,
+      .grid.three,
+      .split {
+        grid-template-columns: 1fr;
+      }
+      .driver-grid,
+      .arrow-row,
+      .relationship,
+      .dimension-list,
+      .cohort-visual {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .side-label {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .driver-grid,
+      .arrow-row,
+      .relationship,
+      .dimension-list,
+      .cohort-visual {
+        grid-template-columns: 1fr;
+      }
+      th, td {
+        font-size: 13px;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 18mm; }
+      .panel, .meta, .metric-hero { box-shadow: none; }
+      .side-label { position: static; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>雷速体育指标体系</h1>
+      <p class="subtitle">基于《大美数据分析｜指标体系基础课 · 十六讲》的“层级性、逻辑性、可追溯性”方法，结合体育比分、赛事直播、赛事情报、社区互动和商业化场景，搭建一套可用于看板、诊断和团队对齐的指标树。</p>
+    </div>
+    <aside class="meta" aria-label="文档信息">
+      <div class="meta-row"><span>业务类型</span><strong>体育赛事信息 + 内容注意力平台</strong></div>
+      <div class="meta-row"><span>核心结构</span><strong>用户消费侧 / 赛事供给侧 / 商业化侧</strong></div>
+      <div class="meta-row"><span>建设顺序</span><strong>指标体系 → 指标字典 → 数据看板</strong></div>
+      <div class="meta-row"><span>版本日期</span><strong>2026-06-03</strong></div>
+    </aside>
+  </header>
+
+  <section class="section north-star">
+    <div class="metric-hero">
+      <div>
+        <div class="label">推荐北极星指标</div>
+        <div class="metric">日均有效赛事服务时长</div>
+        <p>用户主动使用雷速体育完成赛事跟踪、比分查看、动画/文字直播、赛事情报阅读、社区讨论等核心行为所产生的有效前台时长。</p>
+      </div>
+      <p class="source">不把单纯打开 App、被动停留、广告停留、异常刷新计入有效时长，避免“把时长刷高但用户价值变差”。</p>
+    </div>
+    <div class="panel">
+      <h2>为什么选它</h2>
+      <p>雷速体育的核心用户价值不是“用户打开了 App”，而是用户在赛前、赛中、赛后持续获得及时、准确、有用的赛事信息。有效赛事服务时长同时连接用户价值和商业价值：用户越依赖赛事服务，留存、广告库存、会员转化和数据服务收入越有基础。</p>
+      <div class="formula">日均有效赛事服务时长 = DAU × 核心赛事服务渗透率 × 人均有效赛事会话数 × 单会话有效时长</div>
+      <p class="source">如果公司当前更偏增长期，可把“日均有效赛事服务用户数”作为第一北极星；进入变现期后，再把“有效赛事服务时长”作为主北极星。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>一、指标树总览</h2>
+    <div class="tree">
+      <div class="tree-node l0">
+        <div class="node-title"><span>L0 战略目标</span><span class="tag">公司级</span></div>
+        <div class="node-desc">成为体育用户“赛前看情报、赛中跟比赛、赛后看复盘”的高频赛事入口，并在不伤害体验和数据可信度的前提下完成商业化。</div>
+      </div>
+      <div class="tree-node l1">
+        <div class="node-title"><span>L1 北极星：日均有效赛事服务时长</span><span class="tag green">结果指标</span></div>
+        <div class="node-desc">回答“雷速体育是否持续向用户交付核心赛事价值”。它由用户规模、服务渗透、会话频次和会话深度共同驱动。</div>
+      </div>
+      <div class="driver-grid">
+        <div class="driver">
+          <span class="tag blue">L2 驱动 1</span>
+          <strong>用户规模</strong>
+          <span>DAU、MAU、新增有效用户、回访用户、召回用户。</span>
+        </div>
+        <div class="driver">
+          <span class="tag blue">L2 驱动 2</span>
+          <strong>赛事服务渗透</strong>
+          <span>比分页进入率、赛事详情页进入率、直播间进入率、赛前提醒设置率。</span>
+        </div>
+        <div class="driver">
+          <span class="tag blue">L2 驱动 3</span>
+          <strong>消费深度与频次</strong>
+          <span>人均关注赛事数、人均有效会话数、单赛事访问次数、赛中停留时长。</span>
+        </div>
+        <div class="driver">
+          <span class="tag blue">L2 驱动 4</span>
+          <strong>数据与内容质量</strong>
+          <span>比分更新延迟、赛事数据完整率、情报覆盖率、内容有效阅读率。</span>
+        </div>
+        <div class="driver">
+          <span class="tag blue">L2 驱动 5</span>
+          <strong>互动与留存</strong>
+          <span>评论参与率、聊天室活跃、关注球队/赛事数、D1/D7/D30 留存。</span>
+        </div>
+      </div>
+      <div class="arrow-row">
+        <div class="arrow">更多人来</div>
+        <div class="arrow">更多人使用核心赛事功能</div>
+        <div class="arrow">每人服务次数和时长提高</div>
+        <div class="arrow">信息可信度提高，减少流失</div>
+        <div class="arrow">形成习惯和社区关系</div>
+      </div>
+      <div class="tree-node guard">
+        <div class="node-title"><span>护栏指标</span><span class="tag red">约束增长方式</span></div>
+        <div class="node-desc">比分关键事件错误率、P95 更新延迟、Push 关闭率、广告负反馈率、投诉率、崩溃率、低质评论占比、数据合规风险。任何护栏触线，都要暂停对应增长或商业化动作。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="side-label">二、L1 → L2 → L3 详细拆解</div>
+    <div class="grid">
+      <div class="tree-node l2">
+        <div class="node-title"><span>1. 用户规模</span><span class="tag blue">人群基础</span></div>
+        <div class="node-desc">DAU = 新增激活用户 + 留存活跃用户 + 回流用户。先判断大盘有没有足够多体育用户打开雷速，再看用户结构是否健康。</div>
+      </div>
+      <table>
+        <thead><tr><th>层级</th><th>指标</th><th>关系/公式</th><th>可行动方向</th></tr></thead>
+        <tbody>
+          <tr><td>L2</td><td>DAU / MAU</td><td>当日或当月有效活跃去重用户数</td><td>整体流量入口、赛程日历、渠道拉新、自然搜索</td></tr>
+          <tr><td>L3</td><td>新增有效用户</td><td>新增注册或首次打开后，当日完成至少 1 次核心赛事行为的用户</td><td>新手引导、热门赛事入口、渠道质量筛选</td></tr>
+          <tr><td>L3</td><td>回访用户数</td><td>昨日/上周活跃用户在今日再次完成核心赛事行为</td><td>赛程提醒、关注球队、赛前 Push、日历订阅</td></tr>
+          <tr><td>L3</td><td>召回后 7 日留存</td><td>被召回用户在 7 天内再次有效活跃的比例</td><td>沉默用户召回、赛程节点触达、个性化提醒</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tree-node l2">
+        <div class="node-title"><span>2. 赛事服务渗透</span><span class="tag blue">核心功能使用</span></div>
+        <div class="node-desc">核心赛事服务渗透率 = 完成核心赛事行为的 DAU / DAU。它回答“用户打开雷速后，是否真的用到了雷速最有价值的赛事服务”。</div>
+      </div>
+      <table>
+        <thead><tr><th>层级</th><th>指标</th><th>关系/公式</th><th>可行动方向</th></tr></thead>
+        <tbody>
+          <tr><td>L2</td><td>核心赛事服务渗透率</td><td>有效赛事服务用户数 ÷ DAU</td><td>首页信息架构、热门赛事露出、搜索与赛程入口</td></tr>
+          <tr><td>L3</td><td>比分页进入率</td><td>进入比分列表/赛事详情页用户 ÷ DAU</td><td>赛程页默认筛选、热门联赛排序、开赛状态提示</td></tr>
+          <tr><td>L3</td><td>直播间进入率</td><td>进入动画/文字/比分直播间用户 ÷ 有开赛访问用户</td><td>赛中入口、直播状态提示、关键事件浮层</td></tr>
+          <tr><td>L3</td><td>赛前提醒设置率</td><td>设置比赛提醒用户 ÷ 浏览赛前赛事用户</td><td>关注球队、赛前弹窗、日历订阅、提醒文案</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tree-node l2">
+        <div class="node-title"><span>3. 消费深度与频次</span><span class="tag blue">有效时长来源</span></div>
+        <div class="node-desc">有效服务时长不是单一数字，必须拆成“看几场赛事、每场来几次、每次停留多久”。这样一旦时长变化，能判断是赛事覆盖问题、入口问题，还是内容吸引力问题。</div>
+      </div>
+      <table>
+        <thead><tr><th>层级</th><th>指标</th><th>关系/公式</th><th>可行动方向</th></tr></thead>
+        <tbody>
+          <tr><td>L2</td><td>人均有效赛事会话数</td><td>有效赛事会话总数 ÷ 有效赛事服务用户数</td><td>赛中事件提醒、半场/终场节点、关注赛事列表</td></tr>
+          <tr><td>L3</td><td>人均关注赛事数</td><td>关注或收藏赛事数 ÷ 有效赛事服务用户数</td><td>关注推荐、热门赛事、联赛订阅、球队订阅</td></tr>
+          <tr><td>L3</td><td>单赛事访问次数</td><td>某场赛事有效访问次数 ÷ 关注该赛事用户数</td><td>赛前阵容、赛中关键事件、赛后数据复盘</td></tr>
+          <tr><td>L3</td><td>单会话有效时长</td><td>前台停留且有滚动、切 tab、观看、互动等行为的时长</td><td>直播信息密度、数据可读性、无效等待优化</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tree-node l2">
+        <div class="node-title"><span>4. 数据与内容质量</span><span class="tag blue">信任基础</span></div>
+        <div class="node-desc">体育比分产品的底层信任来自“快、准、全”。质量指标通常是领先指标：数据延迟和错误率先恶化，留存与口碑会滞后下滑。</div>
+      </div>
+      <table>
+        <thead><tr><th>层级</th><th>指标</th><th>关系/公式</th><th>可行动方向</th></tr></thead>
+        <tbody>
+          <tr><td>L2</td><td>关键赛事覆盖率</td><td>已覆盖赛事数 ÷ 目标覆盖赛事数</td><td>赛事数据源、联赛优先级、长尾赛事覆盖</td></tr>
+          <tr><td>L3</td><td>P95 比分更新延迟</td><td>95% 关键事件从发生到端内展示的延迟</td><td>数据链路、缓存策略、供应商 SLA、异常重试</td></tr>
+          <tr><td>L3</td><td>关键事件错误率</td><td>比分、红黄牌、进球、阵容等错误事件数 ÷ 关键事件总数</td><td>校验规则、人工复核、数据源交叉验证</td></tr>
+          <tr><td>L3</td><td>赛事情报有效阅读率</td><td>阅读超过阈值或完成关键段落阅读用户 ÷ 情报曝光用户</td><td>赛前分析质量、伤停阵容、赔率变化解释</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tree-node l2">
+        <div class="node-title"><span>5. 互动与留存</span><span class="tag blue">习惯形成</span></div>
+        <div class="node-desc">当用户从“只看比分”变成“关注球队、参与讨论、赛后复盘”，离开成本会提高，长期留存更稳。</div>
+      </div>
+      <table>
+        <thead><tr><th>层级</th><th>指标</th><th>关系/公式</th><th>可行动方向</th></tr></thead>
+        <tbody>
+          <tr><td>L2</td><td>D1 / D7 / D30 留存</td><td>基准日有效活跃用户在第 N 日再次有效活跃的比例</td><td>新用户赛程引导、关注体系、赛后回访</td></tr>
+          <tr><td>L3</td><td>赛日回访率</td><td>关注赛事用户在开赛当天回访的比例</td><td>赛前提醒、开赛 Push、比赛状态触达</td></tr>
+          <tr><td>L3</td><td>高质量互动率</td><td>评论、回复、分享、收藏、关注等有效互动 ÷ 有效服务用户</td><td>聊天室秩序、专家内容、热门话题运营</td></tr>
+          <tr><td>L3</td><td>关注球队/联赛用户占比</td><td>至少关注 1 个球队或联赛的用户 ÷ DAU</td><td>个性化推荐、球队主页、联赛订阅</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>三、商业化指标与北极星的关系</h2>
+    <div class="grid two">
+      <div class="panel">
+        <h3>广告收入链路</h3>
+        <p class="formula">广告收入 = 有效赛事服务时长 × 广告加载率 × 填充率 × eCPM / 1000</p>
+        <p>有效赛事服务时长决定广告库存，广告加载率决定展示密度，填充率反映广告主需求，eCPM 反映用户商业价值和广告匹配质量。广告加载率必须受护栏约束，不能为了短期收入牺牲赛事体验。</p>
+      </div>
+      <div class="panel">
+        <h3>会员/增值服务链路</h3>
+        <p class="formula">会员收入 = 付费用户数 × ARPU = DAU × 付费转化率 × 续费率 × ARPU</p>
+        <p>如果雷速体育提供高级情报、深度数据、专家观点或会员权益，付费转化应从“高频赛事服务用户”中转化，而不是从所有 DAU 粗暴计算。续费率比首购转化更能反映长期价值。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>四、指标关系：从原因到结果</h2>
+    <div class="relationship">
+      <div class="rel-card">
+        <span class="num">1</span>
+        <h3>数学拆解关系</h3>
+        <p>北极星可拆成 DAU、核心服务渗透率、人均会话数、单会话时长。异动时先找贡献最大的因子。</p>
+      </div>
+      <div class="rel-card">
+        <span class="num">2</span>
+        <h3>因果传导关系</h3>
+        <p>比分更新延迟、数据错误、内容质量下降会先影响信任，再影响互动、留存和商业化。</p>
+      </div>
+      <div class="rel-card">
+        <span class="num">3</span>
+        <h3>护栏冲突关系</h3>
+        <p>广告加载率、Push 频率、低质内容推荐都能短期拉高时长，但会触发投诉、留存、评分等护栏。</p>
+      </div>
+      <div class="rel-card">
+        <span class="num">4</span>
+        <h3>维度下钻关系</h3>
+        <p>任何 L1/L2 异动都应按赛事类型、联赛、赛前/赛中/赛后、用户层级、端、渠道下钻定位。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>五、护栏指标</h2>
+    <table>
+      <thead>
+        <tr><th>护栏类型</th><th>指标</th><th>建议阈值设定方式</th><th>触线后的动作</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>数据可信度</td>
+          <td>P95 比分更新延迟、关键事件错误率、数据源中断次数</td>
+          <td>历史基线 + 业务底线；重大赛事单独设更严格阈值</td>
+          <td>暂停相关数据源自动展示，切换备用源，触发人工复核</td>
+        </tr>
+        <tr>
+          <td>用户体验</td>
+          <td>Push 关闭率、投诉率、App 评分、页面加载 P95、崩溃率</td>
+          <td>统计控制法；连续超出 2 个标准差触发预警</td>
+          <td>降低触达频率，回滚版本，排查性能瓶颈</td>
+        </tr>
+        <tr>
+          <td>内容/社区质量</td>
+          <td>低质评论占比、举报率、违规内容处理时效、有效互动率</td>
+          <td>历史基线 + 运营规则红线</td>
+          <td>收紧评论治理，调整推荐权重，提升人工审核优先级</td>
+        </tr>
+        <tr>
+          <td>商业化体验</td>
+          <td>广告加载率、广告负反馈率、广告相关投诉率、会员退款率</td>
+          <td>业务底线法；按赛前/赛中/赛后分别设置</td>
+          <td>暂停高干扰广告位，调整会员售卖页和权益说明</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>六、诊断维度预埋</h2>
+    <div class="dimension-list">
+      <div class="dimension">
+        <h3>赛事维度</h3>
+        <ul>
+          <li>体育项目：足球、篮球、电竞等</li>
+          <li>赛事等级：热门、普通、长尾</li>
+          <li>联赛/杯赛/球队/主客队</li>
+          <li>赛程状态：赛前、赛中、赛后</li>
+        </ul>
+      </div>
+      <div class="dimension">
+        <h3>用户维度</h3>
+        <ul>
+          <li>新用户、老用户、回流用户</li>
+          <li>轻度、中度、重度赛事用户</li>
+          <li>关注球队/未关注球队</li>
+          <li>会员、非会员、高潜付费用户</li>
+        </ul>
+      </div>
+      <div class="dimension">
+        <h3>入口维度</h3>
+        <ul>
+          <li>首页、比分页、赛事详情页</li>
+          <li>搜索、推荐、Push、外部渠道</li>
+          <li>直播间、资讯页、社区页</li>
+          <li>iOS、Android、Web、版本号</li>
+        </ul>
+      </div>
+      <div class="dimension">
+        <h3>时间维度</h3>
+        <ul>
+          <li>开赛前 24 小时、1 小时、15 分钟</li>
+          <li>上半场、半场、下半场、加时</li>
+          <li>工作日、周末、重大赛事日</li>
+          <li>小时级、分钟级关键事件窗口</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>七、核心指标字典样例</h2>
+    <table>
+      <thead>
+        <tr><th>指标</th><th>层级</th><th>操作性定义</th><th>主要责任方</th><th>使用场景</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>日均有效赛事服务时长</td><td>L1</td><td>当日所有用户在核心赛事服务场景中的有效前台时长总和，排除 idle、广告停留和异常刷新。</td><td>产品/运营/算法/内容</td><td>判断整体用户价值交付是否提升</td></tr>
+        <tr><td>有效赛事服务用户数</td><td>L2</td><td>当日完成至少 1 次核心赛事行为的去重用户数。</td><td>产品</td><td>判断 DAU 中有多少真实使用核心服务</td></tr>
+        <tr><td>核心赛事服务渗透率</td><td>L2</td><td>有效赛事服务用户数 ÷ DAU。</td><td>产品</td><td>判断打开 App 后是否进入核心价值链路</td></tr>
+        <tr><td>人均有效赛事会话数</td><td>L2</td><td>有效赛事会话总数 ÷ 有效赛事服务用户数。</td><td>运营</td><td>判断赛事触达和用户回访频次</td></tr>
+        <tr><td>单会话有效时长</td><td>L2</td><td>有效赛事服务时长 ÷ 有效赛事会话总数。</td><td>产品/内容</td><td>判断单次服务是否有足够信息价值</td></tr>
+        <tr><td>P95 比分更新延迟</td><td>护栏</td><td>95% 关键事件从真实发生到用户端展示的时间差。</td><td>数据/技术</td><td>监控赛事数据链路稳定性</td></tr>
+        <tr><td>赛事情报有效阅读率</td><td>L3</td><td>有效阅读赛事情报的用户数 ÷ 情报曝光用户数。</td><td>内容</td><td>判断赛前内容是否真正被消费</td></tr>
+        <tr><td>赛日回访率</td><td>L3</td><td>关注某场赛事的用户在开赛当天回访的比例。</td><td>运营</td><td>评估关注、提醒和赛程运营效果</td></tr>
+        <tr><td>高质量互动率</td><td>L3</td><td>有效评论、回复、分享、收藏、关注等行为次数 ÷ 有效赛事服务用户数。</td><td>社区运营</td><td>判断社区是否增强用户关系和留存</td></tr>
+        <tr><td>广告负反馈率</td><td>护栏</td><td>广告关闭、不感兴趣、投诉等负反馈次数 ÷ 广告曝光次数。</td><td>商业化</td><td>约束广告加载和广告质量</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>八、看板落地结构</h2>
+    <div class="grid three">
+      <div class="panel">
+        <span class="tag green">管理层看板</span>
+        <h3>业务整体是否健康</h3>
+        <ul>
+          <li>日均有效赛事服务时长</li>
+          <li>有效赛事服务用户数</li>
+          <li>D7 / D30 留存</li>
+          <li>广告/会员收入及护栏状态</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag blue">业务负责人看板</span>
+        <h3>哪个环节在驱动变化</h3>
+        <ul>
+          <li>DAU、服务渗透、会话频次、单会话时长</li>
+          <li>赛事项目、联赛、赛程阶段拆解</li>
+          <li>数据质量与内容质量趋势</li>
+          <li>用户分层留存与转化</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag orange">执行层看板</span>
+        <h3>今天该处理什么</h3>
+        <ul>
+          <li>重大赛事实时更新延迟</li>
+          <li>异常版本/端/入口报警</li>
+          <li>Push 命中与关闭反馈</li>
+          <li>评论举报、低质内容、广告投诉</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>九、异动排查路径示例</h2>
+    <div class="panel">
+      <p><strong>场景：</strong>某周“日均有效赛事服务时长”下降 12%。不要直接问“为什么用户不看了”，而是按指标树逐层定位。</p>
+      <table>
+        <thead><tr><th>步骤</th><th>检查内容</th><th>可能结论</th></tr></thead>
+        <tbody>
+          <tr><td>1. 确认真实性</td><td>数据是否跑完，口径是否变更，埋点是否丢失，是否遇到特殊赛事周期。</td><td>排除假异动。</td></tr>
+          <tr><td>2. 公式拆解</td><td>DAU、服务渗透率、会话数、单会话时长哪个贡献最大。</td><td>例如单会话时长贡献 70% 降幅。</td></tr>
+          <tr><td>3. 维度下钻</td><td>按赛前/赛中/赛后、足球/篮球、热门联赛、端、版本、入口拆。</td><td>例如篮球赛中直播间 Android vX 版本时长下降。</td></tr>
+          <tr><td>4. 根因关联</td><td>对照产品发版、数据源变更、推荐策略、Push 策略、赛事供给变化。</td><td>例如新版直播间关键事件浮层遮挡，用户快速退出。</td></tr>
+          <tr><td>5. 行动建议</td><td>回滚、热修、补数据源、调整推荐、降低广告加载、补充赛事情报。</td><td>给出负责人、预计恢复时间和复盘指标。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>十、如何判断正常波动还是异常波动</h2>
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag red">第一关</span>
+        <h3>先排除数据假异动</h3>
+        <p>不要看到环比下降就立刻分析业务原因。先确认数据是否可信，否则会在一个假问题上浪费排查时间。</p>
+        <ul>
+          <li>数据是否跑完：T+1 数据、跨天赛事、延迟入库是否完整。</li>
+          <li>埋点是否异常：是否漏报、重复上报、某个端突然 0 上报。</li>
+          <li>口径是否变更：有效时长、活跃、会话、留存的定义是否最近调整。</li>
+          <li>对比基准是否合理：重大赛事日不能直接和普通工作日比较。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag green">第二关</span>
+        <h3>建立同类场景基线</h3>
+        <p>雷速体育的指标强依赖赛程，判断异常时要和“同类日、同类赛事、同类阶段”比较，而不是简单和昨天比较。</p>
+        <div class="formula">正常波动范围 = 历史均值 ± 2 × 标准差</div>
+        <p class="source">标准差表示历史波动有多大。超过 2 倍标准差，通常说明这次变化已经偏离常规波动，需要进一步判断是否进入定位。</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>指标场景</th><th>推荐基线</th><th>为什么这样比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>普通工作日</td><td>近 4-8 个普通工作日均值</td><td>排除周末和赛事密度差异。</td></tr>
+        <tr><td>周末</td><td>近 4-8 个周末均值</td><td>体育用户周末使用行为通常不同于工作日。</td></tr>
+        <tr><td>热门足球/篮球赛事日</td><td>同级别赛事日均值</td><td>热门赛事会自然拉高 DAU、时长和互动。</td></tr>
+        <tr><td>世界杯、欧洲杯、总决赛等重大赛事</td><td>单独建立大赛基线</td><td>大赛流量和用户结构特殊，不能纳入普通基线。</td></tr>
+        <tr><td>赛中分钟级指标</td><td>同类比赛的赛前、上半场、下半场、赛后窗口</td><td>赛前、赛中、赛后的用户意图完全不同。</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid three">
+      <div class="panel">
+        <span class="tag">观察</span>
+        <h3>正常波动</h3>
+        <p>单日波动小于 5%，且落在历史正常波动带内，通常先观察，不需要专项定位。</p>
+      </div>
+      <div class="panel">
+        <span class="tag orange">复核</span>
+        <h3>可疑波动</h3>
+        <p>波动在 5%-15%，或接近 2 倍标准差，需要按赛事、用户、端、入口快速切一刀，看是否集中在某个维度。</p>
+      </div>
+      <div class="panel">
+        <span class="tag red">定位</span>
+        <h3>异常波动</h3>
+        <p>超过 2 倍标准差、连续 2 天以上、L1 指标下降超过 10%-15%，或护栏指标触线，应进入问题定位。</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>判断流程</h3>
+      <table>
+        <thead>
+          <tr><th>步骤</th><th>问题</th><th>判断结果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. 数据校验</td><td>数据完整、口径一致、埋点正常吗？</td><td>不正常：先修数据；正常：进入基线判断。</td></tr>
+          <tr><td>2. 基线选择</td><td>这一天属于普通日、周末、热门赛事日，还是重大赛事日？</td><td>选错基线会把正常赛程波动误判为异常。</td></tr>
+          <tr><td>3. 波动带判断</td><td>是否超过“历史均值 ± 2 × 标准差”？</td><td>未超过：观察；超过：继续看持续性和影响范围。</td></tr>
+          <tr><td>4. 持续性判断</td><td>是单日波动，还是连续多日趋势？</td><td>连续 2 天以上更可能是结构性问题。</td></tr>
+          <tr><td>5. 影响范围判断</td><td>是否集中在某个赛事、端、入口、用户层级？</td><td>能锁定范围，就进入指标树下钻和根因定位。</td></tr>
+        </tbody>
+      </table>
+      <p><strong>雷速体育例子：</strong>如果“日均有效赛事服务时长”下降 8%，不要马上判断用户流失。先看昨天是否赛事少、是否热门赛事等级较低、是否拿周一和周末比较、足球/篮球/电竞是否都跌、iOS/Android/Web 是否都跌，再拆到 DAU、服务渗透率、会话数和单会话时长。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>十一、DAU 的可行动拆解方式</h2>
+    <div class="panel">
+      <p>DAU 不只是一句“今天有多少人打开 App”。真正能支持业务定位的 DAU 拆解，要回答五个问题：谁来了、为什么来、从哪来、用了什么、在哪个赛事场景里留下了。</p>
+      <div class="formula">推荐排查顺序：用户来源 → 核心行为 → 赛事场景 → 入口渠道 → 时间窗口 → 端和版本</div>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag blue">拆法 1</span>
+        <h3>按用户来源拆</h3>
+        <p class="formula">DAU = 新用户 + 老用户回访 + 流失用户回归</p>
+        <table>
+          <thead><tr><th>变化来源</th><th>可能问题</th><th>可影响动作</th></tr></thead>
+          <tbody>
+            <tr><td>新用户下降</td><td>获客渠道、自然搜索、活动拉新变差</td><td>投放预算、渠道素材、SEO/ASO、赛事热点拉新</td></tr>
+            <tr><td>老用户回访下降</td><td>留存、习惯、产品体验变差</td><td>关注球队、赛程提醒、Push 策略、首页改版</td></tr>
+            <tr><td>回归用户下降</td><td>召回无效或热点不足</td><td>沉默用户召回、重大赛事唤醒、个性化提醒</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag blue">拆法 2</span>
+        <h3>按用户生命周期拆</h3>
+        <p>这个拆法适合判断“DAU 没跌，但用户质量是否在变差”。</p>
+        <table>
+          <thead><tr><th>用户阶段</th><th>关键判断</th><th>可影响动作</th></tr></thead>
+          <tbody>
+            <tr><td>新增激活用户</td><td>新用户是否体验到核心赛事价值</td><td>新手引导、热门赛事推荐、默认关注入口</td></tr>
+            <tr><td>成长期用户</td><td>是否开始形成固定赛事习惯</td><td>关注球队、联赛订阅、赛前提醒</td></tr>
+            <tr><td>稳定活跃用户</td><td>核心用户是否持续回来</td><td>赛中直播质量、数据深度、社区互动</td></tr>
+            <tr><td>衰退用户</td><td>使用频次是否下降</td><td>流失预警、个性化触达</td></tr>
+            <tr><td>召回用户</td><td>回来后是否二次留存</td><td>召回内容、赛事节点、Push 节奏</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag orange">拆法 3</span>
+        <h3>按入口渠道拆</h3>
+        <p class="formula">DAU = 自然访问 + Push 拉起 + 搜索入口 + 推荐入口 + 外部渠道 + 活动入口</p>
+        <table>
+          <thead><tr><th>入口</th><th>可影响动作</th><th>护栏</th></tr></thead>
+          <tbody>
+            <tr><td>自然访问</td><td>产品习惯、品牌认知、赛程刚需</td><td>DAU/MAU 粘性</td></tr>
+            <tr><td>Push 拉起</td><td>发送时机、文案、频率、个性化</td><td>Push 关闭率、投诉率</td></tr>
+            <tr><td>搜索入口</td><td>SEO、ASO、赛事关键词覆盖</td><td>新用户后续留存</td></tr>
+            <tr><td>推荐入口</td><td>首页推荐、热门赛事排序</td><td>核心赛事服务渗透率</td></tr>
+            <tr><td>活动入口</td><td>赛事专题、互动玩法、运营活动</td><td>活动后 7 日留存</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag orange">拆法 4</span>
+        <h3>按核心行为拆</h3>
+        <p>这个拆法最接近“DAU 是否真的有价值”。如果 DAU 涨了，但核心行为没涨，说明用户只是被拉进来了。</p>
+        <table>
+          <thead><tr><th>行为层级</th><th>说明</th><th>可影响动作</th></tr></thead>
+          <tbody>
+            <tr><td>只打开用户</td><td>打开 App 但没进入核心赛事服务</td><td>首页信息架构、热门赛事露出</td></tr>
+            <tr><td>比分用户</td><td>查看比分列表</td><td>比分页排序、赛事筛选</td></tr>
+            <tr><td>赛事详情用户</td><td>进入具体比赛页</td><td>赛事卡片、数据入口</td></tr>
+            <tr><td>直播用户</td><td>查看动画/文字/比分直播</td><td>直播体验、关键事件提示</td></tr>
+            <tr><td>情报用户</td><td>查看赛前分析、阵容、伤停</td><td>内容质量、赛前推荐</td></tr>
+            <tr><td>社区互动用户</td><td>评论、讨论、关注球队</td><td>社区运营、话题机制</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag green">拆法 5</span>
+        <h3>按赛事场景拆</h3>
+        <p class="formula">DAU = 足球 DAU + 篮球 DAU + 电竞 DAU + 其他项目 DAU</p>
+        <table>
+          <thead><tr><th>场景</th><th>定位价值</th><th>可影响动作</th></tr></thead>
+          <tbody>
+            <tr><td>热门足球赛事</td><td>判断头部赛事是否拉动大盘</td><td>赛程运营、专题页、赛前 Push</td></tr>
+            <tr><td>篮球赛事</td><td>判断 NBA/CBA 等赛事内容表现</td><td>赛中互动、数据深度、赛后战报</td></tr>
+            <tr><td>小众赛事</td><td>判断长尾赛事覆盖和用户需求</td><td>赛事数据源、长尾联赛运营</td></tr>
+            <tr><td>重大赛事</td><td>判断大赛流量和用户结构变化</td><td>大赛专题、玩法、商业化资源</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <span class="tag green">拆法 6</span>
+        <h3>按时间窗口拆</h3>
+        <p class="formula">DAU = 赛前 DAU + 赛中 DAU + 赛后 DAU</p>
+        <table>
+          <thead><tr><th>时间窗口</th><th>用户需求</th><th>可影响动作</th></tr></thead>
+          <tbody>
+            <tr><td>赛前</td><td>看赛程、阵容、伤停、预测</td><td>赛前情报、提醒设置、阵容入口</td></tr>
+            <tr><td>赛中</td><td>看比分、直播、关键事件</td><td>更新速度、直播体验、事件提醒</td></tr>
+            <tr><td>赛后</td><td>看赛果、数据、复盘、讨论</td><td>战报、技术统计、社区话题</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>实战排查顺序</h3>
+      <table>
+        <thead><tr><th>顺序</th><th>拆解问题</th><th>为什么先看它</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>新用户、老用户、回归用户谁在变？</td><td>先判断 DAU 变化来自拉新、留存还是召回。</td></tr>
+          <tr><td>2</td><td>只是打开，还是用了比分、直播、情报、社区？</td><td>判断 DAU 是否有真实核心价值。</td></tr>
+          <tr><td>3</td><td>足球、篮球、电竞、热门联赛哪个在变？</td><td>体育产品受赛事供给强影响，必须先排除赛程结构。</td></tr>
+          <tr><td>4</td><td>自然、Push、搜索、推荐、活动哪个入口在变？</td><td>入口变化能直接对应运营和产品动作。</td></tr>
+          <tr><td>5</td><td>iOS、Android、Web、具体版本是否集中异常？</td><td>最后排查技术和版本问题，避免把端侧故障误判为业务问题。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>十二、用图片理解 Cohort 同期群</h2>
+    <div class="panel">
+      <p>Cohort 的核心不是“又多了一个表”，而是把用户按同一个起点分成一批批，再追踪每一批后续是否留下。它最适合回答：某天、某场赛事、某个渠道来的用户，后面到底有没有继续使用雷速体育。</p>
+    </div>
+
+    <div class="cohort-visual">
+      <div class="cohort-flow">
+        <h3>图 1：Cohort 是怎么形成的</h3>
+        <div class="flow-step">
+          <div class="badge">1</div>
+          <div>
+            <strong>选择共同起点</strong>
+            <p>例如：首次打开 App、首次关注球队、首次进入比分直播、世界杯期间首次注册。</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="badge">2</div>
+          <div>
+            <strong>把用户分成一批批</strong>
+            <p>6月1日首次使用是一批，6月2日首次使用是一批，欧冠决赛拉新用户也是一批。</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="badge">3</div>
+          <div>
+            <strong>追踪后续表现</strong>
+            <p>看 D1、D7、D30 是否回来，是否继续看比分、直播、情报、社区。</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="badge">4</div>
+          <div>
+            <strong>比较哪一批更健康</strong>
+            <p>如果某个渠道或某场赛事带来的用户留存很差，就说明它只带来了短期热闹。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>图 2：Cohort 留存热力图</h3>
+        <table class="heatmap" aria-label="Cohort 留存热力图">
+          <thead>
+            <tr>
+              <th>Cohort</th>
+              <th>D0</th>
+              <th>D1</th>
+              <th>D3</th>
+              <th>D7</th>
+              <th>D14</th>
+              <th>D30</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">6月1日新用户</td>
+              <td class="hm-100">100%</td>
+              <td class="hm-70">48%</td>
+              <td class="hm-50">36%</td>
+              <td class="hm-30">24%</td>
+              <td class="hm-15">15%</td>
+              <td class="hm-05">8%</td>
+            </tr>
+            <tr>
+              <td class="row-label">6月2日新用户</td>
+              <td class="hm-100">100%</td>
+              <td class="hm-70">52%</td>
+              <td class="hm-50">40%</td>
+              <td class="hm-30">28%</td>
+              <td class="hm-15">18%</td>
+              <td class="hm-05">10%</td>
+            </tr>
+            <tr>
+              <td class="row-label">欧冠决赛拉新</td>
+              <td class="hm-100">100%</td>
+              <td class="hm-50">34%</td>
+              <td class="hm-30">19%</td>
+              <td class="hm-15">9%</td>
+              <td class="hm-05">4%</td>
+              <td class="hm-05">2%</td>
+            </tr>
+            <tr>
+              <td class="row-label">关注球队用户</td>
+              <td class="hm-100">100%</td>
+              <td class="hm-70">68%</td>
+              <td class="hm-70">57%</td>
+              <td class="hm-50">43%</td>
+              <td class="hm-30">31%</td>
+              <td class="hm-15">22%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="caption">颜色越深，说明这批用户留下来的比例越高。这里可以看到：“欧冠决赛拉新”D0 很热闹，但 D7、D30 掉得很快；“关注球队用户”留存更稳，说明关注行为可能是雷速体育的关键习惯动作。</p>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div class="panel">
+        <span class="tag green">雷速体育怎么用</span>
+        <h3>推荐的 Cohort 分组</h3>
+        <ul>
+          <li>按首次使用日期分：看新用户 D1/D7/D30 留存。</li>
+          <li>按首次关注球队分：看关注后是否更常回访。</li>
+          <li>按首次进入比分直播分：看直播体验是否提升留存。</li>
+          <li>按重大赛事拉新分：看大赛后用户是否留下。</li>
+          <li>按渠道分：看投放用户后续是否使用比分、直播、情报。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag orange">怎么看结论</span>
+        <h3>不要被整体 DAU 骗了</h3>
+        <p>整体 DAU 稳定，不代表留存健康。可能只是每天都有新用户补进来，而早期用户正在快速流失。Cohort 能把“新进老出”的结构问题拆出来。</p>
+        <p>如果某批用户 D1 还可以，但 D7、D30 断崖式下降，说明他们只是被赛事热点吸引进来，还没有形成关注球队、赛程提醒、比分直播等长期习惯。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="footer-note">方法依据：PDF 中“指标体系的本质与价值、指标分类体系、指标定义规范与口径管理、指标拆解方法论、指标体系搭建全流程、北极星指标与护栏设计、内容平台指标体系实战”等章节；知识库对应页面：[[指标体系设计]]、[[北极星指标]]、[[数据看板建设]]、[[指标分解树与驱动因子分析]]、[[推荐系统效果评估]]、[[用户增长与留存]]。</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雷速体育产品总监面试准备</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5b6874;
+      --line: #d8dee5;
+      --paper: #ffffff;
+      --canvas: #edf1f4;
+      --blue: #16688c;
+      --green: #22745b;
+      --red: #a7463d;
+      --amber: #9a661f;
+      --blue-soft: #e9f3f7;
+      --green-soft: #eaf4ef;
+      --red-soft: #f8ecea;
+      --amber-soft: #faf2e4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    button {
+      border: 1px solid #bfc8d0;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .page {
+      width: min(1440px, calc(100% - 32px));
+      margin: 20px auto 48px;
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      background: #1d2934;
+      color: #fff;
+      padding: 18px 16px;
+      border-radius: 8px;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+    }
+
+    .sidebar strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+
+    .sidebar .date {
+      color: #b9c5ce;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar nav {
+      display: grid;
+      gap: 3px;
+    }
+
+    .sidebar nav a {
+      color: #e7edf2;
+      text-decoration: none;
+      padding: 7px 8px;
+      border-left: 2px solid transparent;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .sidebar nav a:hover {
+      border-left-color: #51acc8;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .sidebar button {
+      width: 100%;
+      margin-top: 16px;
+      background: transparent;
+      color: #fff;
+      border-color: #6f7e89;
+    }
+
+    main {
+      min-width: 0;
+      background: var(--paper);
+      padding: 34px 42px 48px;
+      box-shadow: 0 10px 30px rgba(23, 33, 43, 0.09);
+    }
+
+    header {
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 22px;
+      margin-bottom: 26px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 850px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .header-grid div {
+      border-top: 2px solid var(--line);
+      padding-top: 8px;
+    }
+
+    .header-grid span,
+    .header-grid strong {
+      display: block;
+    }
+
+    .header-grid span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .header-grid strong {
+      margin-top: 2px;
+      font-size: 14px;
+    }
+
+    section {
+      scroll-margin-top: 20px;
+      margin-top: 36px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    h4 {
+      margin: 14px 0 5px;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 6px 0 10px;
+    }
+
+    ul,
+    ol {
+      margin: 7px 0 12px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .lead {
+      font-size: 17px;
+      color: #33424e;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 12px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+      break-inside: avoid;
+    }
+
+    .card h3,
+    .card h4 {
+      margin-top: 0;
+    }
+
+    .card p:last-child,
+    .card ul:last-child,
+    .card ol:last-child {
+      margin-bottom: 0;
+    }
+
+    .blue {
+      border-top: 4px solid var(--blue);
+    }
+
+    .green {
+      border-top: 4px solid var(--green);
+    }
+
+    .red {
+      border-top: 4px solid var(--red);
+    }
+
+    .amber {
+      border-top: 4px solid var(--amber);
+    }
+
+    .callout {
+      padding: 16px 18px;
+      border-left: 4px solid var(--blue);
+      background: var(--blue-soft);
+      margin: 14px 0;
+      break-inside: avoid;
+    }
+
+    .callout strong:first-child {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .warning {
+      border-left-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .success {
+      border-left-color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .note {
+      border-left-color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 5px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 750;
+      vertical-align: 1px;
+    }
+
+    .tag.fact {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .tag.inference {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .tag.risk {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
+    .formula {
+      margin: 10px 0;
+      padding: 11px 13px;
+      border: 1px solid #c8d8e0;
+      background: #f5fafc;
+      color: #174a60;
+      font-weight: 720;
+      line-height: 1.55;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef3f6;
+      font-weight: 750;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 0 16px;
+      margin-top: 10px;
+    }
+
+    .timeline .time {
+      color: var(--blue);
+      font-weight: 750;
+      border-right: 2px solid #b7ccd6;
+      padding: 10px 15px 10px 0;
+    }
+
+    .timeline .task {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .script {
+      background: #f7f8fa;
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+      font-size: 14px;
+      line-height: 1.82;
+    }
+
+    .question {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid #8796a2;
+      background: #f7f8fa;
+      break-inside: avoid;
+    }
+
+    .question h3 {
+      margin: 0 0 7px;
+      font-size: 16px;
+    }
+
+    .question .answer {
+      margin: 0;
+    }
+
+    .scorecard {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(4, minmax(80px, 0.65fr));
+      border: 1px solid var(--line);
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .scorecard div {
+      padding: 9px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .scorecard div:nth-child(5n) {
+      border-right: 0;
+    }
+
+    .scorecard .head {
+      background: #eef3f6;
+      font-weight: 750;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 27px;
+      margin: 8px 0;
+    }
+
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #81909b;
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    .quick-card {
+      border: 2px solid var(--ink);
+      padding: 20px;
+      background: #fff;
+    }
+
+    .quick-card ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px 26px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .sources li {
+      margin-bottom: 9px;
+    }
+
+    @media (max-width: 1000px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+
+      .sidebar nav {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        font-size: 14px;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      main {
+        padding: 24px 18px 38px;
+        box-shadow: none;
+      }
+
+      .sidebar {
+        border-radius: 0;
+      }
+
+      .sidebar nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .header-grid,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .quick-card ol {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 0 10px;
+      }
+
+      .scorecard {
+        overflow-x: auto;
+        grid-template-columns: 150px repeat(4, 100px);
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 14mm 12mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 10.5pt;
+      }
+
+      .page {
+        width: auto;
+        margin: 0;
+        display: block;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+        box-shadow: none;
+      }
+
+      header,
+      section,
+      .card,
+      .question,
+      .callout,
+      .quick-card {
+        break-inside: avoid;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <strong>产品总监面试作战手册</strong>
+      <div class="date">公开脱敏版</div>
+      <nav aria-label="目录">
+        <a href="#brief">01 一页结论</a>
+        <a href="#position">02 候选人定位</a>
+        <a href="#product">03 产品理解</a>
+        <a href="#metrics">04 指标与诊断</a>
+        <a href="#cases">05 三个产品案例</a>
+        <a href="#intro">06 自我介绍</a>
+        <a href="#questions">07 高频问答</a>
+        <a href="#director">08 反问总监</a>
+        <a href="#six-month">09 入职六个月</a>
+        <a href="#plan">10 两天冲刺</a>
+        <a href="#checklist">11 临场检查</a>
+        <a href="#sources">12 资料来源</a>
+      </nav>
+      <button type="button" onclick="window.print()">打印 / 导出 PDF</button>
+    </aside>
+
+    <main>
+      <header>
+        <div class="eyebrow">雷速体育 · 产品总监面试 · 定制准备材料</div>
+        <h1>把“懂数据”讲成“能做产品决策”</h1>
+        <p class="subtitle">
+          这轮面试的关键不是证明你会分析，而是让产品总监相信：你能理解实时体育产品的用户价值，
+          能把模糊问题拆成产品策略，能用实验和指标判断收益，也能与产品、研发、运营共同推进落地。
+        </p>
+        <div class="header-grid">
+          <div><span>你的核心标签</span><strong>业务型数据分析</strong></div>
+          <div><span>主打迁移能力</span><strong>内容消费与会员增长</strong></div>
+          <div><span>需要补齐</span><strong>体育场景与实时数据</strong></div>
+          <div><span>本轮目标</span><strong>获得业务可信度</strong></div>
+        </div>
+      </header>
+
+      <section id="brief">
+        <h2>01. 一页结论：这轮面试怎么赢</h2>
+        <div class="grid-4">
+          <article class="card blue">
+            <h3>先讲业务</h3>
+            <p>先说用户在赛前、赛中、赛后的需求，再说指标与方法。不要一开口就是漏斗、SQL、看板。</p>
+          </article>
+          <article class="card green">
+            <h3>讲清取舍</h3>
+            <p>产品总监更关心你如何在速度与准确、增长与体验、转化与长期价值之间做判断。</p>
+          </article>
+          <article class="card amber">
+            <h3>用案例落地</h3>
+            <p>每个回答遵循“问题、判断、动作、验证、结果、复盘”，避免只介绍分析过程。</p>
+          </article>
+          <article class="card red">
+            <h3>承认边界</h3>
+            <p>你没有雷速内部数据，不武断下结论。把外部观察说成假设，并说明如何用数据验证。</p>
+          </article>
+        </div>
+
+        <div class="callout success">
+          <strong>最重要的一句话</strong>
+          我过去做的不是“音频行业特有分析”，而是围绕内容消费场景，解决用户需求识别、关键链路转化、
+          商业化收益与长期体验平衡的问题。这些能力可以迁移到雷速的赛事数据、直播内容、会员和社区场景。
+        </div>
+
+        <h3>产品总监可能用什么标准判断你</h3>
+        <table>
+          <thead>
+            <tr><th>判断维度</th><th>他想听到什么</th><th>你的证据</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>产品理解</td><td>能从用户任务而非功能列表理解雷速</td><td>赛前决策、赛中跟踪、赛后延续的完整链路</td></tr>
+            <tr><td>业务判断</td><td>知道哪个问题优先、为什么</td><td>指标拆解、用户分层、收益与护栏共同评估</td></tr>
+            <tr><td>落地能力</td><td>能推动产品动作并验证</td><td>付费墙、解约挽留、权益标识等实验项目</td></tr>
+            <tr><td>协作能力</td><td>不是接需求出数，而是共同定义问题</td><td>问题澄清、方案评审、实验复盘、机制沉淀</td></tr>
+            <tr><td>成长速度</td><td>体育经验不足但能迅速补齐</td><td>先搭业务地图，再体验产品、补赛事知识、验证假设</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="position">
+        <h2>02. 你的候选人定位</h2>
+        <p class="lead">
+          不要把自己定位成“做过会员分析的人”，而要定位成
+          <strong>能连接用户行为、内容供给、产品策略与商业结果的业务型数据分析师</strong>。
+        </p>
+
+        <div class="grid-3">
+          <article class="card blue">
+            <h3>你已经具备</h3>
+            <ul>
+              <li>多年数据分析与数据产品经验。</li>
+              <li>内容平台用户消费链路理解。</li>
+              <li>会员转化、留存、续费与收入质量分析。</li>
+              <li>A/B 实验设计、评估与策略复盘。</li>
+              <li>埋点治理、指标口径与分析基础设施。</li>
+            </ul>
+          </article>
+          <article class="card amber">
+            <h3>需要主动解释</h3>
+            <ul>
+              <li>没有直接体育行业经历。</li>
+              <li>对比分实时链路和赛事版权了解有限。</li>
+              <li>雷速用户结构与具体商业目标尚不掌握。</li>
+              <li>外部观察无法替代内部数据。</li>
+            </ul>
+          </article>
+          <article class="card green">
+            <h3>你的迁移逻辑</h3>
+            <ul>
+              <li>音频专辑对应持续内容消费，赛事对应强时点内容消费。</li>
+              <li>追更与开赛提醒都在建立回访习惯。</li>
+              <li>VIP 内容转化与高级数据/会员权益都依赖需求触发。</li>
+              <li>二者都要兼顾短期收入与长期体验。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout note">
+          <strong>短板回答模板</strong>
+          体育行业经验确实是我需要快速补齐的部分，我不会把音频平台的结论直接套过来。但我有一套比较成熟的
+          进入新业务的方法：先画用户场景和业务链路，统一核心指标口径，再通过用户分层、路径分析和访谈验证关键假设。
+          我过去在汽车、社区和音频平台之间切换时，依靠的也是这套方法。体育产品实时性更强，因此我会额外把
+          数据延迟、准确率和重大赛事稳定性放在第一层护栏。
+        </div>
+      </section>
+
+      <section id="product">
+        <h2>03. 雷速体育产品理解</h2>
+        <div class="callout">
+          <strong>30 秒产品判断</strong>
+          <span class="tag fact">官方事实</span>
+          雷速覆盖足球、篮球、网球、电竞等赛事，提供动画与赛事直播、资讯、社区、赛事资料库、数据模型和会员权益。
+          <span class="tag inference">分析判断</span>
+          因此它不只是内容客户端，更接近以实时赛事数据为底座，连接信息服务、内容消费、用户互动和商业化的体育平台。
+        </div>
+
+        <h3>用户为什么打开雷速</h3>
+        <div class="grid-3">
+          <article class="card">
+            <h4>赛前：我该关注什么</h4>
+            <p>看赛程、阵容、伤停、历史交锋、球队和球员资料，决定关注哪场比赛并设置提醒。</p>
+          </article>
+          <article class="card">
+            <h4>赛中：现在发生了什么</h4>
+            <p>获取比分、关键事件、数据走势、动画或视频直播，用更低的信息成本持续跟踪比赛。</p>
+          </article>
+          <article class="card">
+            <h4>赛后：结果意味着什么</h4>
+            <p>查看技术统计、战报、排名变化、评论与讨论，并自然进入下一场赛事或相关内容。</p>
+          </article>
+        </div>
+
+        <h3>六类核心用户</h3>
+        <table>
+          <thead>
+            <tr><th>用户类型</th><th>核心任务</th><th>主要产品价值</th><th>可能关注的指标</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>即时比分型</td><td>最快知道比分与关键事件</td><td>快、准、稳定</td><td>更新延迟、错误率、赛事页回访</td></tr>
+            <tr><td>深度数据型</td><td>理解比赛与球队表现</td><td>资料完整、模型易读</td><td>数据模块渗透、深度使用、会员转化</td></tr>
+            <tr><td>直播观看型</td><td>观看重点赛事</td><td>版权内容、播放体验</td><td>开播率、有效观看、卡顿、次场回访</td></tr>
+            <tr><td>资讯消费型</td><td>获取及时体育信息</td><td>速度、可信度、内容密度</td><td>有效阅读、关注、资讯后赛事跳转</td></tr>
+            <tr><td>社区互动型</td><td>表达观点、寻找同好</td><td>氛围、秩序、反馈</td><td>有效互动、举报率、互动后留存</td></tr>
+            <tr><td>高价值付费型</td><td>获得高级数据或会员服务</td><td>差异化、持续可感知</td><td>首购、权益使用、续费、退款</td></tr>
+          </tbody>
+        </table>
+
+        <h3>你可以提出的四个产品判断</h3>
+        <div class="grid-2">
+          <article class="card blue">
+            <h4>判断 1：信任是最底层的产品资产</h4>
+            <p>体育实时产品首先要“快、准、全”。比分或关键事件错误一次，造成的不是单次页面损失，而是用户对平台的长期不信任。</p>
+          </article>
+          <article class="card green">
+            <h4>判断 2：赛事周期天然制造增长波峰</h4>
+            <p>真正的难题不是重大赛事带来多少用户，而是如何通过球队/联赛关注、提醒和内容承接，把赛事流量转成日常使用习惯。</p>
+          </article>
+          <article class="card amber">
+            <h4>判断 3：单场比赛不是终点</h4>
+            <p>产品要把单场访问连接到赛后复盘、球队关注、下一场赛程和社区关系，才能减少“终场即流失”。</p>
+          </article>
+          <article class="card red">
+            <h4>判断 4：商业化要按场景评估</h4>
+            <p>赛中高注意力场景更敏感，会员、广告或增值权益需要以体验护栏约束，不能只看点击或短期收入。</p>
+          </article>
+        </div>
+
+        <div class="callout warning">
+          <strong>面试表达边界</strong>
+          上述四点是根据公开产品功能形成的分析假设，不是雷速内部结论。现场应补一句：
+          “如果进入团队，我会先用赛事类型、用户层级和赛前/赛中/赛后路径验证优先级。”
+        </div>
+      </section>
+
+      <section id="metrics">
+        <h2>04. 指标体系与异常诊断</h2>
+        <p>
+          建议把北极星理解为“用户持续获得有效赛事服务”，可以用
+          <strong>日均有效赛事服务时长</strong>或<strong>日均有效赛事服务用户数</strong>表达。
+          面试时不要争论唯一指标，而要说明选择原则和所处业务阶段。
+        </p>
+        <div class="formula">
+          日均有效赛事服务时长 = DAU × 核心赛事服务渗透率 × 人均有效赛事会话数 × 单会话有效时长
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>指标层</th><th>关键指标</th><th>回答的问题</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>用户规模</td><td>DAU、有效新增、回流、赛日回访</td><td>有多少用户来，用户结构是否健康</td></tr>
+            <tr><td>核心渗透</td><td>赛事详情进入、直播间进入、提醒设置、资料库使用</td><td>打开产品后是否使用了核心价值</td></tr>
+            <tr><td>深度频次</td><td>人均赛事数、单赛事访问次数、有效会话与时长</td><td>是否形成持续的赛事消费</td></tr>
+            <tr><td>质量信任</td><td>P95 更新延迟、关键事件错误率、覆盖率、卡顿</td><td>底层服务是否可靠</td></tr>
+            <tr><td>互动留存</td><td>D1/D7/D30、球队关注、有效互动、赛后回访</td><td>是否形成习惯与关系</td></tr>
+            <tr><td>商业结果</td><td>广告净收入、会员转化、权益使用、续费、退款</td><td>价值能否持续变现</td></tr>
+          </tbody>
+        </table>
+
+        <h3>面试题：如果 DAU 下降 10%，怎么诊断</h3>
+        <ol>
+          <li><strong>先确认数据可信：</strong>埋点、口径、版本、数据源是否异常，避免把数据故障当业务问题。</li>
+          <li><strong>区分正常波动：</strong>对比赛事日历、同期、同星期和重大赛事基线，判断是否由赛程强弱造成。</li>
+          <li><strong>拆用户结构：</strong>新增、留存、回流分别贡献多少；新老用户、端、渠道、地区分别如何。</li>
+          <li><strong>拆核心链路：</strong>启动、首页、赛事列表、详情、直播间，下降发生在哪一层。</li>
+          <li><strong>拆赛事维度：</strong>足球/篮球、重点/长尾联赛、赛前/赛中/赛后，识别集中影响。</li>
+          <li><strong>关联供给质量：</strong>赛事覆盖、数据延迟、直播版权、资讯供给、版本稳定性是否变化。</li>
+          <li><strong>形成动作：</strong>为最大贡献因子设计修复或实验，并同时监测留存、投诉、Push 关闭等护栏。</li>
+        </ol>
+        <div class="callout success">
+          <strong>产品化收口</strong>
+          我不会只给出“DAU 为什么跌了”，而会输出问题优先级、受影响人群、可控产品杠杆、预期影响、
+          验证周期和护栏指标，让分析能进入排期和复盘。
+        </div>
+        <p class="small">
+          更完整的指标口径可打开：
+          <a href="./metrics.html">雷速体育指标体系.html</a>
+        </p>
+      </section>
+
+      <section id="cases">
+        <h2>05. 三个可现场展开的产品案例</h2>
+
+        <article class="card blue">
+          <h3>案例一：从重大赛事流量转成日常留存</h3>
+          <p><strong>问题：</strong>重大赛事带来大量访问，但比赛结束后用户迅速沉默，增长停留在事件波峰。</p>
+          <p><strong>核心假设：</strong>如果在用户兴趣最明确时完成球队/联赛关注，并提供可控的赛程提醒和赛后承接，用户更可能在下一比赛日回访。</p>
+          <p><strong>用户识别：</strong>浏览同一球队或联赛达到业务校准频次、有效观看或跟踪达到时长门槛、查看阵容/数据等深度模块的用户。阈值按历史行为分位数和回访率拐点确定，不拍固定数字。</p>
+          <p><strong>产品动作：</strong>终场后展示“关注球队 + 下一场赛程”；对已经表达兴趣但未关注的用户，在离开前提供一次轻量提醒设置；通知支持比赛级、球队级和联赛级频率控制。</p>
+          <p><strong>实验：</strong>以合格兴趣用户随机分组，对照组保持现状；实验组提供不同承接节点。至少跨越完整赛事周期，避免单场结果偏差。</p>
+          <p><strong>核心指标：</strong>关注转化、下一赛日回访、7/30 日有效留存、人均跟踪赛事数。</p>
+          <p><strong>护栏：</strong>提醒关闭、Push 退订、投诉、卸载、低质量打开。</p>
+          <p><strong>产品判断：</strong>目标不是把提醒发得更多，而是把一次性赛事需求沉淀为用户主动选择的长期关系。</p>
+        </article>
+
+        <article class="card green">
+          <h3>案例二：优化比赛页，而不是只提高停留时长</h3>
+          <p><strong>问题：</strong>比赛详情页信息丰富，但不同用户的任务不同；信息过载可能提高表面时长，却降低获取效率。</p>
+          <p><strong>核心假设：</strong>按赛前、赛中、赛后动态调整首屏信息优先级，比固定布局更能帮助用户完成任务。</p>
+          <p><strong>产品动作：</strong>赛前优先阵容、伤停和历史数据；赛中优先比分、时间、关键事件和走势；赛后优先技术统计、战报、排名影响及下一场比赛。</p>
+          <p><strong>验证方式：</strong>先做路径分析和任务访谈，再对高流量赛事开展分层实验；控制赛事、入口和用户活跃度差异。</p>
+          <p><strong>核心指标：</strong>关键模块到达率、有效操作完成率、赛中回访次数、赛后内容承接率，而不是单独追求页面时长。</p>
+          <p><strong>质量护栏：</strong>首屏加载、比分更新延迟、误触、快速退出、用户反馈。</p>
+          <p><strong>产品判断：</strong>对工具属性强的页面，“更快找到答案”有时会缩短时长，因此必须用任务完成而非单一时长评价。</p>
+        </article>
+
+        <article class="card amber">
+          <h3>案例三：会员权益与付费触达优化</h3>
+          <p><strong>问题：</strong>全量用户看到会员入口不等于有需求，粗放触达可能提高曝光却伤害体验。</p>
+          <p><strong>可迁移经验：</strong>某头部内容平台会员转化有明显的内容驱动特征；体育用户也更可能在需要观看特定赛事、使用深度数据或连续跟踪比赛时产生付费意愿。</p>
+          <p><strong>高潜定义：</strong>近期多次使用受限数据模型、浏览会员权益关联功能、深度跟踪重点赛事，且具有稳定回访。具体阈值以历史付费概率、行为分位数和样本量校准。</p>
+          <p><strong>产品动作：</strong>把泛化会员宣传改为场景化价值表达，例如在用户主动进入高级数据模块时解释可获得的能力，在明确赛事观看需求出现时展示对应权益。</p>
+          <p><strong>实验：</strong>对高潜合格用户测试触达时机、权益表达和收费节点；实验分流前检查样本比例，期间监控串组和重复曝光。</p>
+          <p><strong>核心指标：</strong>每实验用户净收入、支付转化、权益使用、7/30 日留存和次月续费。</p>
+          <p><strong>护栏：</strong>快速退出、退款、投诉、核心赛事消费下降。</p>
+          <p><strong>产品判断：</strong>会员增长不是让更多人看到售卖页，而是在需求最明确的时刻，把权益价值讲清楚并兑现。</p>
+        </article>
+
+        <h3>三个案例如何选择</h3>
+        <table>
+          <thead>
+            <tr><th>对方关注方向</th><th>优先讲</th><th>你要突出</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>增长与留存</td><td>赛事流量转日常留存</td><td>用户关系沉淀、提醒策略、长期指标</td></tr>
+            <tr><td>核心产品体验</td><td>比赛详情页动态信息架构</td><td>任务导向、实时质量、不能唯时长</td></tr>
+            <tr><td>商业化与会员</td><td>会员权益与付费触达</td><td>需求触发、人群分层、收益与体验平衡</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="intro">
+        <h2>06. 定制自我介绍</h2>
+        <h3>90 秒版本</h3>
+        <div class="script">
+          您好，我叫候选人，有多年的数据分析和数据产品经验。过去几年我在某头部内容平台主要支持会员增长、
+          商业化和内容消费，工作重点不是单纯出报表，而是和产品、运营一起定义业务问题，搭建指标体系，
+          通过用户分层、链路分析和 A/B 实验判断策略是否真正带来长期价值。
+          <br><br>
+          我比较有代表性的项目是会员增长质量分析。我把收入增长拆到用户、内容、转化链路和长期质量，
+          并将付费转化、退款投诉、留存续费放在同一套评估框架中。专题结论进一步落到了付费墙、人群触达和
+          解约挽留实验上。这段经历让我形成了一个比较稳定的工作方式：从用户需求出发定义问题，用数据找到
+          可控杠杆，再通过实验验证，最后把有效方法沉淀为看板和复盘机制。
+          <br><br>
+          我对雷速感兴趣，是因为体育产品同时具有内容消费、实时数据服务、用户互动和会员商业化属性。
+          和音频相比，体育场景更强调时点、速度、准确性和赛事周期，这也是我希望深入的方向。我能带来的价值，
+          是把已有的内容消费和增长分析经验迁移过来，帮助团队更清楚地判断：用户为什么来、在哪个环节流失、
+          哪些产品策略既能提升转化，也不会损害长期体验。
+        </div>
+
+        <h3>5 分钟完整版结构</h3>
+        <table>
+          <thead>
+            <tr><th>时间</th><th>讲什么</th><th>控制重点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0:00-0:40</td><td>年限、平台、职责定位</td><td>业务型分析，不报流水账</td></tr>
+            <tr><td>0:40-2:40</td><td>会员增长质量项目</td><td>问题、框架、实验落地、业务价值</td></tr>
+            <tr><td>2:40-3:30</td><td>埋点与分析基础设施</td><td>证明复杂数据底座能力</td></tr>
+            <tr><td>3:30-4:20</td><td>为什么转体育、为什么雷速</td><td>产品吸引力与能力迁移</td></tr>
+            <tr><td>4:20-5:00</td><td>入职后可贡献什么</td><td>核心链路诊断、实验评估、指标机制</td></tr>
+          </tbody>
+        </table>
+
+        <h3>5 分钟完整话术</h3>
+        <div class="script">
+          您好，我叫候选人，有多年的数据分析和数据产品经验。我的职业经历主要分为三个阶段：
+          早期在某大型社区平台做数据产品和埋点治理，之后在某汽车互联网平台负责活动分析和数据链路建设，最近几年在某头部内容平台担任高级数据分析师，
+          主要支持会员增长、商业化和内容消费。
+          <br><br>
+          这几段经历让我形成了一个比较明确的定位：我不是只负责取数和出报表的分析师，而是更偏业务型的数据分析。
+          我通常会从业务目标和用户问题出发，和产品、运营一起把问题定义清楚，再通过指标拆解、用户分层、行为路径和
+          A/B 实验找到可以被产品控制的杠杆，最后持续跟进策略落地和复盘。
+          <br><br>
+          我比较有代表性的项目，是在某头部内容平台做的会员增长质量分析。当时业务面临的核心问题是，会员收入虽然是重要目标，
+          但收入变化背后可能来自不同来源：可能是新增付费用户增加，也可能是付费节点提前、优惠力度增加，或者短期活动带来的集中转化。
+          如果只看收入和支付转化率，很难判断增长是否健康，也容易出现短期转化提高、长期留存和续费质量下降的情况。
+          <br><br>
+          所以我没有直接从某一个页面或某一次活动入手，而是先把会员增长拆成四层。第一层是用户，包括高潜非会员、
+          深度内容用户、价格敏感用户和曾经会员；第二层是内容，判断哪些专辑、作者和消费场景真正产生付费需求；
+          第三层是转化链路，从 VIP 内容曝光、有效试听、付费墙触达一直看到支付成功；第四层是长期质量，
+          同时观察开通后的内容消费、7 天和 30 天留存、次月续费、退款和投诉。
+          <br><br>
+          在这套分析中，我比较重视口径能够被业务使用。例如，高潜用户不是主观贴标签，而是结合近期内容消费频次、
+          VIP 内容有效试听、同类内容连续消费、历史付费行为等信号，通过历史分位数和付费概率拐点校准。
+          这样产品在设计策略时，能够明确知道策略应该作用于谁，也能够在实验结束后解释为什么某些人群有效、某些人群无效。
+          <br><br>
+          专题结论后来落到了付费墙实验。我们没有对所有用户统一提前收费，而是根据用户意愿、内容兴趣和消费进度设计不同触达节点：
+          对已经形成明确内容需求的深度用户测试更及时的付费触达，对浅层试听或低意愿用户保留更温和的体验。
+          评估时也不只看支付转化，而是把每实验用户收入、退出、退款、后续内容消费和留存放在一起。
+          这个项目最终支撑了目标人群的策略灰度和后续迭代，也沉淀了会员增长质量看板、用户分层和实验复盘机制。
+          <br><br>
+          除了业务分析，我还有一块能力是数据底座和分析提效。在某大型社区平台期间，我参与了埋点管理和质量保障体系建设，
+          对需求评审、事件设计、开发测试、上线监控这条链路比较熟悉。在某头部内容平台，我又结合实际分析场景建设埋点知识库和事件语义能力，
+          希望解决分析师经常遇到的找不到埋点、字段含义不清、历史口径难复用等问题。这个经历让我在面对业务结果异常时，
+          会先判断数据是否可信，也能够和产品、研发讨论一项需求上线后应该如何被准确衡量。
+          <br><br>
+          我想加入雷速，是因为我认为雷速不是一个单纯的体育资讯产品，而是以实时赛事数据为底座，连接比分、
+          动画或视频直播、赛事资料、资讯、社区和会员服务的平台。用户在赛前需要判断关注什么，赛中需要快速准确地跟踪比赛，
+          赛后还会查看数据复盘、参与讨论并关注下一场赛事。这和我过去做内容消费、用户留存和会员商业化有可迁移的部分，
+          但体育产品又有更强的时点性、赛事周期和实时数据要求，对我来说是一个很有吸引力的业务场景。
+          <br><br>
+          我也清楚自己没有直接的体育行业经历，所以我不会简单把音频平台的方法照搬过来。我进入新业务时会先建立用户、
+          供给、核心链路和商业模式的业务地图，再结合产品体验、用户反馈和内部数据验证假设。对雷速来说，我会额外把
+          比分和关键事件的延迟、准确率、数据完整性以及重大赛事稳定性作为底层护栏，因为这些指标直接决定用户是否信任产品。
+          <br><br>
+          如果有机会加入，我希望主要贡献三个方面。第一，围绕赛前、赛中、赛后的核心链路建立清晰的指标和诊断框架，
+          帮助团队快速判断用户为什么来、在哪个环节流失。第二，围绕赛事关注与回访、比赛详情页体验、会员权益和商业化策略，
+          通过用户分层和实验评估找到真正有增量的产品动作。第三，把有效的分析方法沉淀成日常监控、实验评估和重大赛事复盘机制，
+          让数据更早地参与需求定义和产品决策。
+          <br><br>
+          总结来说，我能带来的不是对体育行业已有结论的简单复述，而是一套经过多个内容和社区业务验证的工作方法：
+          从用户需求出发定义问题，用可信数据识别机会，通过产品策略和实验验证收益，并同时关注长期体验。
+          我也希望借助雷速实时赛事产品的复杂场景，把自己从会员增长和内容分析进一步拓展到更完整的体育产品决策中。
+        </div>
+
+        <div class="callout note">
+          <strong>讲述提示</strong>
+          正常语速约 5 分钟。不要逐字背诵，记住五个段落锚点即可：
+          “职业定位 → 会员增长质量 → 数据底座 → 为什么雷速 → 入职贡献”。
+          如果面试官在项目部分主动追问，就停止自我介绍，优先回答对方的问题。
+        </div>
+
+        <div class="callout warning">
+          <strong>不要这样说</strong>
+          “我做过很多看板和取数”“我 SQL 很熟”“某头部内容平台和雷速都是内容平台，所以基本一样”。
+          这些表达会削弱你的业务判断力，或让人觉得你低估了体育产品的实时性和行业差异。
+        </div>
+      </section>
+
+      <section id="questions">
+        <h2>07. 产品总监高频追问与回答稿</h2>
+
+        <div class="question">
+          <h3>Q1：为什么想来雷速体育？</h3>
+          <p class="answer">
+            我看重的是雷速把实时赛事数据、直播内容、资讯、社区和会员放在同一条用户链路里。
+            这类产品既要求底层数据快、准、稳，又要解决用户留存和商业化问题。我的优势正好在后半段：
+            我长期做内容消费、会员转化、实验评估和指标机制；我希望进一步进入实时性更强的业务，
+            把这些能力用在赛前、赛中和赛后完整场景中。对我而言这不是简单换行业，而是把成熟方法迁移到更高实时要求的产品。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q2：你没有体育行业经验，为什么认为能做好？</h3>
+          <p class="answer">
+            我承认行业知识需要补齐，但数据分析最核心的能力是快速建立业务模型并验证。我的经历跨过社区、汽车和音频，
+            每次进入新业务都会先统一用户、供给、链路和结果指标，再通过产品体验、访谈和数据验证关键假设。
+            体育产品的特殊点我目前看到至少有三个：强赛事周期、强实时性、数据可信度是底线。
+            所以我不会直接套用音频结论，而会把延迟、错误率、赛事分层和赛前/赛中/赛后作为新增分析维度。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q3：你认为雷速的核心竞争力是什么？</h3>
+          <p class="answer">
+            从公开信息看，我会先提出一个待验证判断：核心是覆盖广泛的实时赛事数据能力，以及基于这些数据形成的
+            动画直播、资料库、资讯和分析服务。真正的壁垒不只是功能数量，而是用户在关键时刻能否持续相信数据又快又准，
+            并逐步形成赛事关注和回访习惯。内部还需要结合数据源、版权、用户结构和竞品表现进一步验证，我不会只凭外部体验下定论。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q4：速度和准确性冲突时怎么取舍？</h3>
+          <p class="answer">
+            不能用一个统一答案覆盖所有事件。我会按影响分级：比分、进球、红牌等高影响事件优先保证准确并采用多源校验，
+            必要时允许“待确认”状态；低风险信息可以先展示并快速更正。同时把 P50/P95 延迟、错误率、更正次数和用户投诉放在一起看。
+            产品目标不是绝对最快或零错误，而是在关键事件上建立明确、可解释、可监控的服务等级。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q5：如何提升留存？</h3>
+          <p class="answer">
+            我会先区分“赛事带来的自然回访”和“产品创造的额外留存”。路径上重点看三件事：
+            新用户是否快速找到关注赛事；比赛结束后是否沉淀球队、联赛或赛程关系；下一赛事节点能否通过用户可控的提醒促成回访。
+            策略评估不能只看次日留存，还要按赛事周期看下一赛日回访、7/30 日有效留存、人均跟踪赛事数，并监控通知关闭和卸载。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q6：你怎么判断一个产品需求值不值得做？</h3>
+          <p class="answer">
+            我会看五个方面：用户问题是否真实且高频；受影响用户和业务价值有多大；是否存在可控产品杠杆；
+            成本和风险如何；上线后能否被可靠验证。分析师的角色不是替产品经理拍板，而是把这些判断从意见变成证据，
+            明确假设、预期影响、指标和停止条件，帮助团队做更高质量的取舍。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q7：讲一个你和产品意见不一致的例子。</h3>
+          <p class="answer">
+            在会员项目中，业务容易把付费转化率当成唯一目标，但我发现部分策略虽然短期转化提高，后续退款、低活跃和续费质量可能变差。
+            我没有直接否定方案，而是把争议转成可验证问题：共同定义短期核心指标、体验护栏和长期质量指标，先灰度实验，
+            再按用户分层复盘。这样讨论从“谁的判断对”变成“什么条件下对哪些用户有效”。最终价值是建立了一套后续项目也能复用的评估方式。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q8：如果入职，前 90 天怎么开展工作？</h3>
+          <p class="answer">
+            前 30 天完成产品体验、业务地图、指标口径和关键协作人梳理，跟一遍重大赛事保障和一次版本复盘；
+            30 到 60 天选择一个高价值链路，比如赛事关注到回访或会员权益使用，完成现状诊断并与产品共建实验方案；
+            60 到 90 天推动首个策略验证，沉淀可复用的看板、分层和复盘模板。前三个月的目标不是先做一套很大的体系，
+            而是尽快交付一个可信结果；之后三个月再复制有效方法并形成稳定机制。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q9：你最大的优势是什么？</h3>
+          <p class="answer">
+            我的优势是能把分析往前和往后各走一步：往前参与问题定义，避免拿到需求就直接取数；往后推动策略验证和机制沉淀，
+            避免报告停在结论。我既做过会员增长和商业化，也做过埋点治理和数据产品，因此能同时理解业务目标和数据可信度。
+          </p>
+        </div>
+
+        <div class="question">
+          <h3>Q10：有什么失败或复盘？</h3>
+          <p class="answer">
+            早期我做分析时有过框架很完整，但业务落地较慢的情况。复盘后发现问题不是结论不对，而是没有在开始时和产品共同确定
+            决策节点、可控变量和验证成本。之后我会在项目启动时就写清楚：这个分析要支持哪个决策、谁来执行、最小验证动作是什么、
+            何时复盘。这个变化让我从“交付报告”逐步转向“交付决策和闭环”。
+          </p>
+        </div>
+      </section>
+
+      <section id="director">
+        <h2>08. 你应该反问产品总监</h2>
+        <p>反问的目标不是收集公司介绍，而是判断岗位真实目标，并让对方看到你的产品思考方式。</p>
+        <ol>
+          <li>未来 12 个月，产品团队最想解决的核心业务问题是什么，是用户增长、留存、核心赛事体验，还是商业化效率？</li>
+          <li>目前团队判断产品做得好不好，最核心的一个结果指标和两三个护栏指标分别是什么？</li>
+          <li>在赛事数据、直播内容、资讯和社区之间，当前最希望加强的用户链路是哪一段？</li>
+          <li>这个岗位入职 3 个月和 6 个月后，您认为怎样的结果可以算超出预期？</li>
+          <li>数据分析在产品决策中目前更多承担监控、诊断还是策略共建？您希望它未来发生什么变化？</li>
+          <li>产品、研发、运营和数据在重大赛事期间如何协作？复盘机制是怎样的？</li>
+        </ol>
+        <div class="callout note">
+          <strong>推荐只问 3 个</strong>
+          优先问“未来 12 个月核心问题”“岗位 3/6 个月成功标准”“数据参与决策的期待”。
+          这三个问题最能帮助你判断岗位，也最容易引出产品总监真正关心的事情。
+        </div>
+      </section>
+
+      <section id="six-month">
+        <h2>09. 入职后六个月工作安排</h2>
+        <p class="lead">
+          六个月的总体目标是完成三次角色升级：
+          从<strong>理解业务</strong>到<strong>交付可信结论</strong>，再到<strong>推动策略闭环并建立可复用机制</strong>。
+        </p>
+
+        <div class="callout">
+          <strong>六个月核心承诺</strong>
+          我不会用“做了多少报表”衡量工作，而会争取完成：
+          一张可信的核心业务地图、一个被产品采用的专题诊断、至少一次完整策略验证，
+          以及一套可以持续运行的指标监控与复盘机制。具体业务指标目标需在入职后结合基线与岗位职责共同确认。
+        </div>
+
+        <h3>阶段一：第 1 个月，建立业务认知与数据可信度</h3>
+        <div class="grid-2">
+          <article class="card blue">
+            <h4>关键动作</h4>
+            <ul>
+              <li>完整体验足球、篮球等核心赛事链路，覆盖赛前、赛中和赛后场景。</li>
+              <li>访谈产品、运营、研发、数据和商业化负责人，梳理目标、分工与决策节奏。</li>
+              <li>跟进一次重大赛事保障、一次版本上线和一次业务复盘。</li>
+              <li>核对核心指标口径、埋点覆盖、数据延迟和异常处理机制。</li>
+              <li>建立赛事类型、用户层级、端、渠道和生命周期等基础分析维度。</li>
+            </ul>
+          </article>
+          <article class="card green">
+            <h4>阶段交付物与验收</h4>
+            <ul>
+              <li><strong>业务地图：</strong>用户、赛事供给、核心链路、商业模式和协作关系。</li>
+              <li><strong>指标地图：</strong>北极星、驱动指标、质量护栏及负责人。</li>
+              <li><strong>数据体检清单：</strong>口径冲突、埋点缺口、延迟和数据质量风险。</li>
+              <li><strong>机会池：</strong>形成 3-5 个有证据、可验证的业务问题。</li>
+              <li><strong>验收标准：</strong>产品与数据团队认可口径，能够稳定回答大盘变化来源。</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3>阶段二：第 2-3 个月，完成第一个高价值业务闭环</h3>
+        <div class="grid-2">
+          <article class="card amber">
+            <h4>项目选择原则</h4>
+            <p>从机会池中选择一个“影响面较大、产品可控、验证周期合理”的链路，不同时铺开多个大专题。</p>
+            <p><strong>优先候选：</strong>赛事关注到下一赛日回访、比赛详情页核心模块效率、会员权益使用与付费转化。</p>
+          </article>
+          <article class="card blue">
+            <h4>完整工作步骤</h4>
+            <ol>
+              <li>明确业务问题、目标人群、决策点和成功标准。</li>
+              <li>通过漏斗、路径、分层和用户反馈定位主要损失环节。</li>
+              <li>与产品共建策略，估算影响范围、收益、成本与风险。</li>
+              <li>设计灰度或 A/B 实验，明确核心指标、护栏和停止条件。</li>
+              <li>复盘短期效果、用户结构和长期质量，输出放量或迭代建议。</li>
+            </ol>
+          </article>
+        </div>
+        <div class="callout success">
+          <strong>90 天应达到的状态</strong>
+          不仅能解释“发生了什么”，还能够独立完成“发现问题、提出策略、验证效果、推动复盘”的首个闭环；
+          产品团队开始在需求评审和版本复盘阶段主动邀请数据参与。
+        </div>
+
+        <h3>阶段三：第 4-5 个月，复制有效方法并扩大业务收益</h3>
+        <table>
+          <thead>
+            <tr><th>工作方向</th><th>具体动作</th><th>预期交付</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>策略分层</td>
+              <td>识别策略对新老用户、足球/篮球用户、热门/长尾赛事用户的差异，避免一刀切放量。</td>
+              <td>人群分层规则、适用范围、排除条件与收益测算。</td>
+            </tr>
+            <tr>
+              <td>场景复制</td>
+              <td>把首个项目中验证有效的方法迁移到相邻赛事、入口或用户阶段，并重新校准效果。</td>
+              <td>第二轮实验或灰度方案，以及跨场景复盘。</td>
+            </tr>
+            <tr>
+              <td>长期质量</td>
+              <td>补充 7/30 日留存、下一赛日回访、会员续费、退款投诉和通知关闭等长期指标。</td>
+              <td>短期收益与长期质量联动看板。</td>
+            </tr>
+            <tr>
+              <td>异常诊断</td>
+              <td>将赛程强弱、赛事供给、版本、渠道和数据质量纳入日常异动诊断。</td>
+              <td>标准诊断路径和重大赛事专项复盘模板。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>阶段四：第 6 个月，形成产品决策与分析机制</h3>
+        <div class="grid-3">
+          <article class="card blue">
+            <h4>指标机制</h4>
+            <p>统一关键指标定义、负责人、更新频率、预警方式和下钻维度，减少会议中重复核口径。</p>
+          </article>
+          <article class="card green">
+            <h4>实验机制</h4>
+            <p>建立实验准入、分流检查、收益评估、长期追踪和放量标准，让实验结论可复用。</p>
+          </article>
+          <article class="card amber">
+            <h4>复盘机制</h4>
+            <p>让重大赛事、重点版本和商业化策略都形成“目标、过程、结果、归因、下一步”的固定复盘。</p>
+          </article>
+        </div>
+
+        <h3>六个月成果验收表</h3>
+        <table>
+          <thead>
+            <tr><th>验收维度</th><th>六个月目标状态</th><th>如何证明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>业务认知</td><td>可以独立解释核心用户、赛事链路、商业模式和主要增长约束</td><td>业务地图、专题汇报、日常决策支持</td></tr>
+            <tr><td>可信数据</td><td>核心指标口径清楚，重点质量风险有监控与负责人</td><td>指标字典、质量清单、异常预警</td></tr>
+            <tr><td>业务结果</td><td>至少完成一个被验证和采用的产品策略闭环</td><td>实验或灰度结果、放量决策、长期追踪</td></tr>
+            <tr><td>协作价值</td><td>数据从事后取数前移到需求定义和方案评审</td><td>评审参与、产品反馈、共同项目数量</td></tr>
+            <tr><td>组织沉淀</td><td>形成可复用的指标、实验和复盘方法</td><td>模板、看板、机制运行记录</td></tr>
+          </tbody>
+        </table>
+
+        <h3>面试时的 2 分钟回答稿</h3>
+        <div class="script">
+          如果我入职，我会把前六个月分成四个阶段。第一个月的重点不是急着给方案，而是建立可信的业务和数据认知。
+          我会完整走一遍赛前、赛中、赛后链路，跟一次重大赛事保障和版本复盘，同时梳理核心指标、埋点质量和协作关系，
+          最终形成业务地图、指标地图和一个有证据的机会池。
+          <br><br>
+          第二到第三个月，我会从机会池里选一个影响较大、产品可控、验证周期合理的问题，例如赛事关注到下一赛日回访，
+          或会员权益使用链路，完成从诊断、策略共建到实验复盘的第一个闭环。前三个月最重要的结果，是让团队看到我不仅能解释数据，
+          还能帮助产品做决策并验证。
+          <br><br>
+          第四到第五个月，我会进一步做人群分层和场景复制，同时补齐 7 天、30 天留存以及体验护栏，避免只看到短期提升。
+          到第六个月，我希望把有效方法沉淀成稳定的指标监控、实验评估和重大赛事复盘机制。
+          六个月最终不是以报表数量验收，而是看是否交付了一个被采用的策略闭环，是否让核心决策更快、更可信。
+          具体业务增长目标，我会在入职后根据基线和团队优先级共同确定，不会在缺少内部数据时先承诺一个虚假数字。
+        </div>
+
+        <div class="callout warning">
+          <strong>被追问“能带来多少增长”时</strong>
+          不直接承诺固定提升比例。回答：“我可以承诺工作方法、交付节奏和验证闭环；具体增长目标需要基于当前基线、
+          样本规模、可控产品杠杆和赛事周期共同设定。入职第一个月会完成基线测算，并和业务确认可量化目标。”
+        </div>
+      </section>
+
+      <section id="plan">
+        <h2>10. 两天冲刺计划</h2>
+        <h3>第一天：建立产品事实与个人故事</h3>
+        <div class="timeline">
+          <div class="time">09:00-11:00</div>
+          <div class="task"><strong>完整体验产品。</strong>至少走一遍足球和篮球：赛事列表、详情、动画/直播、资料、资讯、社区、会员。记录 3 个优点、3 个问题、3 个待验证假设。</div>
+          <div class="time">11:00-12:00</div>
+          <div class="task"><strong>补体育业务常识。</strong>弄懂赛前/赛中/赛后用户任务，以及热门赛事与长尾赛事的差异。</div>
+          <div class="time">14:00-16:00</div>
+          <div class="task"><strong>练自我介绍。</strong>90 秒和 5 分钟各录音 3 次，删掉行业黑话和重复背景。</div>
+          <div class="time">16:00-18:00</div>
+          <div class="task"><strong>练两个原有项目。</strong>会员增长质量和埋点知识库，各准备 5 分钟陈述与 5 个追问。</div>
+          <div class="time">20:00-21:30</div>
+          <div class="task"><strong>手写产品判断。</strong>不看本材料，复述雷速用户、核心价值、北极星、最大机会和最大风险。</div>
+        </div>
+
+        <h3>第二天：用追问压力测试</h3>
+        <div class="timeline">
+          <div class="time">09:00-11:00</div>
+          <div class="task"><strong>模拟产品总监追问。</strong>重点练行业迁移、指标取舍、失败案例、跨团队冲突和 90 天计划。</div>
+          <div class="time">11:00-12:00</div>
+          <div class="task"><strong>准备产品案例。</strong>从本手册三个案例中选两个，要求 3 分钟内讲清假设、动作、验证和风险。</div>
+          <div class="time">14:00-15:30</div>
+          <div class="task"><strong>检查简历每个数字。</strong>明确计算口径、你的贡献、团队贡献、实验周期和是否可以被追问。</div>
+          <div class="time">15:30-17:00</div>
+          <div class="task"><strong>准备反问。</strong>选定 3 个问题，并准备根据对方回答继续追问一句。</div>
+          <div class="time">20:00-21:00</div>
+          <div class="task"><strong>最后一轮轻模拟。</strong>只看下方速记卡作答，结束后停止增加新材料，保证休息。</div>
+        </div>
+
+        <h3>自评打分表</h3>
+        <div class="scorecard" aria-label="面试自评打分表">
+          <div class="head">能力项</div><div class="head">1 分</div><div class="head">2 分</div><div class="head">3 分</div><div class="head">4 分</div>
+          <div>90 秒自我介绍</div><div>超时混乱</div><div>经历罗列</div><div>主线清楚</div><div>与雷速强关联</div>
+          <div>项目陈述</div><div>只有过程</div><div>有结论</div><div>有动作验证</div><div>能应对深挖</div>
+          <div>产品理解</div><div>功能列表</div><div>有用户场景</div><div>有取舍判断</div><div>能提出验证</div>
+          <div>行业短板</div><div>回避</div><div>承认无方案</div><div>有补齐方法</div><div>已形成观察</div>
+          <div>反问质量</div><div>没有</div><div>只问待遇流程</div><div>问目标协作</div><div>能继续追问</div>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <h2>11. 面试前检查与一页速记卡</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>面试前检查</h3>
+            <ul class="checklist">
+              <li>能在 90 秒内讲完自我介绍。</li>
+              <li>能用 5 分钟讲清会员增长质量项目。</li>
+              <li>简历中的每一个结果数字都有口径。</li>
+              <li>能解释自己、产品、研发和运营各自贡献。</li>
+              <li>能说出雷速的六类用户和三阶段场景。</li>
+              <li>能回答 DAU 下降 10% 的诊断路径。</li>
+              <li>能提出两个产品机会，并明确只是待验证假设。</li>
+              <li>准备好三个反问问题。</li>
+              <li>确认面试时间、方式、设备和网络。</li>
+            </ul>
+          </article>
+          <article class="card warning red">
+            <h3>临场禁区</h3>
+            <ul>
+              <li>不要把外部体验说成内部事实。</li>
+              <li>不要为了显得懂体育而硬讲不熟的赛事细节。</li>
+              <li>不要只谈转化，不谈退款、投诉、留存和信任。</li>
+              <li>不要把所有问题都回答成“做个 A/B 实验”。</li>
+              <li>不要虚构用户规模、收入、转化率或竞品数据。</li>
+              <li>不要把分析师描述成被动接需求和出报表的人。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="quick-card">
+          <h3>最后 10 分钟只看这里</h3>
+          <ol>
+            <li><strong>我的定位：</strong>连接用户行为、产品策略和商业结果的业务型数据分析师。</li>
+            <li><strong>雷速本质：</strong>以实时赛事数据为底座的体育信息、内容、互动和商业化平台。</li>
+            <li><strong>用户链路：</strong>赛前做决策，赛中跟进展，赛后看复盘并进入下一场。</li>
+            <li><strong>产品底线：</strong>比分和关键事件的快、准、稳，信任优先。</li>
+            <li><strong>增长难题：</strong>把赛事波峰转成球队、联赛和赛程关系带来的日常留存。</li>
+            <li><strong>商业化：</strong>在明确需求场景中表达会员价值，用长期指标和体验护栏评估。</li>
+            <li><strong>我的证据：</strong>会员增长质量、付费墙、挽留实验、埋点和知识库。</li>
+            <li><strong>短板防守：</strong>不硬套音频经验，用业务地图、体验、访谈和数据快速补齐。</li>
+            <li><strong>回答结构：</strong>问题、判断、动作、验证、结果、复盘。</li>
+            <li><strong>六个月：</strong>认知与口径、首个闭环、策略复制、指标实验复盘机制。</li>
+            <li><strong>反问：</strong>未来 12 个月目标、岗位成功标准、数据参与产品决策的期待。</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="sources">
+        <h2>12. 资料来源与可信度说明</h2>
+        <ul class="sources">
+          <li>
+            <a href="https://www.leisu.com/">雷速体育官网首页</a>：
+            当前赛事入口、足球/篮球分类、积分榜、资讯和赛事服务形态。
+          </li>
+          <li>
+            <a href="https://www.leisu.com/app">雷速体育客户端下载页</a>：
+            动画直播、3000+赛事、资讯、社区、资料库、数据模型和会员权益等公开产品介绍。
+          </li>
+          <li>
+            <a href="https://m.leisu.com/aboutus">雷速体育公司简介</a>：
+            官方对即时直播、赛事数据分析、资讯情报和机构数据服务的定位。
+          </li>
+          <li>
+            <a href="https://apps.apple.com/us/app/%E9%9B%B7%E9%80%9F%E4%BD%93%E8%82%B2-%E8%B6%B3%E7%90%83%E7%AF%AE%E7%90%83%E4%BD%93%E8%82%B2%E8%BF%B7%E5%BF%85%E5%A4%87/id1093423753">Apple App Store 产品页</a>：
+            公开功能、版本更新、订阅与应用信息。商店地区不同，价格仅作页面信息，不用于业务判断。
+          </li>
+          <li>
+            <a href="./metrics.html">《雷速体育指标体系》</a>：
+            北极星、指标树、异常诊断、商业化与护栏口径的详细版本。
+          </li>
+        </ul>
+        <p class="small">
+          研究日期：2026-06-09。官方页面用于确认公开产品事实；用户分层、产品机会、北极星和案例方案均为基于公开信息的分析推断，
+          面试时应表述为“待内部数据验证的假设”。未获得本次岗位的准确 JD，因此本手册按“产品总监面试高级数据分析/增长与商业化相关岗位”准备。
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
