@@ -97,6 +97,13 @@
       "path": "./membership-renewal-levers.html",
       "category": "面试准备",
       "updated": "2026-06-16"
+    },
+    {
+      "title": "咪咕视讯 · 数据科学家面试对答稿",
+      "description": "基于 BOSS 直聘 JD 逐条匹配，覆盖公司研究、5 条职责话术、3 分钟自我介绍、8 道高频追问、体育分析框架和反问话术。",
+      "path": "./migu-interview-guide.html",
+      "category": "面试准备",
+      "updated": "2026-06-16"
     }
   ]
 }
