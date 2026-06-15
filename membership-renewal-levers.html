@@ -251,6 +251,83 @@
 
     .highlight-row td { background: #edf8f3; }
 
+    /* 第二本书深挖样式 */
+    .second-book-section {
+      margin-top: 20px;
+      padding: 22px 26px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f0f9f5, #e8f5ee);
+      border: 1px solid #cce6da;
+    }
+    .second-book-section h3 {
+      margin: 0 0 12px;
+      color: #1a5e3f;
+      font-size: 17px;
+    }
+    .sb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .sb-card {
+      padding: 12px 14px;
+      border-radius: 9px;
+      background: #fff;
+      border: 1px solid #d4eadf;
+      font-size: 13px;
+    }
+    .sb-card h4 {
+      margin: 0 0 5px;
+      color: #1a5e3f;
+      font-size: 14px;
+    }
+    .sb-card p { margin: 0; color: #3a5e4f; font-size: 12px; line-height: 1.6; }
+    .signal-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .signal-item {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    .signal-item strong { display: block; font-size: 13px; margin-bottom: 4px; }
+    .signal-red { background: #fdeeec; border: 1px solid #f0c8c2; }
+    .signal-orange { background: #fff5eb; border: 1px solid #efd5bc; }
+    .signal-yellow { background: #fefce8; border: 1px solid #e6dba8; }
+    .signal-red strong { color: #96281b; }
+    .signal-orange strong { color: #8b4b1a; }
+    .signal-yellow strong { color: #7d6e1a; }
+    .flow-chart {
+      padding: 14px 16px;
+      border-radius: 9px;
+      background: #fff;
+      border: 1px solid #d4eadf;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.9;
+      margin: 10px 0;
+      white-space: pre;
+    }
+    .flow-chart .arrow { color: #28785c; }
+    .flow-chart .label { color: #1a5e3f; font-weight: 700; }
+    .flow-chart .dim { color: #888; }
+    .anti-pattern {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #fdeeec;
+      border: 1px solid #f0c8c2;
+      font-size: 12px;
+      color: #96281b;
+      margin: 6px 0;
+    }
+    .anti-pattern strong { color: #6e1a12; }
+    .timeline-table td { font-size: 12px; padding: 6px 10px; }
+    .timeline-table th { font-size: 12px; padding: 7px 10px; }
+
     @media (max-width: 720px) {
       main { width: min(100% - 16px, 980px); margin-top: 8px; }
       header { padding: 30px 23px; border-radius: 12px; }
@@ -472,9 +549,168 @@
       </div>
     </div>
 
-    <!-- 综合矩阵 -->
+    <!-- 第二本书深挖 -->
     <section>
-      <h2>二、杠杆选择矩阵</h2>
+      <h2>𖦹 内容杠杆实操指南：如何让用户找到"第二本书"</h2>
+      <div class="summary">
+        <strong>核心问题：</strong>用户为一部专辑/一个主播购买会员，听完后活跃断崖式下降，然后解约。这不是推荐不准，而是平台没有完成"内容承接"——告诉用户<strong>听完这本之后该听什么</strong>。以下是四层执行框架。
+      </div>
+
+      <h3>1️⃣ 判断层：什么时候该推"第二本书"？</h3>
+      <p>推早了用户觉得烦，推晚了已经流失。需要精准识别"内容消费完结"的信号。</p>
+      <div class="signal-box">
+        <div class="signal-item signal-red">
+          <strong>🔴 强信号</strong>
+          专辑进度 ≥ 90%<br>近 7 天无新增收听该专辑<br><span style="color:#888;">误判率：低</span>
+        </div>
+        <div class="signal-item signal-orange">
+          <strong>🟠 中信号</strong>
+          同一主播内容覆盖率 > 70%<br>日均收听该主播下降 > 50%<br><span style="color:#888;">误判率：中</span>
+        </div>
+        <div class="signal-item signal-yellow">
+          <strong>🟡 弱信号</strong>
+          周收听时长环比下降 > 40%<br>连续 2 周下降，无新内容引入<br><span style="color:#888;">误判率：高</span>
+        </div>
+      </div>
+
+      <p><strong>关键指标定义：</strong></p>
+      <div class="flow-chart"><span class="label">内容完结度</span> = 已听集数 / 专辑总集数
+<span class="label">完结后活跃度</span> = 听完后 7 天日均时长 / 听完前 7 天日均时长
+<span class="label">第二本书承接率</span> = 听完后 7 天内开始新专辑的用户 / 听完用户总数</div>
+
+      <p><strong>判断流程：</strong></p>
+      <div class="flow-chart">用户收听专辑第 N 集
+   ┃
+   ▼
+<span class="label">实时检测</span>：当前专辑进度 ≥ 80%？
+   ┣━━ <span class="label">是</span> → 缓存"第二本书"候选集
+   ┗━━ <span class="label">否</span> → 继续跟踪
+
+听完专辑最后一集后 <span class="label">24 小时内</span>：
+   ┣━━ <span class="label">用户主动搜索了新内容</span> <span class="dim">→ 自然承接，不干预</span>
+   ┣━━ <span class="label">重复收听已完结内容</span> <span class="dim">→ 强推荐信号：他不知道听什么了</span>
+   ┗━━ <span class="label">48 小时无活跃</span> <span class="dim">→ 推送第二本书推荐</span></div>
+
+      <h3>2️⃣ 推荐层：推什么才是"第二本书"？</h3>
+      <p>不是"猜你喜欢"的泛推荐，而是<strong>场景化的内容承接</strong>。按优先级排序：</p>
+      <div class="sb-grid">
+        <div class="sb-card">
+          <h4>🥇 同主播/同创作者</h4>
+          <p>听完 A 主播的《三国演义》→ 推荐 A 主播的《水浒传》。用户信任的是"人"，承接率最高。<br><strong>预期打开率：35-45%</strong></p>
+        </div>
+        <div class="sb-card">
+          <h4>🥈 同题材/同品类</h4>
+          <p>听完《三体》→ 推荐同品类科幻《流浪地球》。用户展示了题材偏好，横向拓展最具效率。<br><strong>预期打开率：20-30%</strong></p>
+        </div>
+        <div class="sb-card">
+          <h4>🥉 同情绪/同场景</h4>
+          <p>睡前听《解忧杂货店》→ 推荐《小王子》而非《鬼吹灯》。情绪匹配比题材匹配在特定场景下更关键。<br><strong>预期打开率：15-20%</strong></p>
+        </div>
+        <div class="sb-card">
+          <h4>🎲 社交推荐</h4>
+          <p>"听这本书的用户还听了..."、"你最常听的主播推荐了..."。长期价值高，能带来品类突破。<br><strong>预期打开率：10-15%</strong></p>
+        </div>
+      </div>
+
+      <div class="anti-pattern">
+        <strong>⚠️ 反模式——绝对不要做的推荐：</strong><br>
+        • 用户听完言情小说 → 推财经知识课程 ❌ <span style="color:#666;">场景和心态完全不匹配</span><br>
+        • 用户听完一本小说 → 推同一本小说的其他版本 ❌ <span style="color:#666;">用户已经听完了</span><br>
+        • 用户听完长篇 → 推超短内容 ❌ <span style="color:#666;">用户当前想要同量级的内容</span>
+      </div>
+
+      <h3>3️⃣ 呈现层：怎么让用户"看到并点开"？</h3>
+      <p>音频的推荐比视频、文字更难——用户不能"扫一眼"就判断内容质量。</p>
+
+      <p><strong>推荐时机对比：</strong></p>
+      <table class="timeline-table">
+        <tr><th>时机</th><th>预期打开率</th><th>原理</th></tr>
+        <tr class="highlight-row"><td><strong>✅ 播放完成页</strong>（听完自动暂停）</td><td><strong>40%+</strong></td><td>此刻用户的心态是"接下来听什么"</td></tr>
+        <tr><td>专辑详情页底部</td><td>20-25%</td><td>用户还在浏览模式</td></tr>
+        <tr><td>首页推荐流</td><td>&lt; 5%</td><td>与泛推荐混合，注意力被稀释</td></tr>
+      </table>
+
+      <p><strong>播放完成页推荐卡片设计：</strong></p>
+      <div class="flow-chart">━━━━━━━━━━━━━━━━━━━━━━
+ 🎉 你已听完《三体》全本
+
+ 接下来可以听：
+ ┌─────────────────────────┐
+ │ 📖 《流浪地球》           │
+ │    刘慈欣 · 科幻 · 42 集  │
+ │    "听完三体，别错过同作者  │
+ │     的另一部经典"           │
+ │                          │
+ │    [ 立即开始 > ]          │
+ └─────────────────────────┘
+ ┌─────────────────────────┐
+ │ 📖 《太空漫游四部曲》      │
+ │    A.C.克拉克 · 科幻     │
+ │    "读完三体不过瘾？       │
+ │     试试硬科幻的原点"       │
+ │                          │
+ │    [ 立即开始 > ]          │
+ └─────────────────────────┘
+━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+      <p><strong>推荐呈现的三个关键设计：</strong></p>
+      <ul>
+        <li><strong>一句话推荐理由：</strong>"听完三体，别错过刘慈欣的另一部经典" vs 空白推荐（打开率差 <strong>2-3 倍</strong>）</li>
+        <li><strong>试听片段：</strong>自动播放推荐内容的第 1 集前 30 秒，让用户"听一耳朵"再做决定</li>
+        <li><strong>进度关联：</strong>"你听完了《三体》393 集，这部只需要 42 集"——降低心理负担</li>
+      </ul>
+
+      <p><strong>频次控制：</strong></p>
+      <table class="timeline-table">
+        <tr><th>时间</th><th>触达方式</th></tr>
+        <tr class="highlight-row"><td>听完后立即</td><td>播放完成页内推荐卡片（最自然、最高效）</td></tr>
+        <tr><td>24 小时无新内容</td><td>系统通知："三体之后，这些好书等你发现"</td></tr>
+        <tr><td>72 小时活跃持续下降</td><td>站内推荐位加强 + 可选短信（高价值用户）</td></tr>
+        <tr><td>超过 7 天无活跃</td><td>降级为常规召回，不再强调"第二本书"</td></tr>
+      </table>
+
+      <h3>4️⃣ 评估层：效果好不好？</h3>
+
+      <p><strong>核心指标：</strong></p>
+      <div class="flow-chart"><span class="label">承接率</span> = 听完后 7 天内开始新专辑的用户 / 听完用户总数
+<span class="label">增量续费率</span> = 被承接用户续费率 − 未被承接用户续费率 <span class="dim">（需控制 confounder）</span>
+<span class="label">推荐转化路径</span> = 曝光 → 试听(15s) → 持续(3集+) → 收藏/订阅</div>
+
+      <p><strong>分层评估基准：</strong></p>
+      <table class="timeline-table">
+        <tr><th>用户类型</th><th>承接率基准</th><th>优化目标</th><th>核心关注</th></tr>
+        <tr><td>单品类用户（只听小说）</td><td>20-25%</td><td>→ 35%</td><td>同品类承接深度</td></tr>
+        <tr class="highlight-row"><td>跨品类用户</td><td>35-40%</td><td>→ 50%</td><td>品类宽度 + 深度</td></tr>
+        <tr><td>新会员（&lt; 3 个月）</td><td>15-20%</td><td>→ 30%</td><td>第一次"听完"后的承接</td></tr>
+      </table>
+
+      <p><strong>A/B 实验设计：</strong></p>
+      <div class="flow-chart"><span class="label">实验组：</span>专辑听完后展示"第二本书"推荐卡片
+<span class="label">对照组：</span>只显示"重播"按钮
+
+<span class="label">分流单元：</span>用户级随机
+<span class="label">核心指标：</span>听完后 7 天新专辑收听率
+<span class="label">护栏指标：</span>首页推荐点击率 <span class="dim">（确保不抢占其他推荐位）</span>
+<span class="label">样本周期：</span>2 周 <span class="dim">（确保足够多的"听完"事件）</span>
+<span class="label">追踪周期：</span>听完后 28 天 <span class="dim">（看完整续费转化）</span></div>
+
+      <h3>5️⃣ 作为分析师，你的贡献边界</h3>
+      <table class="timeline-table">
+        <tr><th>工作内容</th><th>你的角色</th><th>协作方</th></tr>
+        <tr class="highlight-row"><td>诊断问题——量化"第二本书缺失"的流失影响</td><td><strong>主导</strong></td><td>—</td></tr>
+        <tr class="highlight-row"><td>信号定义——内容完结度、承接率等指标口径</td><td><strong>主导</strong></td><td>产品、算法</td></tr>
+        <tr><td>推荐策略设计——优先级、推荐时机、频次</td><td><strong>参与</strong></td><td>产品、推荐算法</td></tr>
+        <tr class="highlight-row"><td>效果评估——A/B 实验、指标归因</td><td><strong>主导</strong></td><td>研发</td></tr>
+        <tr><td>推荐算法调优</td><td>不负责</td><td>算法工程师</td></tr>
+      </table>
+
+      <div class="summary" style="margin-top:14px;">
+        <strong>面试金句：</strong>"第二本书的本质不是一个推荐算法问题，而是用户听完一个内容后的<strong>决策时刻</strong>——TA 是继续留在这个平台上，还是离开。推荐的准确率当然重要，但更关键的是：<strong>在正确的时机、用正确的形式、展示正确的内容</strong>。我把大部分精力花在'正确的时机'和'正确的形式'上——什么时候推、怎么推，这些决定了推荐算法能不能发挥作用。"
+      </div>
+    </section>
+
+    <section>
+      <h2>三、杠杆选择矩阵</h2>
       <table>
         <tr>
           <th>杠杆</th>
@@ -529,7 +765,7 @@
 
     <!-- 面试问答 -->
     <section>
-      <h2>三、高频追问与推荐回答</h2>
+      <h2>四、高频追问与推荐回答</h2>
 
       <div class="qa">
         <div class="q">1. 5 个杠杆中哪个 ROI 最高？</div>
@@ -574,7 +810,7 @@
 
     <!-- 面试表达注意事项 -->
     <section>
-      <h2>四、面试表达注意事项</h2>
+      <h2>五、面试表达注意事项</h2>
       <div class="warning">
         <ul>
           <li>不要说"用户不续费是因为贵"，这句话在面试中暴露你<strong>没有深入分析过续费问题</strong>。要说"用户不续费的根因需要区分内容问题和价格问题，数据分析发现 70% 是内容问题在先"。</li>
@@ -588,7 +824,7 @@
 
     <!-- 简历版表述 -->
     <section>
-      <h2>五、简历版表述</h2>
+      <h2>六、简历版表述</h2>
       <ul>
         <li><strong>续费杠杆分析：</strong>系统梳理喜马拉雅会员续费的 5 大杠杆（内容/价格/产品体验/行为/时间），明确各杠杆的成本结构、见效周期和适用边界。核心洞察：70% 解约是内容问题在先，价格问题在后；短期 ROI 最优为产品体验杠杆，长期 ROI 最优为内容杠杆。</li>
         <li><strong>协同落地：</strong>基于杠杆矩阵，推动产品、运营、内容团队分优先级落地。价格杠杆方面主导 Uplift Model 建模与优惠券精准投放；产品体验方面参与挽留弹窗策略设计与 A/B 实验；内容杠杆方面诊断"第二本书"缺失导致的流失模式并提出改进方向。</li>
