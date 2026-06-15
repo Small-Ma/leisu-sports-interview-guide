@@ -36,6 +36,13 @@
       "updated": "2026-06-16"
     },
     {
+      "title": "喜马拉雅会员专题分析项目库 · 8 个项目面试稿",
+      "description": "8 个会员专题分析项目的完整面试对答稿，覆盖大会员付费墙实验、续费杠杆、流失归因、第二本书内容承接、会员指标体系、LTV 分析等核心项目。",
+      "path": "./membership-project-library.html",
+      "category": "面试准备",
+      "updated": "2026-06-16"
+    },
+    {
       "title": "内容会员流失归因与分层挽留",
       "description": "从流失原因识别、用户分层、策略匹配到随机实验和增量净收入评估的公开脱敏版面试对答稿。",
       "path": "./membership-churn-retention-interview-guide.html",
