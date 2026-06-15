@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uplift Model 增益模型 - 会员优惠券场景面试对答稿</title>
+  <style>
+    :root {
+      --ink: #1d2935;
+      --muted: #617080;
+      --line: #dce3e9;
+      --paper: #fff;
+      --bg: #eef2f5;
+      --navy: #173f5f;
+      --blue: #2676a5;
+      --green: #28785c;
+      --orange: #ad5b22;
+      --soft-blue: #edf6fb;
+      --soft-green: #edf8f3;
+      --soft-orange: #fff5eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(980px, calc(100% - 30px));
+      margin: 22px auto 46px;
+    }
+
+    header {
+      padding: 42px 46px;
+      border-radius: 17px;
+      color: #fff;
+      background: linear-gradient(135deg, #123650, #216482 68%, #28785c);
+      box-shadow: 0 15px 36px rgba(29, 57, 78, 0.17);
+    }
+
+    header small {
+      font-weight: 700;
+      letter-spacing: .12em;
+      opacity: .72;
+    }
+
+    h1 {
+      margin: 8px 0 12px;
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255,255,255,.86);
+    }
+
+    section {
+      margin-top: 17px;
+      padding: 28px 32px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+      box-shadow: 0 7px 22px rgba(35, 55, 72, .055);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--navy);
+      font-size: 23px;
+    }
+
+    h3 {
+      margin: 22px 0 7px;
+      color: #263f53;
+      font-size: 16px;
+    }
+
+    p { margin: 7px 0; }
+    ul, ol { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { color: #173f5f; }
+
+    .summary {
+      padding: 18px 20px;
+      border-left: 4px solid var(--blue);
+      border-radius: 4px 10px 10px 4px;
+      background: var(--soft-blue);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .flow span {
+      padding: 11px 7px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .card {
+      padding: 15px 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fafcfd;
+    }
+
+    .card h3 { margin: 0 0 5px; font-size: 15px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .green { background: var(--soft-green); border-color: #cce6da; }
+    .orange { background: var(--soft-orange); border-color: #efd5bc; }
+    .red-card { background: #fdeeec; border-color: #f0c8c2; }
+    .blue-card { background: var(--soft-blue); border-color: #c5dceb; }
+
+    .script {
+      padding: 21px 23px;
+      border-radius: 11px;
+      color: #eaf5fa;
+      background: linear-gradient(135deg, #173f5f, #245e77);
+    }
+
+    .script p { margin: 9px 0; }
+    .script strong { color: #fff; }
+
+    .qa {
+      margin: 0 0 16px;
+      padding: 14px 16px;
+      border-radius: 9px;
+      background: #f5f8fa;
+    }
+
+    .qa .q {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: 750;
+    }
+
+    .qa .a {
+      color: #3e5364;
+      font-size: 14px;
+    }
+
+    .formula {
+      margin: 13px 0;
+      padding: 14px 18px;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--navy);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .code-block {
+      margin: 12px 0;
+      padding: 16px 18px;
+      border-radius: 9px;
+      background: #1d2935;
+      color: #d4e6f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .code-block .key { color: #c792ea; }
+    .code-block .str { color: #c3e88d; }
+    .code-block .cmt { color: #546e7a; font-style: italic; }
+    .code-block .fn { color: #82aaff; }
+    .code-block .num { color: #f78c6c; }
+
+    .warning {
+      padding: 14px 17px;
+      border-left: 4px solid var(--orange);
+      border-radius: 4px 9px 9px 4px;
+      background: var(--soft-orange);
+    }
+
+    .matrix-label {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 1px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .tag-blue { background: #dce8f2; color: #173f5f; }
+    .tag-green { background: #d4eadf; color: #1b5e3f; }
+    .tag-orange { background: #f0dcc9; color: #8b4b1a; }
+    .tag-red { background: #f4d6d2; color: #96281b; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    th {
+      padding: 10px 12px;
+      background: var(--navy);
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+    }
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child { border-radius: 0 8px 0 0; }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f5f8fa; }
+
+    @media (max-width: 720px) {
+      main { width: min(100% - 16px, 980px); margin-top: 8px; }
+      header { padding: 30px 23px; border-radius: 12px; }
+      section { padding: 23px 19px; }
+      .grid2, .flow, .grid4 { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; margin: 0; }
+      header, section { box-shadow: none; break-inside: avoid; }
+      section { margin-top: 10px; }
+      @page { size: A4; margin: 12mm; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <small>INTERVIEW PLAYBOOK · 数据分析方法</small>
+      <h1>Uplift Model（增益模型）在会员优惠券场景的应用</h1>
+      <p>把优惠券发放从"全量推送"或"基于响应率的定向推送"升级为"基于增量因果的精准投放"，用最少的补贴成本撬动最大的增量购买。本节覆盖建模原理、四象限决策、实验评估和面试高频追问。</p>
+    </header>
+
+    <section>
+      <h2>一、核心逻辑</h2>
+      <div class="flow">
+        <span>业务痛点</span>
+        <span>因果框架</span>
+        <span>四象限分层</span>
+        <span>精准触达</span>
+        <span>实验验证</span>
+        <span>ROI 优化</span>
+      </div>
+      <div class="summary">
+        <strong>一句话价值：</strong>传统响应模型回答"谁最可能购买"，Uplift Model 回答"谁会因为收到券才购买"。核心公式是 <strong>Uplift(t) = P(购买 | 发券) − P(购买 | 不发券)</strong>，目标是找到 Persuadables（易感人群），避免对 Sure Things（自来熟）和 Lost Causes（沉睡户）浪费预算。
+      </div>
+    </section>
+
+    <section>
+      <h2>二、3 分钟完整讲述</h2>
+      <div class="script">
+        <p><strong>背景：</strong>某电商平台希望提升会员复购率，营销预算中有大量优惠券成本。原有策略是按 RFM 打分，得分高的用户多发券、得分低的少发。问题是发券后增量购买并不显著——高价值用户即使不给券也会复购，而低价值用户给了券也不买，大量预算被浪费。</p>
+        <p><strong>任务：</strong>我主要负责业务问题定义、因果分析方法选型、特征工程、模型评估和实验设计，并与运营团队一起确定分群成本策略。</p>
+        <p><strong>分析：</strong>我选择了 Uplift Model 而非传统响应模型，因为我们的目标不是"预测购买"，而是"衡量发券的因果效应"。我使用 X-Learner（CausalML 库）建模，特征包括历史客单价、最近消费间隔、券使用率、会员等级和品类偏好。模型输出每个用户的 uplift score，代表"发券带来的购买概率增量"。将用户按 uplift 降序排列后，通过 Qini 曲线评估模型区分度。</p>
+        <p><strong>策略：</strong>根据 uplift score 将用户分为四象限：<strong>Persuadables（高增量）</strong>发高折扣券；<strong>Sure Things（低增量低风险）</strong>不发券，节省成本；<strong>Lost Causes（低增量高风险）</strong>不发券或改发低成本的触达方式；<strong>Sleeping Dogs（负增量）</strong>绝对不打扰，避免用户体验受损。</p>
+        <p><strong>实验：</strong>设计随机 A/B 测试——实验组使用 Uplift Model 定向策略，对照组使用传统的 RFM 定向策略。评估指标包括增量购买率、优惠券核销率、ROI 和增量净收入。</p>
+        <p><strong>结果：</strong>同等营销预算下，Uplift 策略相比 RFM 策略 ROI 从 1.5 提升至 3.2。Persuadables 的发券转化率达 18%（对照组同人群仅 6%），同时 Sure Things 的券成本降低 70%，整体增量净收入提升约 40%。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>三、用户四象限决策矩阵</h2>
+      <div class="summary" style="margin-bottom:14px;">
+        <strong>核心洞察：</strong>Uplift Model 输出的不是购买概率，而是<strong>因果效应增量</strong>。四象限按 uplift score 和基础购买率两个维度划分。
+      </div>
+      <table>
+        <tr>
+          <th style="width:20%">类型</th>
+          <th style="width:25%">行为特征</th>
+          <th style="width:30%">定义</th>
+          <th style="width:25%">策略行动</th>
+        </tr>
+        <tr>
+          <td><span class="matrix-label" style="background:#28785c;"></span><strong>Persuadables</strong><br><span class="tag tag-green">易感人群</span></td>
+          <td>不发不买，发了才买</td>
+          <td>购买概率 = 低（不发）→ 高（发），增量最大</td>
+          <td><strong>✅ 优先发高折扣券</strong><br>ROI 最高的目标人群</td>
+        </tr>
+        <tr>
+          <td><span class="matrix-label" style="background:#173f5f;"></span><strong>Sure Things</strong><br><span class="tag tag-blue">自来熟</span></td>
+          <td>发不发都买</td>
+          <td>购买概率 = 高（不发）→ 高（发），增量≈0</td>
+          <td><strong>❌ 不发券</strong><br>节省成本，避免浪费</td>
+        </tr>
+        <tr>
+          <td><span class="matrix-label" style="background:#ad5b22;"></span><strong>Lost Causes</strong><br><span class="tag tag-orange">沉睡户</span></td>
+          <td>发不发都不买</td>
+          <td>购买概率 = 低（不发）→ 低（发），增量≈0</td>
+          <td><strong>❌ 不发券</strong><br>或换低成本触达方式</td>
+        </tr>
+        <tr>
+          <td><span class="matrix-label" style="background:#96281b;"></span><strong>Sleeping Dogs</strong><br><span class="tag tag-red">反效果</span></td>
+          <td>发了反而反感不买</td>
+          <td>购买概率 = 中（不发）→ 低（发），增量为负</td>
+          <td><strong>🔴 绝对不打扰</strong><br>保护用户体验</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>四、建模方法对比</h2>
+      <table>
+        <tr>
+          <th>方法</th>
+          <th>原理</th>
+          <th>优点</th>
+          <th>不足</th>
+          <th>适用场景</th>
+        </tr>
+        <tr>
+          <td><strong>Two-Model</strong></td>
+          <td>分别训练实验组和对照组两个模型，相减得 uplift</td>
+          <td>简单直观、易实现</td>
+          <td>误差累积、模型偏差大</td>
+          <td>快速原型验证</td>
+        </tr>
+        <tr>
+          <td><strong>Class Transformation</strong></td>
+          <td>将 uplift 转化为单目标变量，一个模型拟合</td>
+          <td>单模型、效率高</td>
+          <td>要求实验组样本 50%</td>
+          <td>分流均衡场景</td>
+        </tr>
+        <tr>
+          <td><strong>S-Learner</strong></td>
+          <td>单模型 + treatment 特征</td>
+          <td>利用全量数据、实现简单</td>
+          <td>容易忽略 treatment 交互</td>
+          <td>特征少时可用</td>
+        </tr>
+        <tr>
+          <td><strong>T-Learner</strong></td>
+          <td>分别训练实验组和对照组模型</td>
+          <td>灵活、可复用 base model</td>
+          <td>同 Two-Model</td>
+          <td>两组数据量充足</td>
+        </tr>
+        <tr>
+          <td><strong>X-Learner</strong></td>
+          <td>先 T-Learner 估算，再对残差建模校正</td>
+          <td>⚠️ <strong>推荐</strong>：效果好、稳健</td>
+          <td>计算复杂度稍高</td>
+          <td>生产环境首选</td>
+        </tr>
+      </table>
+      <div class="code-block">
+<span class="cmt"># Python 示例 — 使用 CausalML 的 X-Learner</span>
+<span class="key">from</span> causalml.inference.meta <span class="key">import</span> <span class="fn">XGBTLearner</span>
+<span class="key">from</span> causalml.metrics <span class="key">import</span> <span class="fn">auuc_score</span>
+
+learner = <span class="fn">XGBTLearner</span>()
+uplift_scores = learner.fit_predict(
+    X,           <span class="cmt"># 用户特征 (RFM + 行为)</span>
+    T,           <span class="cmt"># 是否发券 (0/1, 需要随机分流数据)</span>
+    Y            <span class="cmt"># 是否购买 (0/1)</span>
+)
+
+<span class="cmt"># 评估：AUUC (Area Under Uplift Curve)</span>
+result = <span class="fn">auuc_score</span>(y, uplift_scores, treatment=T)
+      </div>
+    </section>
+
+    <section>
+      <h2>五、关键数据要求与 A/B 测试设计</h2>
+      <div class="grid2">
+        <div class="card blue-card">
+          <h3>数据前提</h3>
+          <p>必须有<strong>随机 A/B 测试数据</strong>作为训练集，包含 treatment（是否发券）和 outcome（是否购买/消费金额）。没有随机数据就无法识别因果效应——Uplift Model 不是纯粹的预测模型，它衡量的是增量。</p>
+        </div>
+        <div class="card green">
+          <h3>实验设计要点</h3>
+          <p>以用户为随机单元，实验组用 Uplift 策略，对照组用现有策略（如 RFM/全量发券）。最小样本量需确保 Persuadables 在两组间有统计显著的购买率差异。</p>
+        </div>
+        <div class="card orange">
+          <h3>评估指标</h3>
+          <p>• 增量购买率 = 实验组购买率 − 对照组购买率<br>• Qini 系数 / AUUC（模型区分度）<br>• ROI = 增量收入 / 优惠券成本<br>• 增量净收入 = 增量收入 − 优惠券成本 − 退款损失</p>
+        </div>
+        <div class="card">
+          <h3>特征工程建议</h3>
+          <p>• 历史客单价、复购间隔、券使用率<br>• 会员等级、品类偏好<br>• 最近一次消费渠道（app/小程序）<br>• 历史投诉/退款记录（识别 Sleeping Dogs）</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>六、高频追问与推荐回答</h2>
+
+      <div class="qa">
+        <div class="q">1. Uplift Model 和传统响应模型（Response Model）的区别是什么？</div>
+        <div class="a">传统响应模型预测"购买概率"，给购买概率高的人发券——但高概率可能来自用户本身就有购买意愿（Sure Things），并不是券的作用。Uplift Model 直接建模"因果增量"，预测的是"发券带来的购买概率提升"，避免在 Sure Things 身上浪费补贴。简单说：响应模型回答"谁会买"，Uplift 模型回答"谁会因为券才买"。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">2. 训练 Uplift 模型需要什么样的数据？</div>
+        <div class="a">核心要求是<strong>随机实验数据</strong>：必须包含 treatment（是否发券）和 outcome（是否购买/消费金额），且 treatment 分配是随机的。可以用历史 A/B 测试数据，也可以专门跑一个随机分流的小规模实验采集训练数据。没有随机分流，Uplift Model 估计的增量可能有偏。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">3. 为什么不用 Two-Model 而是用 X-Learner？</div>
+        <div class="a">Two-Model 分别建两个模型，然后相减求 uplift。问题是两个模型的误差会累积，且没有共享信息。X-Learner 的流程是：先用 T-Learner 估算两组各自的响应函数，再用一个校正模型对 uplift 残差进行修正，最后加权组合。它在处理实验组和对照组样本量不均衡时更稳健，而且对非线性因果关系的捕捉能力更强。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">4. 如何评估 Uplift Model 的好坏？</div>
+        <div class="a">最常用的是 <strong>Qini 曲线</strong> 和 <strong>AUUC（Area Under Uplift Curve）</strong>。具体做法：按 uplift score 降序排列用户，分组计算每个分桶的实验组购买率和对照组购买率之差（增量收益），然后累加绘制曲线。Qini 曲线与随机基线之间的面积就是 AUUC。AUUC 越大，说明模型在"找到高增量用户"方面越有区分力。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">5. 如果数据中没有随机实验，可以用纯观测数据吗？</div>
+        <div class="a">纯观测数据是有偏的——发券的用户和没有发券的用户在本质上就不同（自选择偏差）。可以用一些方法来近似，比如倾向得分匹配（PSM）、双重差分（DID）、工具变量，但这些假设比随机实验强得多，估计的因果效应可能不稳定。实践中，我建议先跑一个小规模的随机实验采集 clean data，然后再用 Uplift 建模。这个实验的投入相对于后续发券预算的优化来说是值得的。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">6. 你们怎么确定 cutoff 阈值？发券给 top % 多少的 Persuadables？</div>
+        <div class="a">cutoff 不是拍脑袋定的，而是<strong>以增量 ROI 最大化</strong>来倒推。流程是：按 uplift 排序后，从高到低依次计算每个累计用户的增量收入、券成本和 ROI，找到 ROI 拐点。同时会看预算约束——如果预算有限，就裁掉 ROI 低的那部分用户。实践中我们会让运营团队先看 top 30% 的推荐名单，等上线后再基于数据动态调整。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">7. 模型上线后怎么持续评估？</div>
+        <div class="a">Uplift 模型需要持续监控两个维度：一是每期发券用户的 uplift distribution，防止概念漂移（用户行为随时间变化）；二是定期跑小规模随机 holdout 实验，直接对比模型推荐的用户和不推荐的用户之间的增量差异。我一般建议每月做一次 holdout 验证，每季度用新数据重新训练模型。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">8. 这个项目的核心难点是什么？</div>
+        <div class="a">最大的难点是<strong>因果识别的可信度</strong>——运营团队最初不信赖模型推荐的"不发券"名单，担心损失收入。解决方法是：第一，用离线数据验证——在历史 A/B 测试中回测，展示 Uplift 模型相比 RFM 的 AUUC 优势；第二，上线时做 holdout 对照，用真实增量数据证明。另一个难点是 Sure Things 不发券后会不会流失？需要追踪他们的复购率和退费率，确认不发券不会伤害这部分用户的长期价值。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">9. 项目结果中 ROI 从 1.5 提升到 3.2，这个提升怎么分解的？</div>
+        <div class="a">ROI 提升来自两个部分：一是<strong>成本端</strong>，Sure Things 不发券直接节省了约 60% 的券预算；二是<strong>收入端</strong>，Persuadables 的增量购买率从 6% 提升到 18%，增量收入显著增长。相当于在更少的人身上花了更精准的钱，每一块钱的券都撬动了一笔本不会发生的购买。而且不考虑退款的粗算 ROI 更高，扣除退款损失后得到 3.2 这个数字。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">10. 如果重新做一次，会怎么优化？</div>
+        <div class="a">我会在以下几方面改进：第一，在特征中加入用户生命周期阶段，因为同一个用户在不同阶段对券的敏感度不同；第二，用多臂实验（multi-arm）分别测试不同折扣力度（5 折/7 折/8 折），找到每个 Persuadables 的最优折扣梯度——因为 uplift 可能不是线性的；第三，引入动态定价思路，让模型输出个人最优券面额，而不是固定折扣。此外，我会把 Uplift Model 从"是否购买"扩展到"消费金额"作为连续 outcome，估算增量 LTV。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">11. 你怎么向业务方解释"不发券给 Sure Things"这个反直觉的结论？</div>
+        <div class="a">我用一个直观的例子解释：假设有两位用户，A 本来就会买东西，B 犹豫不决。给 A 发 100 元券，他不会多买一件；给 B 发 100 元券，他下单了。预算只有 100 元时，给谁发？当然是 B。Uplift Model 就是系统化地做这件事——区分谁"本来就会买"、谁"给了券才会买"。在实际推动时，我会先在一小部分 Sure Things 上做 holdout 实验，证明不发券不会影响他们的复购率，拿到数据证据后再全量推广。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>七、面试表达注意事项</h2>
+      <div class="warning">
+        <ul>
+          <li>不要说"Uplift 模型比响应模型更准确"，应该说"Uplift 模型解决的是不同的问题——增量因果，而非预测"。</li>
+          <li>不要说"不发券给高价值用户"，应该说"对 Sure Things 不发券，因为他们的增量贡献为零，预算应优先分配给 Persuadables"。</li>
+          <li>不要混淆"相对提升"和"百分点提升"——例如"转化率从 6% 到 18%"就是提升了 12 个百分点，而非相对提升 12%。</li>
+          <li>不要把模型效果完全归为个人，应说明与运营、算法团队协作的界限。</li>
+          <li><strong>金句加分：</strong>"Uplift Model 的本质是把营销预算从普惠式补贴转向增量因果驱动，让每一分钱都花在能产生增量的用户身上。"</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>八、简历版表述</h2>
+      <ul>
+        <li><strong>问题定义：</strong>针对会员优惠券 ROI 持续走低的问题，引入 Uplift Model 替代传统 RFM 定向策略，将补贴从"响应评分"升级为"增量因果"决策框架。</li>
+        <li><strong>建模方案：</strong>基于历史 A/B 测试数据，使用 CausalML 的 X-Learner 建模用户"发券→购买"的因果效应增量，特征覆盖 RFM、券使用率、会员等级和品类偏好。通过 Qini 曲线和 AUUC 验证模型区分度。</li>
+        <li><strong>策略落地：</strong>产出四象限分层（Persuadables/Sure Things/Lost Causes/Sleeping Dogs），对 Persuadables 优先发高折扣券，对 Sure Things 不发券节省预算。以随机 A/B 实验验证增量效果。</li>
+        <li><strong>项目收益：</strong>同等预算下 ROI 从 1.5 提升至 3.2，Persuadables 增量购买率达 18%（Δ+12pp），Sure Things 券成本降低约 70%，整体增量净收入提升约 40%。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

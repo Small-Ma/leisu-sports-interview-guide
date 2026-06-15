@@ -83,6 +83,13 @@
       "path": "./favorite-vs-follow-analysis.html",
       "category": "面试准备",
       "updated": "2026-06-14"
+    },
+    {
+      "title": "Uplift Model 增益模型 — 会员优惠券场景面试对答",
+      "description": "覆盖 Uplift Model 建模原理、四象限决策矩阵、X-Learner 实现、A/B 实验设计和 11 道高频面试追问与回答。",
+      "path": "./uplift-model-interview.html",
+      "category": "面试准备",
+      "updated": "2026-06-16"
     }
   ]
 }
