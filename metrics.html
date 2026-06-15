@@ -621,6 +621,17 @@
         </tbody>
       </table>
 
+      <div style="margin:16px 0 0; padding:16px 20px; background:#e4effa; border-radius:8px; border:1px solid #b8d4f0;">
+        <h4 style="margin:0 0 8px; color:#1d4e89; font-size:15px;">📌 "有效赛事会话" 定义说明</h4>
+        <p style="margin:0 0 6px; font-size:13px;"><strong>会话粒度：</strong>以单场赛事为单位。一次 App 打开中查看 3 场不同比赛 = 3 个独立赛事会话。</p>
+        <p style="margin:0 0 6px; font-size:13px;"><strong>会话开始：</strong>用户进入任意赛事详情页（比分页/直播间/阵容页/情报页），或从首页推荐/搜索/赛程列表点击一场比赛。</p>
+        <p style="margin:0 0 6px; font-size:13px;"><strong>会话结束（任一条件触发即结束）：</strong><br>
+        ① <strong>超时：</strong>30 分钟无任何操作，或 App 退到后台 > 30 秒（30 秒内返回可续接同一会话）；<br>
+        ② <strong>离开赛事上下文：</strong>回到首页、赛程列表，或从 A 赛事直接切换到 B 赛事（A 结束，B 开始）；<br>
+        ③ <strong>关闭 App。</strong></p>
+        <p style="margin:0 0 0; font-size:13px;"><strong>"有效"门槛：</strong>停留 ≥ 5 秒（直播场景 ≥ 3 秒），或产生至少 1 次有效交互（滚屏、切 tab、点击、评论）。不满足的视为无效访问，不计入有效会话。</p>
+      </div>
+
       <div class="tree-node l2">
         <div class="node-title"><span>4. 数据与内容质量</span><span class="tag blue">信任基础</span></div>
         <div class="node-desc">体育比分产品的底层信任来自“快、准、全”。质量指标通常是领先指标：数据延迟和错误率先恶化，留存与口碑会滞后下滑。</div>
