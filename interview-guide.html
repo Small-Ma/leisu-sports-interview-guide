@@ -581,6 +581,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="./analytics-widgets.css">
 </head>
 <body>
   <div class="page">
@@ -589,6 +590,7 @@
       <div class="date">公开脱敏版</div>
       <nav aria-label="目录">
         <a href="./index.html">← 返回页面档案馆</a>
+        <a href="#readiness">00 准备度看板</a>
         <a href="#brief">01 一页结论</a>
         <a href="#position">02 候选人定位</a>
         <a href="#product">03 产品理解</a>
@@ -620,6 +622,69 @@
           <div><span>本轮目标</span><strong>获得业务可信度</strong></div>
         </div>
       </header>
+
+      <section id="readiness" class="aw-dashboard">
+        <div class="aw-heading">
+          <div>
+            <h2>面试准备度看板</h2>
+            <p>把两天冲刺计划转成可执行的时间预算，优先保证产品判断、项目证据和模拟表达。</p>
+          </div>
+          <span class="aw-badge">DATA ANALYTICS</span>
+        </div>
+        <div class="aw-kpis">
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">总投入时间</span>
+            <strong class="aw-kpi-value">15.5h</strong>
+            <span class="aw-kpi-note">两天完成核心准备闭环</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">关键任务</span>
+            <strong class="aw-kpi-value">10</strong>
+            <span class="aw-kpi-note">从产品体验到最终复盘</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">面试判断维度</span>
+            <strong class="aw-kpi-value">5</strong>
+            <span class="aw-kpi-note">产品、业务、落地、协作、成长</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">重点产品案例</span>
+            <strong class="aw-kpi-value">3</strong>
+            <span class="aw-kpi-note">每个案例都要讲清收益与护栏</span>
+          </article>
+        </div>
+        <div class="aw-grid">
+          <div class="aw-chart" data-aw-chart="horizontal-bar">
+            <script type="application/json">
+              {
+                "title": "两天面试冲刺时间分配",
+                "subtitle": "单位：小时。时间较多的任务应优先产出可复述、可追问的完整证据。",
+                "unit": "h",
+                "max": 2,
+                "data": [
+                  {"label":"产品体验","value":2,"color":"#1677a8"},
+                  {"label":"行业补课","value":1,"color":"#1677a8"},
+                  {"label":"自我介绍","value":2,"color":"#1677a8"},
+                  {"label":"项目案例","value":2,"color":"#1677a8"},
+                  {"label":"产品判断","value":1.5,"color":"#1677a8"},
+                  {"label":"模拟面试","value":2,"color":"#d9872b"},
+                  {"label":"案例演练","value":1,"color":"#d9872b"},
+                  {"label":"数字核对","value":1.5,"color":"#d9872b"},
+                  {"label":"反向提问","value":1.5,"color":"#d9872b"},
+                  {"label":"最终复盘","value":1,"color":"#d9872b"}
+                ]
+              }
+            </script>
+          </div>
+          <div>
+            <div class="aw-insight">
+              <strong>分析结论</strong>
+              约 61% 的时间用于产品体验、项目案例、产品判断和模拟面试。这四项共同决定你能否把“会分析”转译成“能参与产品决策”。
+            </div>
+            <p class="aw-source">口径：依据本页“两天冲刺计划”逐项汇总；蓝色为第一天，橙色为第二天。</p>
+          </div>
+        </div>
+      </section>
 
       <section id="brief">
         <h2>01. 一页结论：这轮面试怎么赢</h2>
@@ -1572,11 +1637,12 @@
           </li>
         </ul>
         <p class="small">
-          研究与更新日期：2026-06-14。官方页面用于确认公开产品事实；用户分层、产品机会、北极星和案例方案均为基于公开信息的分析推断，
+          研究与更新日期：2026-06-15。官方页面用于确认公开产品事实；用户分层、产品机会、北极星和案例方案均为基于公开信息的分析推断，
           面试时应表述为“待内部数据验证的假设”。未获得本次岗位的准确 JD，因此本手册按“产品总监面试高级数据分析/增长与商业化相关岗位”准备。
         </p>
       </section>
     </main>
   </div>
+  <script src="./analytics-widgets.js"></script>
 </body>
 </html>

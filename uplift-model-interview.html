@@ -261,15 +261,71 @@
       @page { size: A4; margin: 12mm; }
     }
   </style>
+  <link rel="stylesheet" href="./analytics-widgets.css">
 </head>
 <body>
   <main>
     <a href="./index.html" style="display:inline-block; margin-bottom:16px; color:var(--blue, #2676a5); text-decoration:none; font-size:13px;">← 返回页面档案馆</a>
     <header>
-      <small>INTERVIEW PLAYBOOK · 喜马拉雅业务脱敏</small>
+      <small>INTERVIEW PLAYBOOK · 喜马拉雅场景模拟</small>
       <h1>Uplift Model（增益模型）在喜马拉雅会员优惠券场景的应用</h1>
       <p>把优惠券发放从"全量推送"或"基于响应率的定向推送"升级为"基于增量因果的精准投放"，用最少的补贴成本撬动最大的增量会员续费和内容购买。本节覆盖建模原理、四象限决策、实验评估和面试高频追问。</p>
     </header>
+
+    <section class="aw-dashboard">
+      <div class="aw-heading">
+        <div>
+          <h2>项目效果看板</h2>
+          <p>同时呈现实验效果、成本效率和财务结果，避免只报一个“模型准确率”或相对提升。</p>
+        </div>
+        <span class="aw-badge">SIMULATED CASE</span>
+      </div>
+      <div class="aw-kpis">
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">续费率绝对提升</span>
+          <strong class="aw-kpi-value">+3.4pp</strong>
+          <span class="aw-kpi-note">22.5% 对比 19.1%</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">续费率相对提升</span>
+          <strong class="aw-kpi-value">+18%</strong>
+          <span class="aw-kpi-note">明确区分相对值与百分点</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">Sure Things 券成本</span>
+          <strong class="aw-kpi-value">-65%</strong>
+          <span class="aw-kpi-note">减少对自然续费用户的补贴</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">预计月增量净收入</span>
+          <strong class="aw-kpi-value">28万</strong>
+          <span class="aw-kpi-note">收入增量扣除优惠券成本</span>
+        </article>
+      </div>
+      <div class="aw-grid">
+        <div class="aw-chart" data-aw-chart="vertical-bar">
+          <script type="application/json">
+            {
+              "title": "Uplift 定向策略实验效果",
+              "subtitle": "同等营销预算下，实验组续费率较统一弹窗策略提升 3.4 个百分点。",
+              "unit": "%",
+              "max": 25,
+              "data": [
+                {"label":"对照组续费率","value":19.1,"color":"#8aa0b2"},
+                {"label":"实验组续费率","value":22.5,"color":"#1677a8"}
+              ]
+            }
+          </script>
+        </div>
+        <div>
+          <div class="aw-insight">
+            <strong>面试表达重点</strong>
+            不只说明“实验组更高”，还要补充随机分流、同等预算、下个扣款周期续费、退款与二次解约护栏，才能证明增量效果可信。
+          </div>
+          <p class="aw-source">本页数值为面试演练用模拟数据，并非喜马拉雅公开或内部经营数据；正式面试应明确数据性质与计算假设。</p>
+        </div>
+      </div>
+    </section>
 
     <section>
       <h2>一、核心逻辑</h2>
@@ -447,7 +503,7 @@ result = <span class="fn">auuc_score</span>(y, uplift_scores, treatment=T)
 
       <div class="qa">
         <div class="q">5. 如果线上没有随机实验数据，怎么处理？</div>
-        <div class="a">纯观测数据是有偏的——被弹窗的用户和没被弹窗的用户在本质上不同（自选择偏差）。可以用倾向得分匹配（PSM）或双重差分（DID）做近似，但这些方法假设比随机实验强得多。实践中我建议先跑一个小规模的空跑实验——比如 5% 的流量不做任何干预，自然观察他们的续费行为——拿到 clean data 后再建模。这个投入相对于后续优惠券预算的优化来说是值得的。喜马拉雅当时的实验成本约 2 万元，对应优化后月均节省超过 15 万元券成本，ROI 非常高。</div>
+        <div class="a">纯观测数据是有偏的——被弹窗的用户和没被弹窗的用户在本质上不同（自选择偏差）。可以用倾向得分匹配（PSM）或双重差分（DID）做近似，但这些方法假设比随机实验强得多。实践中我建议先跑一个小规模的空跑实验——比如 5% 的流量不做任何干预，自然观察他们的续费行为——拿到 clean data 后再建模。这个投入相对于后续优惠券预算的优化来说是值得的。面试模拟测算中，假设实验成本约 2 万元、优化后月均节省超过 15 万元券成本，可以直观说明该方案具备较高 ROI。</div>
       </div>
 
       <div class="qa">
@@ -505,5 +561,6 @@ result = <span class="fn">auuc_score</span>(y, uplift_scores, treatment=T)
       </ul>
     </section>
   </main>
+  <script src="./analytics-widgets.js"></script>
 </body>
 </html>

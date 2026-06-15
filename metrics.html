@@ -482,6 +482,7 @@
       .side-label { position: static; }
     }
   </style>
+  <link rel="stylesheet" href="./analytics-widgets.css">
 </head>
 <body>
 <main>
@@ -495,7 +496,7 @@
       <div class="meta-row"><span>业务类型</span><strong>体育赛事信息 + 内容注意力平台</strong></div>
       <div class="meta-row"><span>核心结构</span><strong>用户消费侧 / 赛事供给侧 / 商业化侧</strong></div>
       <div class="meta-row"><span>建设顺序</span><strong>指标体系 → 指标字典 → 数据看板</strong></div>
-      <div class="meta-row"><span>版本日期</span><strong>2026-06-14</strong></div>
+      <div class="meta-row"><span>版本日期</span><strong>2026-06-15</strong></div>
     </aside>
   </header>
 
@@ -1368,6 +1369,57 @@
       <p>Cohort 的核心不是“又多了一个表”，而是把用户按同一个起点分成一批批，再追踪每一批后续是否留下。它最适合回答：某天、某场赛事、某个渠道来的用户，后面到底有没有继续使用雷速体育。</p>
     </div>
 
+    <div class="aw-dashboard">
+      <div class="aw-heading">
+        <div>
+          <h3>留存质量对比</h3>
+          <p>同样是新增用户，不同起点对应完全不同的长期价值；不能只用整体 DAU 判断增长是否健康。</p>
+        </div>
+        <span class="aw-badge">COHORT VIEW</span>
+      </div>
+      <div class="aw-kpis">
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">关注球队用户 D30</span>
+          <strong class="aw-kpi-value">22%</strong>
+          <span class="aw-kpi-note">四组中长期留存最高</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">欧冠拉新用户 D30</span>
+          <strong class="aw-kpi-value">2%</strong>
+          <span class="aw-kpi-note">热点流量未形成使用习惯</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">D30 留存差距</span>
+          <strong class="aw-kpi-value">20pp</strong>
+          <span class="aw-kpi-note">关注行为是高价值信号</span>
+        </article>
+        <article class="aw-kpi">
+          <span class="aw-kpi-label">建议主抓动作</span>
+          <strong class="aw-kpi-value">关注</strong>
+          <span class="aw-kpi-note">球队、联赛与赛程提醒联动</span>
+        </article>
+      </div>
+      <div class="aw-chart" data-aw-chart="line">
+        <script type="application/json">
+          {
+            "title": "不同 Cohort 的留存曲线",
+            "subtitle": "关注球队用户从 D1 到 D30 始终领先；欧冠决赛拉新用户在热点结束后快速流失。",
+            "unit": "%",
+            "xPrefix": "D",
+            "max": 100,
+            "x": [0, 1, 3, 7, 14, 30],
+            "series": [
+              {"name":"6月1日新用户","color":"#5d7fbd","values":[100,48,36,24,15,8]},
+              {"name":"6月2日新用户","color":"#8b62a8","values":[100,52,40,28,18,10]},
+              {"name":"欧冠决赛拉新","color":"#c85359","values":[100,34,19,9,4,2]},
+              {"name":"关注球队用户","color":"#37896b","values":[100,68,57,43,31,22]}
+            ]
+          }
+        </script>
+      </div>
+      <p class="aw-source">示例数据与下方 Cohort 热力图一致，用于展示分析方法，不代表雷速体育真实经营数据。</p>
+    </div>
+
     <div class="cohort-visual">
       <div class="cohort-flow">
         <h3>图 1：Cohort 是怎么形成的</h3>
@@ -1484,5 +1536,6 @@
 
   <p class="footer-note">方法依据：PDF 中“指标体系的本质与价值、指标分类体系、指标定义规范与口径管理、指标拆解方法论、指标体系搭建全流程、北极星指标与护栏设计、内容平台指标体系实战”等章节；知识库对应页面：[[指标体系设计]]、[[北极星指标]]、[[数据看板建设]]、[[指标分解树与驱动因子分析]]、[[推荐系统效果评估]]、[[用户增长与留存]]。</p>
 </main>
+<script src="./analytics-widgets.js"></script>
 </body>
 </html>

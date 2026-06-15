@@ -668,6 +668,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="./analytics-widgets.css">
 </head>
 <body>
   <div class="layout">
@@ -679,10 +680,12 @@
         <span>Living Discussion Log</span>
       </div>
       <nav aria-label="页面目录">
+        <a href="#analytics-overview">讨论进度</a>
         <a href="#agreement">讨论约定</a>
         <a href="#companies">九个业务场景</a>
         <a href="#framework">固定分析框架</a>
         <a href="#topics">核心问题清单</a>
+        <a href="#discussion-07">讨论 07 · 分析交付</a>
         <a href="#discussion-06">讨论 06 · 指标与埋点治理</a>
         <a href="#discussion-05">讨论 05 · AI Skill</a>
         <a href="#discussion-04">讨论 04 · 核心用户任务</a>
@@ -709,7 +712,7 @@
         <div class="hero-meta">
           <div>
             <span>DISCUSSIONS</span>
-            <strong>07 次记录</strong>
+            <strong>08 次记录</strong>
           </div>
           <div>
             <span>BUSINESS CASES</span>
@@ -717,10 +720,68 @@
           </div>
           <div>
             <span>LAST UPDATED</span>
-            <strong>2026-06-14</strong>
+            <strong>2026-06-15</strong>
           </div>
         </div>
       </header>
+
+      <section id="analytics-overview" class="aw-dashboard">
+        <div class="aw-heading">
+          <div>
+            <h2>讨论资产覆盖看板</h2>
+            <p>将讨论记录视为可持续建设的分析知识库：既看覆盖率，也明确下一轮应该补齐的能力。</p>
+          </div>
+          <span class="aw-badge">KNOWLEDGE KPI</span>
+        </div>
+        <div class="aw-kpis">
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">核心议题</span>
+            <strong class="aw-kpi-value">10</strong>
+            <span class="aw-kpi-note">覆盖增长、产品、商业化与治理</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">已完成讨论</span>
+            <strong class="aw-kpi-value">7</strong>
+            <span class="aw-kpi-note">当前覆盖率 70%</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">待补议题</span>
+            <strong class="aw-kpi-value">3</strong>
+            <span class="aw-kpi-note">漏斗、实验、异常归因</span>
+          </article>
+          <article class="aw-kpi">
+            <span class="aw-kpi-label">业务映射</span>
+            <strong class="aw-kpi-value">9</strong>
+            <span class="aw-kpi-note">每个方法都要完成九场景迁移</span>
+          </article>
+        </div>
+        <div class="aw-grid">
+          <div class="aw-chart" data-aw-chart="vertical-bar">
+            <script type="application/json">
+              {
+                "title": "数据分析议题覆盖进度",
+                "subtitle": "当前已有 7 个议题形成讨论记录，剩余 3 个议题应优先补齐。",
+                "unit": "个",
+                "max": 10,
+                "data": [
+                  {"label":"已讨论","value":7,"color":"#37896b"},
+                  {"label":"待讨论","value":3,"color":"#d9872b"}
+                ]
+              }
+            </script>
+          </div>
+          <div>
+            <div class="aw-insight">
+              <strong>下一轮优先级</strong>
+              建议先讨论“漏斗与路径分析”，再讨论“实验与因果推断”，最后沉淀“异常归因”。三者分别补齐发现问题、验证动作和监控复盘的闭环。
+            </div>
+            <div style="margin-top:14px">
+              <div class="aw-progress" aria-label="讨论覆盖率 70%"><span style="width:70%"></span></div>
+              <p class="aw-source">覆盖率 = 已讨论议题数 ÷ 核心议题总数 = 7 ÷ 10。</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="agreement">
         <div class="section-head">
@@ -886,6 +947,73 @@
             <tr><td>10</td><td>如何做好指标与埋点的全生命周期管理？</td><td>指标治理、元数据、数据质量、埋点规范与血缘管理</td><td>已讨论</td></tr>
           </tbody>
         </table>
+      </section>
+
+      <section id="discussion-07">
+        <div class="section-head">
+          <span class="section-no">05 / 记录</span>
+          <div>
+            <h2>Data Analytics：把分析结论变成可验证的交付物</h2>
+            <p class="section-summary">分析工具的价值不在于自动画图，而在于强制补齐指标口径、证据、决策含义和可复用的数据结构。</p>
+          </div>
+        </div>
+        <article class="entry">
+          <div class="entry-head">
+            <span class="entry-no">DISCUSSION 07</span>
+            <h3>如何用 Data Analytics 优化数据分析页面</h3>
+            <time datetime="2026-06-15">2026-06-15</time>
+          </div>
+          <div class="entry-body">
+            <div class="entry-grid">
+              <article>
+                <h3>核心结论</h3>
+                <p>先确定页面要支持的决策，再选择 KPI、图表和表格。每个可视化都应回答“发生了什么、为什么重要、下一步做什么”。</p>
+              </article>
+              <article>
+                <h3>交付标准</h3>
+                <p>指标有定义，图表有比较基准，数据有来源，结论有行动，模拟数据有显著标识，并能在桌面端和移动端稳定阅读。</p>
+              </article>
+            </div>
+
+            <h3>一、通用优化框架</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>步骤</th><th>关键问题</th><th>页面产物</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>目标</td><td>这个页面要帮助谁做什么决策？</td><td>一句话分析目标</td></tr>
+                <tr><td>指标</td><td>哪些结果、驱动和护栏指标能支持判断？</td><td>KPI 卡片与口径</td></tr>
+                <tr><td>比较</td><td>应该按时间、分群、版本还是实验组比较？</td><td>趋势图、分组图、Cohort</td></tr>
+                <tr><td>诊断</td><td>差异来自规模、结构、效率还是质量？</td><td>拆解表与关键洞察</td></tr>
+                <tr><td>行动</td><td>结论对应什么产品或运营动作？</td><td>建议、优先级和验证方案</td></tr>
+                <tr><td>可信</td><td>数据是真实、公开、示例还是模拟？</td><td>来源、时间与限制说明</td></tr>
+              </tbody>
+            </table>
+
+            <h3>二、九个业务场景如何应用</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>场景</th><th>最值得可视化的决策问题</th><th>推荐交付</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>哈哆普惠</td><td>获客增长是否伴随风险恶化？</td><td>申请漏斗、风险分层、逾期护栏</td></tr>
+                <tr><td>迪果科技</td><td>客户使用深度是否转化为续约？</td><td>功能渗透、客户 Cohort、续费预测</td></tr>
+                <tr><td>同程旅行</td><td>流量增长来自需求还是补贴？</td><td>渠道转化、品类结构、增量 ROI</td></tr>
+                <tr><td>传音控股</td><td>不同国家和机型的体验差异在哪里？</td><td>区域分层、版本趋势、质量告警</td></tr>
+                <tr><td>趣丸</td><td>互动关系是否促进留存和付费？</td><td>关系链漏斗、活跃分群、付费 Cohort</td></tr>
+                <tr><td>即刻</td><td>内容供给能否形成高质量互动？</td><td>供需结构、互动深度、社区护栏</td></tr>
+                <tr><td>波克城市</td><td>活动提升收入还是透支长期价值？</td><td>实验提升、LTV 曲线、经济系统护栏</td></tr>
+                <tr><td>喜马拉雅</td><td>用户需求是否被内容和推荐满足？</td><td>Session 需求、满足度路径、供需诊断</td></tr>
+                <tr><td>雷速体育</td><td>热点拉新能否转为长期赛事习惯？</td><td>赛事 Cohort、关注行为、核心任务完成率</td></tr>
+              </tbody>
+            </table>
+
+            <div class="quote">
+              <strong>面试表达</strong>
+              我使用分析工具时不会从“能画什么图”出发，而是先明确业务决策，再设计指标、比较基准和证据链。最终交付必须让业务方快速看懂现状、原因、行动和验证方式，同时明确数据来源与限制。
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="discussion-06">
@@ -2010,5 +2138,6 @@
 
     sections.forEach(section => observer.observe(section));
   </script>
+  <script src="./analytics-widgets.js"></script>
 </body>
 </html>
