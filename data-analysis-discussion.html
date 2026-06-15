@@ -685,6 +685,7 @@
         <a href="#companies">九个业务场景</a>
         <a href="#framework">固定分析框架</a>
         <a href="#topics">核心问题清单</a>
+        <a href="#discussion-08">讨论 08 · Agent AutoResearch</a>
         <a href="#discussion-07">讨论 07 · 分析交付</a>
         <a href="#discussion-06">讨论 06 · 指标与埋点治理</a>
         <a href="#discussion-05">讨论 05 · AI Skill</a>
@@ -712,7 +713,7 @@
         <div class="hero-meta">
           <div>
             <span>DISCUSSIONS</span>
-            <strong>08 次记录</strong>
+            <strong>09 次记录</strong>
           </div>
           <div>
             <span>BUSINESS CASES</span>
@@ -736,13 +737,13 @@
         <div class="aw-kpis">
           <article class="aw-kpi">
             <span class="aw-kpi-label">核心议题</span>
-            <strong class="aw-kpi-value">10</strong>
-            <span class="aw-kpi-note">覆盖增长、产品、商业化与治理</span>
+            <strong class="aw-kpi-value">11</strong>
+            <span class="aw-kpi-note">覆盖增长、产品、商业化、治理与 AI Agent</span>
           </article>
           <article class="aw-kpi">
             <span class="aw-kpi-label">已完成讨论</span>
-            <strong class="aw-kpi-value">7</strong>
-            <span class="aw-kpi-note">当前覆盖率 70%</span>
+            <strong class="aw-kpi-value">8</strong>
+            <span class="aw-kpi-note">当前覆盖率约 73%</span>
           </article>
           <article class="aw-kpi">
             <span class="aw-kpi-label">待补议题</span>
@@ -760,11 +761,11 @@
             <script type="application/json">
               {
                 "title": "数据分析议题覆盖进度",
-                "subtitle": "当前已有 7 个议题形成讨论记录，剩余 3 个议题应优先补齐。",
+                "subtitle": "当前已有 8 个议题形成讨论记录，剩余 3 个议题应优先补齐。",
                 "unit": "个",
-                "max": 10,
+                "max": 11,
                 "data": [
-                  {"label":"已讨论","value":7,"color":"#37896b"},
+                  {"label":"已讨论","value":8,"color":"#37896b"},
                   {"label":"待讨论","value":3,"color":"#d9872b"}
                 ]
               }
@@ -776,8 +777,8 @@
               建议先讨论“漏斗与路径分析”，再讨论“实验与因果推断”，最后沉淀“异常归因”。三者分别补齐发现问题、验证动作和监控复盘的闭环。
             </div>
             <div style="margin-top:14px">
-              <div class="aw-progress" aria-label="讨论覆盖率 70%"><span style="width:70%"></span></div>
-              <p class="aw-source">覆盖率 = 已讨论议题数 ÷ 核心议题总数 = 7 ÷ 10。</p>
+              <div class="aw-progress" aria-label="讨论覆盖率约 73%"><span style="width:72.7%"></span></div>
+              <p class="aw-source">覆盖率 = 已讨论议题数 ÷ 核心议题总数 = 8 ÷ 11，约 72.7%。</p>
             </div>
           </div>
         </div>
@@ -945,8 +946,139 @@
             <tr><td>08</td><td>内容或供给是否真正满足了用户需求？</td><td>供需匹配、搜索推荐、满足度分析</td><td>已讨论</td></tr>
             <tr><td>09</td><td>如何证明 AI 能力并评估一个 Skill 是否有效？</td><td>基线对比、任务评测、错误分析、成本与安全评估</td><td>已讨论</td></tr>
             <tr><td>10</td><td>如何做好指标与埋点的全生命周期管理？</td><td>指标治理、元数据、数据质量、埋点规范与血缘管理</td><td>已讨论</td></tr>
+            <tr><td>11</td><td>如何实现能够持续迭代的 Agent AutoResearch？</td><td>状态机、假设实验、机械评估、证据审校与预算治理</td><td>已讨论</td></tr>
           </tbody>
         </table>
+      </section>
+
+      <section id="discussion-08">
+        <div class="section-head">
+          <span class="section-no">05 / 记录</span>
+          <div>
+            <h2>Agent AutoResearch：让研究从一次回答变成可持续实验</h2>
+            <p class="section-summary">核心不是让 Agent 无限搜索，而是把研究变成“提出假设、收集证据、机械评估、保留或回滚”的受控循环。</p>
+          </div>
+        </div>
+        <article class="entry">
+          <div class="entry-head">
+            <span class="entry-no">DISCUSSION 08</span>
+            <h3>如何实现 Agent AutoResearch</h3>
+            <time datetime="2026-06-15">2026-06-15</time>
+          </div>
+          <div class="entry-body">
+            <div class="entry-grid">
+              <article>
+                <h3>一句话定义</h3>
+                <p>用户定义研究目标、评价指标、可用工具、预算和边界；Agent 自主循环执行计划、检索、验证、综合与反思，只保留能提升研究质量的增量。</p>
+              </article>
+              <article>
+                <h3>最关键的前提</h3>
+                <p>必须存在可验证的完成标准。没有机械指标或稳定评分规则，AutoResearch 很容易退化为重复搜索、堆砌来源和自我感觉良好。</p>
+              </article>
+            </div>
+
+            <h3>一、推荐的双循环架构</h3>
+            <div class="formula">外循环：定义方向 → 审视证据缺口 → 调整研究策略 → 判断是否完成<br>内循环：提出一个假设 → 执行一次研究实验 → 评估增量 → 保留或丢弃</div>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>组件</th><th>职责</th><th>关键输出</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Research Spec</td><td>定义问题、范围、必须回答的子问题、输出格式、质量阈值、预算与禁止事项。</td><td>research.yaml / research.md</td></tr>
+                <tr><td>Orchestrator</td><td>读取当前状态，拆解子问题，选择下一项最高信息增益任务，并决定单 Agent 或并行执行。</td><td>研究计划、任务队列</td></tr>
+                <tr><td>Research Workers</td><td>分别负责检索、网页/PDF 阅读、数据计算、竞品或反证调查，返回结构化证据而非长篇散文。</td><td>EvidenceRecord[]</td></tr>
+                <tr><td>Evidence Store</td><td>保存来源、摘录位置、主张、支持或反驳关系、时间、可信等级和去重指纹。</td><td>证据图谱、来源索引</td></tr>
+                <tr><td>Evaluator</td><td>以机械规则和独立 Judge 评价准确性、覆盖率、引用质量、矛盾处理、相关性、成本和新增信息量。</td><td>score、失败原因、缺口</td></tr>
+                <tr><td>Checkpoint</td><td>持久化状态、预算、实验历史和最佳版本，支持崩溃恢复、人工暂停、回滚与续跑。</td><td>state.json、results.jsonl</td></tr>
+                <tr><td>Synthesizer</td><td>只使用通过审校的证据生成报告，逐项绑定引用，并明确事实、推断、争议和未知。</td><td>最终报告、证据附录</td></tr>
+              </tbody>
+            </table>
+
+            <h3>二、一次研究迭代怎么运行</h3>
+            <div class="diagnosis">
+              <div><b>1. Observe</b><span>读取研究目标、当前最佳报告、证据图谱、失败历史与剩余预算。</span></div>
+              <div><b>2. Hypothesize</b><span>选择一个可证伪假设或证据缺口，一轮只解决一个主要不确定性。</span></div>
+              <div><b>3. Experiment</b><span>搜索、抓取、读取、计算或调用数据源，产出结构化证据记录。</span></div>
+              <div><b>4. Evaluate</b><span>比较新旧分数；提升则合并，否则丢弃，并记录失败模式供下一轮避坑。</span></div>
+            </div>
+            <div class="formula">KEEP 条件 = 硬性校验通过 AND 总分提升 ≥ δ AND 没有新增高风险事实错误</div>
+
+            <h3>三、状态与评估设计</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>对象</th><th>建议字段或指标</th><th>作用</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>研究状态</td><td>goal、questions、hypotheses、evidence、contradictions、draft、best_score、iteration、budget</td><td>让长任务可以恢复，避免只依赖上下文窗口。</td></tr>
+                <tr><td>证据记录</td><td>claim、source_url、source_type、published_at、quote_location、stance、confidence、content_hash</td><td>支持引用核验、时效判断、冲突分析和去重。</td></tr>
+                <tr><td>硬性门槛</td><td>引用可访问、主张可定位、关键数字双源验证、无越权工具调用、预算未超限</td><td>任何一项失败都不能进入最佳版本。</td></tr>
+                <tr><td>质量评分</td><td>准确 30%、覆盖 20%、来源质量 15%、引用一致 15%、反证 10%、可行动性 10%</td><td>形成 0-100 的可比较分数。</td></tr>
+                <tr><td>效率指标</td><td>每条有效证据成本、重复来源率、无效搜索率、单位时间得分增量</td><td>防止靠无限 Token 换取微小提升。</td></tr>
+                <tr><td>停止条件</td><td>达到目标分、连续 N 轮无提升、预算耗尽、关键问题均回答、需人工决策</td><td>避免无限循环。</td></tr>
+              </tbody>
+            </table>
+
+            <h3>四、最小可用版本</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>阶段</th><th>实现内容</th><th>暂时不要做</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>MVP</td><td>单 Orchestrator、Web Search/Fetch、JSON 状态、SQLite/Postgres 证据表、固定评分脚本、最多 8 轮。</td><td>不先上复杂多 Agent，不让 LLM 自己修改评分标准。</td></tr>
+                <tr><td>V2</td><td>增加 3 类并行 Worker：事实检索、反证调查、数据分析；加入 Citation Reviewer。</td><td>不共享全部上下文，只传任务契约和必要证据。</td></tr>
+                <tr><td>生产版</td><td>队列与后台任务、持久化 Checkpoint、人工中断、来源权限、审计日志、成本路由、离线评测集。</td><td>未经审批不执行发布、交易、删改数据等高风险动作。</td></tr>
+              </tbody>
+            </table>
+
+            <h3>五、核心循环伪代码</h3>
+            <div class="formula" style="text-align:left; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:13px;">
+              state = load_checkpoint(spec)<br>
+              while not should_stop(state):<br>
+              &nbsp;&nbsp;task = orchestrator.select_highest_information_gain(state)<br>
+              &nbsp;&nbsp;evidence = worker.execute(task, tools=allowed_tools)<br>
+              &nbsp;&nbsp;candidate = merge_into_copy(state.best, validate(evidence))<br>
+              &nbsp;&nbsp;score = evaluator.score(candidate, frozen_rubric)<br>
+              &nbsp;&nbsp;if hard_gates_pass(candidate) and score &gt; state.best_score + delta:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;state.keep(candidate, score)<br>
+              &nbsp;&nbsp;else:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;state.discard(task, evidence, score)<br>
+              &nbsp;&nbsp;checkpoint(state)<br>
+              return synthesizer.write(state.best)
+            </div>
+
+            <h3>六、九个业务场景如何应用</h3>
+            <table class="scenario-table">
+              <thead>
+                <tr><th>场景</th><th>AutoResearch 任务</th><th>机械评估指标</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>哈哆普惠</td><td>持续研究渠道质量、风险政策和客群变化。</td><td>结论回测准确率、风险规则覆盖、合规引用率。</td></tr>
+                <tr><td>迪果科技</td><td>自动探索版本、活动、付费与流失之间的关系。</td><td>实验可复现率、LTV 预测提升、错误归因率。</td></tr>
+                <tr><td>同程旅行</td><td>监控目的地、价格、供给和竞品变化并生成机会报告。</td><td>价格命中率、供给覆盖率、机会后验转化。</td></tr>
+                <tr><td>传音控股</td><td>按国家、机型、网络环境持续发现体验问题。</td><td>异常召回率、误报率、问题闭环周期。</td></tr>
+                <tr><td>趣丸</td><td>研究互动关系、内容玩法与留存付费的驱动因素。</td><td>假设实验通过率、增量留存、社区护栏。</td></tr>
+                <tr><td>即刻</td><td>识别社区话题、创作者供给和互动质量变化。</td><td>趋势提前量、来源多样性、低质内容误判率。</td></tr>
+                <tr><td>波克城市</td><td>自动生成版本与活动复盘假设，探索经济系统风险。</td><td>收入增量、长期留存、经济指标稳定性。</td></tr>
+                <tr><td>喜马拉雅</td><td>围绕 Session 需求持续研究供给缺口、推荐排序和满足度。</td><td>需求识别准确率、满足度提升、供给/排序归因准确率。</td></tr>
+                <tr><td>雷速体育</td><td>研究赛程热点、关注行为、赛事服务与长期留存。</td><td>热点预测准确率、关注转化、赛事 Cohort 留存。</td></tr>
+              </tbody>
+            </table>
+
+            <div class="interview-answer">
+              <h3>面试回答</h3>
+              <p>我会把 Agent AutoResearch 设计成一个受控的双循环系统。外循环负责研究方向和证据缺口，内循环每次只验证一个假设。Agent 通过检索、文件读取和代码分析获取环境反馈，产出结构化证据；独立 Evaluator 用冻结的评分规则判断准确性、覆盖率、引用和成本。只有分数真实提升且硬性门槛通过，结果才进入最佳版本，否则回滚。状态、实验历史和预算都持久化，并设置连续无提升、预算耗尽和人工审批等停止条件。先用单 Agent 跑通评估闭环，再在覆盖率成为瓶颈时扩展并行研究员和引用审校 Agent。</p>
+            </div>
+
+            <h3>七、公开参考</h3>
+            <ul>
+              <li><a href="https://github.com/karpathy/autoresearch">Karpathy AutoResearch</a>：固定时间预算、单指标评估、改进保留、失败回滚。</li>
+              <li><a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic 多 Agent 研究系统</a>：Orchestrator-Worker、并行子 Agent、独立引用处理。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/deep-research">OpenAI Deep Research API 指南</a>：Web/File/MCP 数据源、代码分析、后台长任务。</li>
+              <li><a href="https://openai.com/index/deep-research-system-card/">OpenAI Deep Research System Card</a>：提示注入、隐私、幻觉和模型自治风险。</li>
+              <li><a href="https://docs.langchain.com/oss/python/langgraph/persistence">LangGraph Persistence</a>：Checkpoint、跨线程 Store、故障恢复和人工中断。</li>
+            </ul>
+          </div>
+        </article>
       </section>
 
       <section id="discussion-07">
