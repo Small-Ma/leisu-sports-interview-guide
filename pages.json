@@ -19,84 +19,84 @@
       "description": "面向面试准备的体育数据分析对答稿，覆盖核心逻辑、3 分钟叙事、TFMC 分层模型、三组 A/B 实验设计、8 道高频追问和简历版表述。",
       "path": "./sports-data-driven-analysis.html",
       "category": "面试准备",
-      "updated": "2026-06-16"
+      "updated": "2026-06-15"
     },
     {
       "title": "Uplift Model 增益模型 — 喜马拉雅会员优惠券场景面试对答",
       "description": "以喜马拉雅会员续费挽留为场景，覆盖 Uplift Model 建模原理、四象限决策矩阵、X-Learner 实现、A/B 实验设计和 11 道高频面试追问与回答。",
       "path": "./uplift-model-interview.html",
       "category": "面试准备",
-      "updated": "2026-06-16"
+      "updated": "2026-06-15"
     },
     {
       "title": "喜马拉雅会员续费的 5 大杠杆",
       "description": "系统梳理内容/价格/产品体验/行为/时间 5 大杠杆的成本结构、见效周期、适用边界，含杠杆选择矩阵和 8 道面试追问。",
       "path": "./membership-renewal-levers.html",
       "category": "面试准备",
-      "updated": "2026-06-16"
+      "updated": "2026-06-15"
     },
     {
       "title": "喜马拉雅会员专题分析项目库 · 8 个项目面试稿",
       "description": "8 个会员专题分析项目的完整面试对答稿，覆盖大会员付费墙实验、续费杠杆、流失归因、第二本书内容承接、会员指标体系、LTV 分析等核心项目。",
       "path": "./membership-project-library.html",
       "category": "面试准备",
-      "updated": "2026-06-16"
+      "updated": "2026-06-15"
     },
     {
       "title": "内容会员流失归因与分层挽留",
       "description": "从流失原因识别、用户分层、策略匹配到随机实验和增量净收入评估的公开脱敏版面试对答稿。",
       "path": "./membership-churn-retention-interview-guide.html",
       "category": "面试准备",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "会员增长质量分析与策略优化",
       "description": "以 Cohort、LTV/CAC、增长归因和长期价值为核心的公开脱敏版面试项目方案。",
       "path": "./membership-growth-quality-interview-project.html",
       "category": "面试准备",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "收藏 vs 追更 · 喜马拉雅核心交互差异",
       "description": "面试题深度拆解：用户意图差异、产品形态差异、数据信号差异、对 DAU/留存/续费的业务影响，以及收藏唤醒机制、追更式收藏等产品改进建议。附 30 秒和 90 秒面试回答模板。",
       "path": "./favorite-vs-follow-analysis.html",
       "category": "面试准备",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "喜马拉雅大会员 · 首购增长·续费留存·流失挽留",
       "description": "会员增收双轮驱动：进水口（首购转化漏斗、潜在会员识别、定价策略、社交裂变）和出水口（续费留存、活跃-续费模型、流失预警、自动续费杠杆、Win-back 召回）。附完整会员指标体系、分层运营矩阵和挽留优惠增量评估。",
       "path": "./membership-growth-retention-analysis.html",
       "category": "数据分析",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "喜马拉雅 · 用户需求·转化链路·商业化平衡",
       "description": "音频平台用户需求识别三层建模、关键转化路径瓶颈诊断与解法、商业化分层变现框架与广告体验优化，附完整指标体系、A/B 实验设计和场景推荐 PRD。",
       "path": "./audio-platform-business-analysis.html",
       "category": "数据分析",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "音频平台用户需求识别与满足分析",
       "description": "从需求识别、满足判断、路径效率到供给与分发归因的公开脱敏版完整分析方案。",
       "path": "./audio-user-needs-satisfaction-analysis.html",
       "category": "数据分析",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "咪咕视讯 · 数据科学家面试对答稿",
       "description": "基于 BOSS 直聘 JD 逐条匹配，覆盖公司研究、5 条职责话术、3 分钟自我介绍、8 道高频追问、体育分析框架和反问话术。",
       "path": "./migu-interview-guide.html",
       "category": "面试准备",
-      "updated": "2026-06-16"
+      "updated": "2026-06-15"
     },
     {
       "title": "高级数据分析师完整面试对答稿",
       "description": "覆盖简历审视、自我介绍、会员增长、流失挽留、实验分析、数据平台及行为面试的公开脱敏版对答手册。",
       "path": "./senior-data-analyst-interview-guide.html",
       "category": "面试准备",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     },
     {
       "title": "通用数据分析讨论手册",
@@ -110,7 +110,7 @@
       "description": "基于 PDF.js 的 139 页原版式阅读器，支持翻页、缩放、页码跳转、全文搜索、全屏和下载。",
       "path": "./metric-system-foundation-course.html",
       "category": "课程资料",
-      "updated": "2026-06-14"
+      "updated": "2026-06-15"
     }
   ]
 }

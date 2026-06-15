@@ -261,6 +261,25 @@
   background: linear-gradient(90deg, var(--aw-accent), #45a47a);
 }
 
+.aw-reading-progress {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1677a8, #45a47a);
+  box-shadow: 0 1px 5px rgba(22, 119, 168, .28);
+  pointer-events: none;
+}
+
+.aw-auto-overview {
+  padding: 20px;
+  border: 1px solid var(--aw-line);
+  border-radius: 16px;
+  background: #f8fbfd;
+}
+
 @keyframes aw-grow {
   from { transform: scaleX(0); }
 }

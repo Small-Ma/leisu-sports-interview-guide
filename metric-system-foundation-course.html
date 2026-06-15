@@ -277,6 +277,7 @@
       .search-panel { top: 56px; right: 10px; }
     }
   </style>
+  <link rel="stylesheet" href="./analytics-widgets.css">
 </head>
 <body>
   <div class="app">
@@ -525,5 +526,6 @@
       paper.innerHTML = `<div class="error">PDF 文件载入失败。请检查网络后刷新，或直接下载原始 PDF。<br>${String(error.message || error)}</div>`;
     }
   </script>
+  <script src="./analytics-widgets.js"></script>
 </body>
 </html>

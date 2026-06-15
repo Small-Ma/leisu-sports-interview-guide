@@ -112,6 +112,79 @@
     line: renderLine
   };
 
+  function addReadingProgress() {
+    const progress = document.createElement("div");
+    progress.className = "aw-reading-progress";
+    progress.setAttribute("aria-hidden", "true");
+    document.body.appendChild(progress);
+
+    const update = () => {
+      const distance = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = distance > 0 ? Math.min(1, window.scrollY / distance) : 1;
+      progress.style.width = `${ratio * 100}%`;
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+  }
+
+  function addAutoOverview() {
+    if (document.querySelector(".aw-dashboard")) return;
+
+    const main = document.querySelector("main") || document.body;
+    const moduleCount = Math.max(
+      document.querySelectorAll("section").length,
+      document.querySelectorAll("h2").length
+    );
+    const tableCount = document.querySelectorAll("table").length;
+    const qaCount = document.querySelectorAll(".qa, .qa-item, .question").length;
+    const text = document.body.innerText;
+    const methods = ["漏斗", "Cohort", "A/B", "留存", "LTV", "ROI", "实验", "指标", "用户分层", "因果"];
+    const methodCount = methods.filter(keyword => text.includes(keyword)).length;
+
+    const dashboard = document.createElement("section");
+    dashboard.className = "aw-dashboard aw-auto-overview";
+    dashboard.setAttribute("aria-label", "页面内容分析看板");
+    dashboard.innerHTML = `
+      <div class="aw-heading">
+        <div>
+          <h2>页面内容分析看板</h2>
+          <p>快速了解本页的知识结构、数据证据和面试材料密度，阅读时优先进入与当前目标最相关的模块。</p>
+        </div>
+        <span class="aw-badge">CONTENT ANALYTICS</span>
+      </div>
+      <div class="aw-kpis">
+        <article class="aw-kpi"><span class="aw-kpi-label">内容模块</span><strong class="aw-kpi-value">${moduleCount}</strong><span class="aw-kpi-note">按章节结构统计</span></article>
+        <article class="aw-kpi"><span class="aw-kpi-label">数据表格</span><strong class="aw-kpi-value">${tableCount}</strong><span class="aw-kpi-note">支持比较与口径查阅</span></article>
+        <article class="aw-kpi"><span class="aw-kpi-label">面试问答</span><strong class="aw-kpi-value">${qaCount}</strong><span class="aw-kpi-note">可直接用于模拟追问</span></article>
+        <article class="aw-kpi"><span class="aw-kpi-label">分析方法覆盖</span><strong class="aw-kpi-value">${methodCount}/10</strong><span class="aw-kpi-note">漏斗、留存、实验、因果等关键词</span></article>
+      </div>
+      <div class="aw-chart" data-aw-chart="horizontal-bar">
+        <script type="application/json">${JSON.stringify({
+          title: "页面分析资产分布",
+          subtitle: "结构统计用于判断该页面更偏知识框架、数据证据还是面试演练。",
+          unit: "项",
+          data: [
+            { label: "内容模块", value: moduleCount, color: "#1677a8" },
+            { label: "数据表格", value: tableCount, color: "#37896b" },
+            { label: "面试问答", value: qaCount, color: "#d9872b" },
+            { label: "方法覆盖", value: methodCount, color: "#8b62a8" }
+          ]
+        })}</script>
+      </div>
+      <p class="aw-source">统计口径：基于当前页面结构自动生成，不代表业务经营数据。</p>`;
+
+    const header = main.querySelector("header");
+    if (header && header.parentNode === main) {
+      header.insertAdjacentElement("afterend", dashboard);
+    } else {
+      main.insertBefore(dashboard, main.firstChild);
+    }
+  }
+
+  addAutoOverview();
+  addReadingProgress();
+
   document.querySelectorAll("table").forEach(table => {
     if (table.parentElement && table.parentElement.classList.contains("aw-table-scroll")) return;
     const wrapper = document.createElement("div");
