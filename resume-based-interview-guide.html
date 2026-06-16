@@ -1447,6 +1447,65 @@
       </div>
     </div>
 
+    <!-- --- 数据供应商收入体系 --- -->
+    <h3>数据供应商收入体系：B2B 数据服务的精细化收入指标</h3>
+
+    <div class="qa">
+      <div class="q">雷速的 B2B 数据供应商业务，应该用哪些收入指标来衡量健康度？</div>
+      <div class="a">
+        <p><strong>这是一道雷速面试中很容易出现的"业务深度题"。</strong>面试官想知道的是——你不是只会看 DAU 和转化率，你对雷速的 B2B 业务模式有真正的理解。</p>
+
+        <p>我把它拆成<strong>三个层级</strong>来讲：</p>
+
+        <p><strong>第一层：北极星——NDR（Net Dollar Retention）</strong></p>
+        <p>B2B 数据服务的客户获取成本远高于 C 端，所以<strong>存量客户的收入增长比新客更重要</strong>。NDR 是衡量"老客户是否在越用越多"的核心指标。</p>
+        <div class="formula" style="background:#f0f4f8;padding:12px 16px;border-radius:8px;font-family:monospace;margin:10px 0;">
+          NDR = (期初 ARR + 扩展 ARR − 收缩 ARR − 流失 ARR) ÷ 期初 ARR
+        </div>
+        <table>
+          <tr><th>NDR 区间</th><th>含义</th><th>运营策略</th></tr>
+          <tr><td><strong>&gt; 120%</strong></td><td>存量客户快速增长，产品力强</td><td>加大销售投入，获取更多同类客户</td></tr>
+          <tr><td><strong>100% – 120%</strong></td><td>存量基本持平略增，健康但需加速</td><td>深挖大客户增购场景，推增值服务</td></tr>
+          <tr><td><strong>&lt; 100%</strong></td><td>存量在萎缩，流失超过扩展</td><td>紧急分析流失根因：是数据质量问题、SLA 不达标还是竞品替代？</td></tr>
+        </table>
+        <p><strong>面试话术：</strong>"NDR 是数据供应商最有价值的北极星指标，因为它把产品力和收入增长直接挂钩——客户续约不是因为你销售厉害，而是因为你的数据他离不了。"</p>
+
+        <p><strong>第二层：收入结构分解</strong></p>
+        <p>把 B2B 收入拆到可执行的颗粒度：</p>
+        <table>
+          <tr><th>收入类型</th><th>模式</th><th>典型客户</th><th>关键指标</th></tr>
+          <tr><td><strong>订阅收入</strong></td><td>月/年固定费用</td><td>媒体平台、中小博彩数据商</td><td>MRR/ARR、续约率、平均合同期限</td></tr>
+          <tr><td><strong>按量收入</strong></td><td>API 调用次数/数据流量计费</td><td>数据分销商、初创平台</td><td>月调用量、调用量环比增长率、活跃调用天数/月</td></tr>
+          <tr><td><strong>增值收入</strong></td><td>定制数据、低延迟推送、历史数据包</td><td>大型博彩、交易所</td><td>增值服务渗透率、客单价、定制项目交付时长</td></tr>
+          <tr><td><strong>SLA 关联收入</strong></td><td>服务质量挂钩的合同条款</td><td>全量合同</td><td>SLA 达成率、因可用性问题导致的折扣/罚金</td></tr>
+        </table>
+        <div class="insight">
+          <strong>面试金句：</strong>"很多数据供应商只看总收入——增长就高兴，下降就焦虑。但收入增长的来源差别很大：是涨价带来的、新客带来的、还是老客越用越多带来的？只有拆到 MRR 的扩展/收缩/流失三个分量，才知道增长是否可持续。"
+        </div>
+
+        <p><strong>第三层：客户质量与流失预警</strong></p>
+        <p>B2B 数据服务的客户分层决定了运营策略的差异：</p>
+        <table>
+          <tr><th>客户分层</th><th>特征</th><th>核心指标</th><th>预警信号</th></tr>
+          <tr><td><strong>大客户（博彩/交易所）</strong></td><td>高调用量，低延迟敏感，合同金额高</td><td>API P99 延迟、SLA 可用率、高峰时段调用密度</td><td>调用量连续 3 天下降 &gt; 20%、竞品接入时间点重合</td></tr>
+          <tr><td><strong>中客户（媒体平台）</strong></td><td>数据覆盖广度敏感，延迟要求一般</td><td>数据覆盖率（联赛数）、月活跃调用天数</td><td>月度调用天数环比下降、相同查询重复率上升（疑似缓存绕过）</td></tr>
+          <tr><td><strong>小客户（数据分销商/初创）</strong></td><td>价格敏感，调用量波动大</td><td>单次调用成本、首月激活率、TTV</td><td>开通后 7 天内无有效调用、账户余额耗尽未续费</td></tr>
+        </table>
+        <p><strong>流失预警模型简化的思路：</strong></p>
+        <div class="formula" style="background:#f0f4f8;padding:12px 16px;border-radius:8px;font-family:monospace;margin:10px 0;">
+          流失风险分 = α × 调用量衰减速度 + β × 活跃天数衰减 + γ × 客诉频次 + δ × SLA 未达标次数
+        </div>
+        <p>简单的加权打分就可以做分层运营——高风险客户提前 1 个月介入（赠送数据试用、降级挽留、客户成功回访），而不是等合同到期了才发现问题。</p>
+
+        <p><strong>面试官可能的延伸追问：</strong>"这个体系和我们刚才聊的 B2B API 域指标有什么不同？"</p>
+        <p><strong>推荐回答：</strong>"刚才的指标体系是<strong>通用框架</strong>——哪个业务域都适用的四层结构（北极星→策略→执行→护栏）。这里的收入体系是<strong>专门针对 B2B 数据服务的深度拆解</strong>——核心差异在于：<strong>数据供应商的收入不能只看流水，要看到收入背后的客户健康状况</strong>。一个调用量很大的客户，如果调用量在持续下滑，那他的续约已经在倒计时了——这是 NDR 和调用量趋势能提前告诉我们的。"</p>
+
+        <div class="summary" style="margin-top:16px;">
+          <strong>💡 面试策略总结：</strong>这道题的关键不是背指标，而是展示你对 B2B 业务模式和 SaaS 收入模型的理解。如果面试官问"雷速的 B2B 数据业务怎么做收入分析"，你用 NDR 开头 → 拆收入结构 → 客户分层运营收尾，这个回答框架本身就在展示你的业务思考深度。
+        </div>
+      </div>
+    </div>
+
     <!-- --- Gap 解释 --- -->
     <h3>空窗期应对策略：3 个月 Gap 怎么回答</h3>
 
