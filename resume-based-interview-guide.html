@@ -378,15 +378,64 @@
     <div class="qa">
       <div class="q">Uplift Model 在这怎么用的？</div>
       <div class="a">
-        <p>在挽留弹窗策略上，我用了 Uplift Model 来决定"弹不弹优惠券、弹多大的券"：</p>
+        <p>我在这个项目里不是直接做一个"谁会流失"的预测模型，因为流失概率高不代表优惠券对他有用。我们真正要回答的是：<strong>给这个用户挽留动作以后，能不能产生增量留存</strong>。所以我用 Uplift Model 来估计"有干预 vs 无干预"之间的增量效果。</p>
+        <p><strong>第一步，先定义训练样本和标签。</strong>样本选的是进入解约链路、已经表达取消意图的会员用户。历史上有一部分用户看到过挽留弹窗或优惠券，有一部分因为灰度、版本或策略原因没有看到完整挽留动作，可以构成 treatment / control 的基础样本。</p>
+        <table>
+          <tr><th>字段</th><th>定义</th><th>为什么这么定义</th></tr>
+          <tr><td><strong>Treatment</strong></td><td>是否看到挽留动作，比如优惠券、权益提醒、内容推荐弹窗</td><td>区分用户是否被干预</td></tr>
+          <tr><td><strong>Outcome</strong></td><td>是否在解约后 7/30 天内保持会员有效，且有有效收听或续费行为</td><td>避免只把"当场没取消"当成成功</td></tr>
+          <tr><td><strong>Feature</strong></td><td>生命周期、历史付费金额、近 7/30 天收听、内容进度、价格敏感度、关闭自动续费历史、最近一次会员页/权益页行为</td><td>覆盖价值、活跃、价格和内容四类影响因素</td></tr>
+        </table>
+        <p><strong>第二步，建模方式我会讲得克制一点。</strong>实际落地可以用 Two-Model 或 T-Learner 的思路：分别训练"给挽留动作后的留存概率"和"不给挽留动作时的自然留存概率"，两者相减得到 uplift score。也可以用 uplift tree 做分群解释。面试里我不会把重点放在算法炫技，而是强调这个模型解决的是"增量效果"，不是单纯预测流失。</p>
+        <pre><code>uplift_score = P(retain | treatment, user_features)
+             - P(retain | control, user_features)</code></pre>
+        <p><strong>第三步，按 uplift score 和自然留存概率把用户切成四类。</strong></p>
         <ul>
-          <li><strong>Persuadables（易感人群）：</strong>弹高折扣（30-50%）→ 增量效果最大</li>
-          <li><strong>Sure Things（自来熟）：</strong>不弹券，只说"您确定要取消吗" → 节省预算</li>
-          <li><strong>Lost Causes（沉睡户）：</strong>不弹券，改用内容推荐（"XX 主播更新了新专辑"）→ 做内容唤醒而非价格刺激</li>
+          <li><strong>Persuadables（易感人群）：</strong>自然留存不高，但 uplift 高。说明这类人确实会被挽留动作影响，适合给折扣券或权益强化。</li>
+          <li><strong>Sure Things（自来熟）：</strong>自然留存高，uplift 低。不发券也大概率留下，只做确认提醒或权益说明，避免补贴浪费。</li>
+          <li><strong>Lost Causes（沉睡户）：</strong>自然留存低，uplift 也低。发券也留不住，不做价格补贴，改做内容推荐、召回或降低打扰。</li>
+          <li><strong>Do Not Disturb / Sleeping Dogs：</strong>干预后反而可能更容易流失或投诉，比如本来只是误点解约，强弹窗和强促销会增加反感。这类用户要少打扰。</li>
         </ul>
+        <p><strong>第四步，把模型分数转成可执行策略。</strong>我不会直接说"模型分数高就发券"，而是加预算和体验约束：只对 uplift Top 分位的人发高价值券；中间分位给轻量权益提醒或小额券；低 uplift 人群不发券，转内容推荐或静默通过。</p>
+        <table>
+          <tr><th>人群</th><th>策略</th><th>核心判断</th></tr>
+          <tr><td><strong>高 uplift + 高 LTV</strong></td><td>30-50% 折扣或更强权益组合</td><td>补贴有增量，且用户长期价值能覆盖成本</td></tr>
+          <tr><td><strong>高 uplift + 低 LTV</strong></td><td>小额券或短周期权益提醒</td><td>能挽留，但要控制补贴 ROI</td></tr>
+          <tr><td><strong>低 uplift + 高自然留存</strong></td><td>不发券，只做确认和权益说明</td><td>避免把本来会留下的人补贴掉</td></tr>
+          <tr><td><strong>低 uplift + 低活跃</strong></td><td>内容推荐/新专辑提醒，不做价格刺激</td><td>先解决内容承接，优惠券不是发动机</td></tr>
+        </table>
+        <p><strong>第五步，上线后我看的是增量 ROI，而不是券核销率。</strong>核心看实验组相对对照组的增量留存、增量收入、补贴成本和退款投诉。如果某类人券核销率很高，但 7 日收听和 30 日留存没提升，说明只是优惠套利，后续就要降补贴或切到内容策略。</p>
         <div class="result">
           <strong>项目收益：</strong>实验组解约挽留成功率提升 <strong>20%</strong>，平均月收入提升 <strong>30 万</strong>。沉淀了可复用的实验复盘口径。
         </div>
+        <p><strong>面试金句：</strong>"Uplift Model 的价值不是告诉我谁会流失，而是告诉我钱应该花在谁身上。流失概率高的人不一定值得补贴，真正值得补贴的是被干预后会产生增量留存的人。"</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">追问：为什么不用普通流失预测模型，而要用 Uplift Model？</div>
+      <div class="a">
+        <p>普通流失模型回答的是"谁最可能走"，但业务动作回答的是"我干预谁最划算"。这两个问题不一样。</p>
+        <p>举个例子，一个用户流失概率很高，但他已经内容耗尽、近 30 天几乎不听了，即使给 50% 优惠券也可能只是短暂续一下，后续继续流失；另一个用户流失概率中等，但只是价格敏感或权益感知不足，一张小额券或权益提醒就能把他留下。普通流失模型会优先抓前者，Uplift Model 会更关注后者的增量效果。</p>
+        <p>所以我会把流失模型作为风险识别工具，把 Uplift Model 作为资源分配工具。真正上线策略时，补贴预算看的是 uplift 和 LTV 的组合，而不是单纯流失概率。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">追问：历史数据里看到优惠券的人和没看到的人本来就不同，怎么处理样本偏差？</div>
+      <div class="a">
+        <p>这是 Uplift 项目里最关键的风险。如果 treatment 和 control 不是随机的，模型学到的可能是"谁更容易被运营选中"，而不是真实增量。</p>
+        <p>我的处理方式有三层：第一，优先使用历史 A/B、灰度或策略随机分流的数据作为训练和评估样本；第二，如果只能用观察数据，就会在生命周期、ARPU、活跃度、价格敏感度、流失风险等关键特征上做匹配或分层，对比 treatment/control 的基线是否接近；第三，模型上线前一定再用小流量随机实验验证，不直接全量。</p>
+        <p>面试里可以这样收口：Uplift Model 的结果只能作为候选策略，最终仍然要靠随机实验确认增量，不能把模型分数当因果结论直接上线。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">追问：怎么判断 Uplift Model 真的有效？</div>
+      <div class="a">
+        <p>我会从离线和在线两层验证。</p>
+        <p><strong>离线层：</strong>把用户按 uplift score 从高到低分桶，看 Top 桶的 treatment-control 留存差是否明显高于低分桶，也就是 uplift curve / Qini curve 是否有排序能力。如果高分桶和低分桶增量差不多，说明模型没有策略价值。</p>
+        <p><strong>在线层：</strong>做小流量 A/B，实验组按 uplift 分层出策略，对照组沿用原解约挽留策略。核心看增量留存、增量收入、补贴成本、退款投诉和关自动续费率。只有当高 uplift 人群的增量收益能覆盖补贴成本，同时护栏指标不恶化，才扩大流量。</p>
       </div>
     </div>
 
