@@ -125,6 +125,20 @@
       "path": "./competitive-analysis.html",
       "category": "面试准备",
       "updated": "2026-06-17"
+    },
+    {
+      "title": "喜马拉雅会员业务核心问题分析方案与面试对答稿",
+      "description": "围绕会员购买动机、高潜用户、转化阻力、价值感、首月留存、续费流失、收入驱动和内容生态的完整分析方案与面试话术。",
+      "path": "./ximalaya-member-analysis-interview.html",
+      "category": "数据分析",
+      "updated": "2026-06-23"
+    },
+    {
+      "title": "雷速体育专家竞彩收入核心问题分析方案与面试对答稿",
+      "description": "围绕赛事流量、专家内容消费、方案转化、竞彩相关收入、复购留存、专家供给质量和长期信任的商业化分析框架。",
+      "path": "./leisu-expert-jc-revenue-analysis-interview.html",
+      "category": "面试准备",
+      "updated": "2026-06-23"
     }
   ]
 }
