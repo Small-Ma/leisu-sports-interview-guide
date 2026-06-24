@@ -139,6 +139,13 @@
       "path": "./leisu-expert-jc-revenue-analysis-interview.html",
       "category": "面试准备",
       "updated": "2026-06-23"
+    },
+    {
+      "title": "得物 App 用户增长核心问题分析方案与面试对答稿",
+      "description": "围绕投放 ROI、补贴券增量、首单转化、Cohort 留存、多源归因、增长实验和预算经营的完整面试分析方案。",
+      "path": "./dewu-user-growth-analysis-interview.html",
+      "category": "数据分析",
+      "updated": "2026-06-24"
     }
   ]
 }
